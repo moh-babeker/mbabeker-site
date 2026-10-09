@@ -552,6 +552,68 @@
                 }
             });
         }
+        // جلب البيانات الديناميكية من لوحة التحكم عند فتح الصفحة
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const settingsRes = await fetch('/content/settings.json');
+        if (settingsRes.ok) {
+            const settings = await settingsRes.json();
+            
+            // تحديث بيانات i18n من الملف
+            i18n.en.drawerName = settings.drawerName_en;
+            i18n.ar.drawerName = settings.drawerName_ar;
+            i18n.en.drawerTitle = settings.drawerTitle_en;
+            i18n.ar.drawerTitle = settings.drawerTitle_ar;
+            i18n.en.heroLocation = settings.heroLocation_en;
+            i18n.ar.heroLocation = settings.heroLocation_ar;
+            
+            // تحديث الروابط والصور
+            if (settings.profile_image) {
+                document.querySelectorAll('img[alt="MOHAMMED BABEKER"]').forEach(img => img.src = settings.profile_image);
+            }
+            if (settings.hero_bg_image) {
+                const bgImg = document.querySelector('#home img');
+                if (bgImg) bgImg.src = settings.hero_bg_image;
+            }
+        }
+
+        // جلب المشاريع ديناميكياً
+        const projectsRes = await fetch('/content/projects.json');
+        if (projectsRes.ok) {
+            const projectsData = await projectsRes.json();
+            renderProjects(projectsData.items);
+        }
+    } catch (e) {
+        console.log("Loading static defaults...");
+    }
+});
+
+function renderProjects(items) {
+    const grid = document.getElementById('portfolioGrid');
+    if (!grid || !items) return;
+    
+    grid.innerHTML = items.map(item => `
+        <div class="project-card portfolio-item group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-sky-500/50 transition-all" data-category="${item.category}">
+            <div class="h-48 bg-slate-800 relative overflow-hidden">
+                <img src="${item.image}" alt="${item.title_en}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-sky-400 text-[10px] font-bold">
+                    ${currentLang === 'ar' ? item.tag_ar : item.tag_en}
+                </span>
+            </div>
+            <div class="p-5">
+                <h4 class="text-base font-bold text-white group-hover:text-sky-400 transition-colors mb-2">
+                    ${currentLang === 'ar' ? item.title_ar : item.title_en}
+                </h4>
+                <p class="text-slate-400 text-xs mb-4">
+                    ${currentLang === 'ar' ? item.desc_ar : item.desc_en}
+                </p>
+                <a href="${item.link || '#'}" class="text-[11px] font-bold text-sky-400 hover:underline">
+                    ${currentLang === 'ar' ? 'عرض تفاصيل المشروع ←' : 'View Project Details →'}
+                </a>
+            </div>
+        </div>
+    `).join('');
+}
     </script>
 </body>
 </html>
