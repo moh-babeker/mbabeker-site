@@ -2,6 +2,8 @@ backend:
   name: github
   repo: moh-babeker/mbabeker-site
   branch: main
+  base_url: https://decap-cms-oauth-provider.vercel.app
+  auth_endpoint: api/v1/authorize
 
 media_folder: "public/images"
 public_folder: "/images"
@@ -32,9 +34,3 @@ collections:
           - { label: "المسمى الوظيفي (عربي)", name: "title_ar", widget: "string" }
           - { label: "ملف السيرة الذاتية (PDF)", name: "cv_file", widget: "file" }
           - { label: "رقم الواتساب", name: "whatsapp", widget: "string" }
-backend:
-  name: github
-  repo: moh-babeker/mbabeker-site
-  branch: main
-  base_url: https://decap-cms-oauth-provider.vercel.app
-  auth_endpoint: api/v1/authorize
