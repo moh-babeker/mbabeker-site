@@ -1,557 +1,212 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOHAMMED BABEKER | Architectural Consultant & Urban Planner</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Plus Jakarta Sans (EN) & Tajawal (AR) -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Plus Jakarta Sans', 'Tajawal', sans-serif; }
-        .text-glow { text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>محمد بابكر | استشاري معماري ومتخصص BIM</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Tajawal', sans-serif; }
+    .modal-backdrop { background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); }
+  </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500 selection:text-white min-h-[100dvh] flex flex-col justify-between">
+<body class="bg-stone-950 text-stone-100 min-h-screen selection:bg-amber-500 selection:text-stone-950">
 
-    <!-- ==================== الهيدر العلوي والزر العائم ==================== -->
-    <header class="fixed top-0 left-0 right-0 z-40 bg-slate-950/70 backdrop-blur-md border-b border-slate-800/60 px-4 sm:px-8 py-3 flex justify-between items-center">
-        <a href="javascript:void(0)" onclick="showPage('home')" class="text-xs sm:text-lg font-black text-white tracking-wider uppercase whitespace-nowrap">
-            MOHAMMED BABEKER<span class="text-sky-500">.</span>
-        </a>
-        
-        <!-- Floating Drawer Toggle Button (3 Lines) -->
-        <button onclick="toggleMenu()" class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-sky-500 text-white flex items-center justify-center hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/25 focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-        </button>
-    </header>
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-40 bg-stone-950/80 backdrop-blur-md border-b border-stone-800">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-xl font-bold tracking-tight flex items-center gap-3">
+        <img id="nav-avatar" class="w-9 h-9 rounded-full object-cover border border-amber-500/30 hidden" src="" alt="Logo">
+        <span id="nav-name" class="bg-gradient-to-r from-amber-200 to-amber-500 bg-clip-text text-transparent">M. BABEKER</span>
+      </a>
+      <div class="flex items-center gap-6 text-sm font-medium">
+        <a href="#projects" class="hover:text-amber-400 transition">المشاريع</a>
+        <a href="#about" class="hover:text-amber-400 transition">عني</a>
+        <a id="cv-btn" href="#" target="_blank" class="hidden px-4 py-2 rounded-lg bg-stone-800 hover:bg-stone-700 border border-stone-700 text-amber-400 transition">السيرة الذاتية PDF</a>
+        <a href="/admin/" class="px-3 py-1.5 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 hover:bg-amber-500/20 transition">لوحة التحكم</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- ==================== القائمة الجانبية (SIDEBAR DRAWER) ==================== -->
-    <div id="drawerOverlay" onclick="toggleMenu()" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
-
-    <aside id="drawerMenu" class="fixed top-0 bottom-0 right-0 w-80 sm:w-88 bg-sky-500 text-white z-50 translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between overflow-y-auto shadow-2xl">
-        <div>
-            <!-- Header Close Button & Language Switcher -->
-            <div class="flex justify-between items-center mb-6">
-                <!-- Language Toggle Switcher -->
-                <div class="inline-flex bg-sky-600/60 p-1 rounded-xl border border-white/20 text-xs font-bold">
-                    <button id="langEnBtn" onclick="switchLanguage('en')" class="px-3 py-1 rounded-lg bg-white text-sky-600 transition-all">EN</button>
-                    <button id="langArBtn" onclick="switchLanguage('ar')" class="px-3 py-1 rounded-lg text-white hover:text-sky-200 transition-all">عربي</button>
-                </div>
-
-                <button onclick="toggleMenu()" class="p-1 text-white hover:text-sky-200 transition-colors">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Profile Info Header -->
-            <div class="text-center mb-6">
-                <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full border-4 border-white/30 overflow-hidden shadow-xl mb-3 bg-sky-600 flex items-center justify-center">
-                    <img src="https://via.placeholder.com/150" alt="MOHAMMED BABEKER" class="w-full h-full object-cover">
-                </div>
-                <h3 id="txt-drawer-name" class="text-lg sm:text-xl font-extrabold tracking-wide">Mohammed Babeker</h3>
-                <p id="txt-drawer-title" class="text-sky-100 text-xs mt-1 font-medium">Architectural Consultant & Urban Planner</p>
-                <p id="txt-drawer-exp" class="text-sky-200 text-[11px] mt-0.5 font-medium">+9 Years GCC Experience</p>
-            </div>
-
-            <!-- Navigation Links -->
-            <nav class="flex flex-col space-y-2 text-center text-sm font-bold">
-                <a href="javascript:void(0)" onclick="showPage('home')" id="nav-home" class="py-2 rounded-lg hover:bg-white/10 transition-colors">Home</a>
-                <a href="javascript:void(0)" onclick="showPage('about')" id="nav-about" class="py-2 rounded-lg hover:bg-white/10 transition-colors">About Me</a>
-                <a href="javascript:void(0)" onclick="showPage('innovations')" id="nav-innovations" class="py-2 rounded-lg hover:bg-white/10 transition-colors">Research & Innovations</a>
-                <a href="javascript:void(0)" onclick="showPage('portfolio')" id="nav-portfolio" class="py-2 rounded-lg hover:bg-white/10 transition-colors">Portfolio</a>
-                <a href="javascript:void(0)" onclick="showPage('credentials')" id="nav-credentials" class="py-2 rounded-lg hover:bg-white/10 transition-colors">Credentials</a>
-                <a href="javascript:void(0)" onclick="showPage('contact')" id="nav-contact" class="py-2 rounded-lg hover:bg-white/10 transition-colors">Contact</a>
-            </nav>
+  <!-- Hero Section -->
+  <section class="pt-36 pb-20 px-6 max-w-7xl mx-auto text-center md:text-right">
+    <div class="flex flex-col md:flex-row items-center gap-10">
+      <img id="hero-img" class="w-40 h-40 md:w-52 md:h-52 rounded-2xl object-cover border-2 border-amber-500/30 shadow-2xl shadow-amber-500/10 hidden" src="" alt="Profile">
+      <div class="space-y-4 flex-1">
+        <h1 id="hero-name" class="text-4xl md:text-6xl font-black text-stone-100">...</h1>
+        <p id="hero-title" class="text-xl md:text-2xl font-semibold text-amber-400">...</p>
+        <p id="hero-bio" class="text-stone-400 max-w-2xl leading-relaxed text-base md:text-lg">...</p>
+        <div class="pt-4 flex flex-wrap gap-4 justify-center md:justify-start">
+          <a id="whatsapp-btn" href="#" target="_blank" class="px-6 py-3 rounded-xl bg-amber-500 text-stone-950 font-bold hover:bg-amber-400 transition shadow-lg shadow-amber-500/20">تواصل عبر الواتساب</a>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Social Icons & Download CV Button -->
-        <div class="pt-5 border-t border-white/20 text-center">
-            <div class="flex justify-center space-x-4 space-x-reverse mb-4">
-                <!-- LinkedIn Icon -->
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
-                <!-- WhatsApp Icon -->
-                <a href="https://wa.me/966571684681" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-                </a>
-            </div>
+  <!-- Projects Grid -->
+  <section id="projects" class="py-20 px-6 max-w-7xl mx-auto border-t border-stone-800/80">
+    <div class="flex justify-between items-end mb-12">
+      <div>
+        <h2 class="text-3xl font-bold text-stone-100">معرض المشاريع المعمارية</h2>
+        <p class="text-stone-400 mt-2">تصفح أحدث الأعمال، الدراسات، والتصاميم الحضرية والهندسية</p>
+      </div>
+    </div>
 
-            <!-- Download CV Button -->
-            <a href="mailto:info@moh-babeker.com" id="btn-download-cv" class="block w-full py-2.5 rounded-xl border-2 border-white text-white font-extrabold hover:bg-white hover:text-sky-600 transition-all text-xs tracking-wider uppercase">
-                Download CV (PDF)
-            </a>
-        </div>
-    </aside>
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap gap-3 mb-10">
+      <button onclick="filterProjects('all')" class="filter-btn active px-5 py-2 rounded-xl bg-amber-500 text-stone-950 font-semibold text-sm transition">الكل</button>
+      <button onclick="filterProjects('arch')" class="filter-btn px-5 py-2 rounded-xl bg-stone-900 border border-stone-800 text-stone-300 hover:border-amber-500/50 text-sm transition">معماري</button>
+      <button onclick="filterProjects('urban')" class="filter-btn px-5 py-2 rounded-xl bg-stone-900 border border-stone-800 text-stone-300 hover:border-amber-500/50 text-sm transition">تخطيط حضري</button>
+      <button onclick="filterProjects('interior')" class="filter-btn px-5 py-2 rounded-xl bg-stone-900 border border-stone-800 text-stone-300 hover:border-amber-500/50 text-sm transition">تصميم داخلي</button>
+      <button onclick="filterProjects('bim')" class="filter-btn px-5 py-2 rounded-xl bg-stone-900 border border-stone-800 text-stone-300 hover:border-amber-500/50 text-sm transition">BIM</button>
+    </div>
 
+    <!-- Grid Container -->
+    <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Projects dynamic load -->
+    </div>
+  </section>
 
-    <!-- ==================== MAIN CONTENT AREA ==================== -->
-    <main class="flex-grow pt-12 sm:pt-16">
+  <!-- Dynamic Project Modal (تفاصيل المشروع ومعرض الصور) -->
+  <div id="project-modal" class="fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4 md:p-8 hidden overflow-y-auto">
+    <div class="bg-stone-900 border border-stone-800 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-10 relative space-y-8">
+      <button onclick="closeModal()" class="absolute top-6 left-6 w-10 h-10 rounded-full bg-stone-800 hover:bg-stone-700 text-stone-300 flex items-center justify-center text-xl transition">✕</button>
+      
+      <div class="space-y-3">
+        <span id="modal-cat" class="px-3 py-1 rounded-md bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-bold"></span>
+        <h3 id="modal-title" class="text-3xl font-bold text-stone-100"></h3>
+        <p id="modal-meta" class="text-stone-400 text-sm"></p>
+      </div>
 
-        <!-- 1. HOME PAGE (HERO SECTION) -->
-        <section id="home" class="page-section min-h-[calc(100dvh-3rem)] sm:min-h-[calc(100dvh-4rem)] flex items-center justify-center text-center px-3 sm:px-6 py-6 relative bg-slate-950 overflow-hidden">
-            
-            <!-- High-Visibility Background Image -->
-            <div class="absolute inset-0 z-0">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" alt="Architectural Background" class="w-full h-full object-cover object-center opacity-65">
-                <!-- Light Subtle Gradient Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/30 to-slate-950/80"></div>
-            </div>
+      <!-- Main Cover -->
+      <img id="modal-main-img" class="w-full h-80 md:h-[420px] rounded-2xl object-cover border border-stone-800" src="" alt="Main Cover">
 
-            <!-- Hero Content -->
-            <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center w-full px-1">
-                <!-- Location Badge -->
-                <div class="inline-flex items-center gap-1.5 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-slate-950/70 border border-sky-400/40 text-sky-300 text-[9px] sm:text-xs font-bold mb-3 sm:mb-5 backdrop-blur-md text-glow">
-                    <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
-                    <span id="txt-hero-location">RIYADH, KINGDOM OF SAUDI ARABIA</span>
-                </div>
+      <!-- Details Markdown/Text -->
+      <div id="modal-details" class="prose prose-invert max-w-none text-stone-300 leading-relaxed space-y-4"></div>
 
-                <!-- Name strictly in 1 LINE -->
-                <h1 class="text-lg sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-wider uppercase whitespace-nowrap mb-2 text-glow w-full text-center">
-                    MOHAMMED BABEKER
-                </h1>
+      <!-- Multi-Image Gallery -->
+      <div class="space-y-4 pt-4 border-t border-stone-800">
+        <h4 class="text-lg font-bold text-amber-400">معرض صور وتفاصيل المشروع</h4>
+        <div id="modal-gallery" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </div>
+    </div>
+  </div>
 
-                <!-- Job Title -->
-                <p id="txt-hero-title" class="text-[10px] sm:text-base md:text-lg font-extrabold text-sky-400 uppercase tracking-wider mb-5 sm:mb-8 text-glow">
-                    Architectural Consultant & Urban Planner
-                </p>
+  <!-- JavaScript Dynamic Engine -->
+  <script>
+    let allProjects = [];
 
-                <!-- Action Buttons (GUARANTEED SIDE-BY-SIDE ON ALL MOBILE SCREENS) -->
-                <div class="flex flex-row flex-nowrap justify-center items-center gap-2 sm:gap-4 w-full max-w-md mx-auto">
-                    <button onclick="showPage('portfolio')" id="btn-hero-portfolio" class="flex-1 px-2.5 sm:px-7 py-2.5 sm:py-3.5 rounded-xl bg-sky-500 text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/30 whitespace-nowrap text-center">
-                        EXPLORE PORTFOLIO
-                    </button>
-                    <button onclick="showPage('contact')" id="btn-hero-contact" class="flex-1 px-2.5 sm:px-7 py-2.5 sm:py-3.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white font-bold text-[10px] sm:text-xs uppercase tracking-wider hover:bg-slate-900 transition-all backdrop-blur-md whitespace-nowrap text-center">
-                        DIRECT CONTACT
-                    </button>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- 2. ABOUT PAGE -->
-        <section id="about" class="page-section hidden min-h-[calc(100dvh-4rem)] flex items-center py-12 sm:py-16 px-5 sm:px-6 max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center w-full">
-                <div>
-                    <span id="txt-about-badge" class="text-xs font-bold uppercase tracking-wider text-sky-500 mb-2 block">CONSULTANCY OVERVIEW</span>
-                    <h2 id="txt-about-heading" class="text-2xl sm:text-4xl font-extrabold text-white mb-5 leading-tight">Merging Architectural Innovation with Urban Humanization</h2>
-                    <p id="txt-about-desc" class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
-                        Over 9 years of extensive experience in architectural consultancy, technical office management, and urban master planning across Saudi Arabia and the UAE. Focused on humanizing cities and transforming public domains into vibrant, sustainable ecosystems.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 text-center">
-                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
-                            <div class="text-2xl sm:text-3xl font-extrabold text-sky-400">+9 Yrs</div>
-                            <div id="txt-about-stat1" class="text-[11px] sm:text-xs text-slate-400 mt-1 font-medium">GCC Experience</div>
-                        </div>
-                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
-                            <div class="text-2xl sm:text-3xl font-extrabold text-sky-400">SCE</div>
-                            <div id="txt-about-stat2" class="text-[11px] sm:text-xs text-slate-400 mt-1 font-medium">Certified Consultant</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative overflow-hidden">
-                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-sky-500/10 rounded-full blur-3xl"></div>
-                    <h3 id="txt-about-expertise-title" class="text-base sm:text-lg font-bold text-white mb-4">Core Areas of Expertise</h3>
-                    <ul id="txt-about-expertise-list" class="space-y-3 text-xs text-slate-300">
-                        <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-sky-400"></span>Urban Planning & City Humanization Strategies</li>
-                        <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-sky-400"></span>Architectural Design for Healthcare & Civic Facilities</li>
-                        <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-sky-400"></span>Advanced Technical Office Operations & BIM Coordination</li>
-                        <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-sky-400"></span>High-End Interior Architecture & Spatial Planning</li>
-                        <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-sky-400"></span>Building Material Innovations (Breathing Flooring)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- 3. RESEARCH & INNOVATIONS PAGE -->
-        <section id="innovations" class="page-section hidden min-h-[calc(100dvh-4rem)] flex items-center py-12 sm:py-16 px-5 sm:px-6 max-w-6xl mx-auto">
-            <div class="w-full">
-                <div class="text-center max-w-2xl mx-auto mb-10">
-                    <span id="txt-res-badge" class="text-xs font-bold uppercase tracking-wider text-sky-500 block mb-2">RESEARCH & DEVELOPMENT</span>
-                    <h2 id="txt-res-heading" class="text-2xl sm:text-3xl font-extrabold text-white">Innovations & Architectural Papers</h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                    <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 hover:border-sky-500/50 transition-all">
-                        <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-lg mb-5">01</div>
-                        <h3 id="txt-res-title1" class="text-lg sm:text-xl font-bold text-white mb-2.5">Breathing Flooring Innovation</h3>
-                        <p id="txt-res-desc1" class="text-slate-400 text-xs leading-relaxed mb-4">An innovative interactive flooring system designed for urban open spaces to promote natural cooling, storm-water drainage, and heat island mitigation.</p>
-                        <span id="txt-res-link1" class="inline-block text-[11px] font-bold text-sky-400">Research Model Verified &rarr;</span>
-                    </div>
-
-                    <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 hover:border-sky-500/50 transition-all">
-                        <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-lg mb-5">02</div>
-                        <h3 id="txt-res-title2" class="text-lg sm:text-xl font-bold text-white mb-2.5">Urban Humanization Studies</h3>
-                        <p id="txt-res-desc2" class="text-slate-400 text-xs leading-relaxed mb-4">Applied research papers focusing on street redesign, pedestrian prioritization, and community engagement in modern Gulf city centers.</p>
-                        <span id="txt-res-link2" class="inline-block text-[11px] font-bold text-sky-400">Applied Study &rarr;</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- 4. PORTFOLIO PAGE -->
-        <section id="portfolio" class="page-section hidden min-h-[calc(100dvh-4rem)] py-12 sm:py-16 px-5 sm:px-6 max-w-6xl mx-auto flex items-center">
-            <div class="w-full">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
-                    <div>
-                        <span id="txt-port-badge" class="text-xs font-bold uppercase tracking-wider text-sky-500 block mb-1">SHOWCASE</span>
-                        <h2 id="txt-port-heading" class="text-2xl sm:text-3xl font-extrabold text-white">Selected Projects</h2>
-                    </div>
-                    <p id="txt-port-sub" class="text-slate-400 text-xs mt-2 md:mt-0 max-w-md">Filter portfolio items by category:</p>
-                </div>
-
-                <!-- Filter Category Tabs -->
-                <div class="flex flex-wrap gap-2 mb-8 text-xs font-bold">
-                    <button onclick="filterPortfolio('all')" id="tab-all" class="filter-btn active-tab px-4 py-2 rounded-xl bg-sky-500 text-white transition-all" data-filter="all">All</button>
-                    <button onclick="filterPortfolio('arch')" id="tab-arch" class="filter-btn px-4 py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-filter="arch">Architecture</button>
-                    <button onclick="filterPortfolio('urban')" id="tab-urban" class="filter-btn px-4 py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-filter="urban">Urban Planning</button>
-                    <button onclick="filterPortfolio('interior')" id="tab-interior" class="filter-btn px-4 py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-filter="interior">Interior Design</button>
-                    <button onclick="filterPortfolio('innovation')" id="tab-innovation" class="filter-btn px-4 py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-filter="innovation">Innovations</button>
-                </div>
-
-                <!-- Projects Grid -->
-                <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="project-card portfolio-item group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-sky-500/50 transition-all" data-category="urban">
-                        <div class="h-48 bg-slate-800 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?auto=format&fit=crop&w=800&q=80" alt="Dubai 2040 Urban Furnishing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <span id="tag-p1" class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-sky-400 text-[10px] font-bold">Urban Planning</span>
-                        </div>
-                        <div class="p-5">
-                            <h4 id="title-p1" class="text-base font-bold text-white group-hover:text-sky-400 transition-colors mb-2">Dubai 2040 Urban Furnishing Project</h4>
-                            <p id="desc-p1" class="text-slate-400 text-xs mb-4">Design guidelines and public furniture solutions for pedestrian street enhancements.</p>
-                            <a href="#" id="link-p1" class="text-[11px] font-bold text-sky-400 hover:underline">View Architectural Board &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card portfolio-item group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-sky-500/50 transition-all" data-category="innovation">
-                        <div class="h-48 bg-slate-800 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Breathing Flooring System" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <span id="tag-p2" class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-sky-400 text-[10px] font-bold">Innovation</span>
-                        </div>
-                        <div class="p-5">
-                            <h4 id="title-p2" class="text-base font-bold text-white group-hover:text-sky-400 transition-colors mb-2">Sustainable Breathing Flooring System</h4>
-                            <p id="desc-p2" class="text-slate-400 text-xs mb-4">Advanced outdoor paving tiles for optimal heat dissipation and rainwater collection.</p>
-                            <a href="#" id="link-p2" class="text-[11px] font-bold text-sky-400 hover:underline">View Research & Specs &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card portfolio-item group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-sky-500/50 transition-all" data-category="arch">
-                        <div class="h-48 bg-slate-800 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?auto=format&fit=crop&w=800&q=80" alt="Rural Health Center" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <span id="tag-p3" class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-sky-400 text-[10px] font-bold">Architecture</span>
-                        </div>
-                        <div class="p-5">
-                            <h4 id="title-p3" class="text-base font-bold text-white group-hover:text-sky-400 transition-colors mb-2">Rural Health Center Project</h4>
-                            <p id="desc-p3" class="text-slate-400 text-xs mb-4">Comprehensive architectural consultancy balancing medical workflow and local context.</p>
-                            <a href="#" id="link-p3" class="text-[11px] font-bold text-sky-400 hover:underline">View Drawings & Sections &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- 5. CREDENTIALS PAGE -->
-        <section id="credentials" class="page-section hidden min-h-[calc(100dvh-4rem)] flex items-center py-12 sm:py-16 px-5 sm:px-6 max-w-6xl mx-auto">
-            <div class="w-full">
-                <span id="txt-cred-badge" class="text-xs font-bold uppercase tracking-wider text-sky-500 block mb-2">ACCREDITATIONS & LICENSES</span>
-                <h2 id="txt-cred-heading" class="text-2xl sm:text-3xl font-extrabold text-white mb-8">Professional Status</h2>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
-                        <div class="text-white font-extrabold text-base mb-1">Saudi Council of Engineers (SCE)</div>
-                        <div id="txt-cred-sub1" class="text-sky-400 text-xs font-bold mb-3">Certified Consultant Engineer</div>
-                        <p id="txt-cred-desc1" class="text-slate-400 text-xs leading-relaxed">Officially licensed for architectural engineering consultancy in Saudi Arabia.</p>
-                    </div>
-
-                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
-                        <div class="text-white font-extrabold text-base mb-1">Abu Dhabi Municipalities</div>
-                        <div id="txt-cred-sub2" class="text-sky-400 text-xs font-bold mb-3">License No: 25138</div>
-                        <p id="txt-cred-desc2" class="text-slate-400 text-xs leading-relaxed">Professional registration for engineering consultancy and project management in UAE.</p>
-                    </div>
-
-                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
-                        <div id="txt-cred-title3" class="text-white font-extrabold text-base mb-1">Field Readiness</div>
-                        <div id="txt-cred-sub3" class="text-sky-400 text-xs font-bold mb-3">Transferable Visa (Immediately Available)</div>
-                        <p id="txt-cred-desc3" class="text-slate-400 text-xs leading-relaxed">QVP Verified + Valid KSA & UAE Driving Licenses.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- 6. CONTACT PAGE -->
-        <section id="contact" class="page-section hidden min-h-[calc(100dvh-4rem)] flex items-center py-12 sm:py-16 px-5 sm:px-6 max-w-6xl mx-auto">
-            <div class="w-full rounded-3xl bg-slate-900 border border-slate-800 p-6 sm:p-12 relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-64 h-64 bg-sky-500/10 rounded-full blur-3xl"></div>
-                
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 sm:gap-8 relative z-10">
-                    <div>
-                        <h3 id="txt-contact-heading" class="text-2xl sm:text-3xl font-black text-white mb-2">Have a project or consultancy inquiry?</h3>
-                        <p id="txt-contact-sub" class="text-slate-400 text-xs sm:text-sm">Available for architectural consultancy, urban planning, and technical office roles.</p>
-                    </div>
-                    
-                    <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-                        <a href="mailto:info@moh-babeker.com" class="px-6 py-3.5 rounded-xl bg-sky-500 text-white font-extrabold text-center text-xs hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/20">
-                            info@moh-babeker.com
-                        </a>
-                        <a href="https://wa.me/966571684681" target="_blank" id="btn-contact-wa" class="px-6 py-3.5 rounded-xl bg-emerald-600 text-white font-extrabold text-center text-xs hover:bg-emerald-500 transition-all">
-                            WhatsApp Direct
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="border-t border-slate-900 py-5 text-center text-xs text-slate-600">
-        <p id="txt-footer-copy">© 2026 MOHAMMED BABEKER. All rights reserved.</p>
-    </footer>
-
-
-    <!-- ==================== JAVASCRIPT & LANGUAGE DICTIONARY ==================== -->
-    <script>
-        let currentLang = 'en';
-
-        const i18n = {
-            en: {
-                drawerName: "Mohammed Babeker",
-                drawerTitle: "Architectural Consultant & Urban Planner",
-                drawerExp: "+9 Years GCC Experience",
-                navHome: "Home",
-                navAbout: "About Me",
-                navInnovations: "Research & Innovations",
-                navPortfolio: "Portfolio",
-                navCredentials: "Credentials",
-                navContact: "Contact",
-                downloadCv: "Download CV (PDF)",
-                heroLocation: "RIYADH, KINGDOM OF SAUDI ARABIA",
-                heroTitle: "Architectural Consultant & Urban Planner",
-                heroPortfolioBtn: "EXPLORE PORTFOLIO",
-                heroContactBtn: "DIRECT CONTACT",
-                aboutBadge: "CONSULTANCY OVERVIEW",
-                aboutHeading: "Merging Architectural Innovation with Urban Humanization",
-                aboutDesc: "Over 9 years of extensive experience in architectural consultancy, technical office management, and urban master planning across Saudi Arabia and the UAE. Focused on humanizing cities and transforming public domains into vibrant, sustainable ecosystems.",
-                aboutStat1: "GCC Experience",
-                aboutStat2: "Certified Consultant",
-                aboutExpTitle: "Core Areas of Expertise",
-                resBadge: "RESEARCH & DEVELOPMENT",
-                resHeading: "Innovations & Architectural Papers",
-                resTitle1: "Breathing Flooring Innovation",
-                resDesc1: "An innovative interactive flooring system designed for urban open spaces to promote natural cooling, storm-water drainage, and heat island mitigation.",
-                resLink1: "Research Model Verified →",
-                resTitle2: "Urban Humanization Studies",
-                resDesc2: "Applied research papers focusing on street redesign, pedestrian prioritization, and community engagement in modern Gulf city centers.",
-                resLink2: "Applied Study →",
-                portBadge: "SHOWCASE",
-                portHeading: "Selected Projects",
-                portSub: "Filter portfolio items by category:",
-                tabAll: "All",
-                tabArch: "Architecture",
-                tabUrban: "Urban Planning",
-                tabInterior: "Interior Design",
-                tabInnovation: "Innovations",
-                credBadge: "ACCREDITATIONS & LICENSES",
-                credHeading: "Professional Status",
-                credSub1: "Certified Consultant Engineer",
-                credDesc1: "Officially licensed for architectural engineering consultancy in Saudi Arabia.",
-                credSub2: "License No: 25138",
-                credDesc2: "Professional registration for engineering consultancy and project management in UAE.",
-                credTitle3: "Field Readiness",
-                credSub3: "Transferable Visa (Immediately Available)",
-                credDesc3: "QVP Verified + Valid KSA & UAE Driving Licenses.",
-                contactHeading: "Have a project or consultancy inquiry?",
-                contactSub: "Available for architectural consultancy, urban planning, and technical office roles.",
-                contactWa: "WhatsApp Direct",
-                footerCopy: "© 2026 MOHAMMED BABEKER. All rights reserved."
-            },
-            ar: {
-                drawerName: "محمد بابكر",
-                drawerTitle: "مهندس معماري استشاري ومخطط حضري",
-                drawerExp: "خبرة +9 سنوات في دول الخليج",
-                navHome: "الرئيسية",
-                navAbout: "عن المهندس",
-                navInnovations: "الأبحاث والابتكارات",
-                navPortfolio: "معرض الأعمال",
-                navCredentials: "الاعتمادات والتراخيص",
-                navContact: "التواصل",
-                downloadCv: "تحميل السيرة الذاتية (PDF)",
-                heroLocation: "الرياض، المملكة العربية السعودية",
-                heroTitle: "مهندس معماري استشاري ومخطط حضري",
-                heroPortfolioBtn: "استعراض البورتفوليو",
-                heroContactBtn: "تواصل مباشر",
-                aboutBadge: "نبذة استشارية",
-                aboutHeading: "دمج الابتكار المعماري مع الاستدامة والتخطيط الحضري",
-                aboutDesc: "خبرة تمتد لأكثر من 9 سنوات في إعداد الدراسات المعمارية والتخطيطية، إدارة المكتب الفني، ومتابعة تنفيذ المشاريع الكبرى في السعودية والإمارات. أركز على تطوير حلول أنسنة المدن وتحويل الفضاءات العامة إلى بيئات جاذبة ومستدامة.",
-                aboutStat1: "سنوات خبرة بالخليج",
-                aboutStat2: "استشاري معتمد",
-                aboutExpTitle: "مجالات الاختصاص الرئيسة",
-                resBadge: "البحث العلمي والتطوير",
-                resHeading: "الابتكارات والأبحاث المعمارية",
-                resTitle1: "ابتكار الأرضيات التنفسية",
-                resDesc1: "بحث وتصميم نظام أرضيات تفاعلي ومستدام مخصص للمساحات الحضرية والمناطق المفتوحة يعزز التبريد الطبيعي وتصريف مياه الأمطار وتقليل الاحتباس الحراري.",
-                resLink1: "النموذج البحثي معتمد ←",
-                resTitle2: "دراسات أبحاث أنسنة البيئة الحضرية",
-                resDesc2: "أوراق بحثية ودراسات ميدانية لتطوير الفضاءات العامة وإعادة تصميم الشوارع لتكون صديقة للمشاة وتزيد من التفاعل الاجتماعي وجودة الحياة.",
-                resLink2: "دراسة تطبيقية ←",
-                portBadge: "معرض الأعمال",
-                portHeading: "المشاريع والأبحاث",
-                portSub: "تصفح المشاريع الموزعة حسب التخصص والتصنيف:",
-                tabAll: "الكل",
-                tabArch: "الهندسة المعمارية",
-                tabUrban: "التخطيط الحضري",
-                tabInterior: "التصميم الداخلي",
-                tabInnovation: "الابتكارات والأبحاث",
-                credBadge: "الاعتمادات والتراخيص",
-                credHeading: "الموقف المهني والميداني",
-                credSub1: "درجة: مهندس استشاري معتمد",
-                credDesc1: "ترخيص رسمي لممارسة الاستشارات المعمارية والهندسية داخل المملكة العربية السعودية.",
-                credSub2: "ترخيص رقم: 25138",
-                credDesc2: "اعتماد ممارسة المهن الهندسية وتصميم المشاريع في دولة الإمارات العربية المتحدة.",
-                credTitle3: "الجاهزية الميدانية",
-                credSub3: "تأشيرة قابلة للنقل (متاح فوراً)",
-                credDesc3: "توثيق QVP معتمد + رخص قيادة سارية (السعودية والإمارات).",
-                contactHeading: "هل لديك مشروع أو فرصة استشارية؟",
-                contactSub: "متاح للاستشارات المعمارية والتخطيط الحضري والمكاتب الفنية.",
-                contactWa: "تواصل عبر الواتساب",
-                footerCopy: "© 2026 المهندس محمد بابكر. جميع الحقوق محفوظة."
-            }
-        };
-
-        // Switch Language Logic
-        function switchLanguage(lang) {
-            currentLang = lang;
-            const t = i18n[lang];
-
-            if (lang === 'ar') {
-                document.documentElement.setAttribute('dir', 'rtl');
-                document.documentElement.setAttribute('lang', 'ar');
-                document.getElementById('langArBtn').className = "px-3 py-1 rounded-lg bg-white text-sky-600 transition-all";
-                document.getElementById('langEnBtn').className = "px-3 py-1 rounded-lg text-white hover:text-sky-200 transition-all";
-            } else {
-                document.documentElement.setAttribute('dir', 'ltr');
-                document.documentElement.setAttribute('lang', 'en');
-                document.getElementById('langEnBtn').className = "px-3 py-1 rounded-lg bg-white text-sky-600 transition-all";
-                document.getElementById('langArBtn').className = "px-3 py-1 rounded-lg text-white hover:text-sky-200 transition-all";
-            }
-
-            document.getElementById('txt-drawer-name').innerText = t.drawerName;
-            document.getElementById('txt-drawer-title').innerText = t.drawerTitle;
-            document.getElementById('txt-drawer-exp').innerText = t.drawerExp;
-            document.getElementById('nav-home').innerText = t.navHome;
-            document.getElementById('nav-about').innerText = t.navAbout;
-            document.getElementById('nav-innovations').innerText = t.navInnovations;
-            document.getElementById('nav-portfolio').innerText = t.navPortfolio;
-            document.getElementById('nav-credentials').innerText = t.navCredentials;
-            document.getElementById('nav-contact').innerText = t.navContact;
-            document.getElementById('btn-download-cv').innerText = t.downloadCv;
-            document.getElementById('txt-hero-location').innerText = t.heroLocation;
-            document.getElementById('txt-hero-title').innerText = t.heroTitle;
-            document.getElementById('btn-hero-portfolio').innerText = t.heroPortfolioBtn;
-            document.getElementById('btn-hero-contact').innerText = t.heroContactBtn;
-            document.getElementById('txt-about-badge').innerText = t.aboutBadge;
-            document.getElementById('txt-about-heading').innerText = t.aboutHeading;
-            document.getElementById('txt-about-desc').innerText = t.aboutDesc;
-            document.getElementById('txt-about-stat1').innerText = t.aboutStat1;
-            document.getElementById('txt-about-stat2').innerText = t.aboutStat2;
-            document.getElementById('txt-about-expertise-title').innerText = t.aboutExpTitle;
-            document.getElementById('txt-res-badge').innerText = t.resBadge;
-            document.getElementById('txt-res-heading').innerText = t.resHeading;
-            document.getElementById('txt-res-title1').innerText = t.resTitle1;
-            document.getElementById('txt-res-desc1').innerText = t.resDesc1;
-            document.getElementById('txt-res-link1').innerText = t.resLink1;
-            document.getElementById('txt-res-title2').innerText = t.resTitle2;
-            document.getElementById('txt-res-desc2').innerText = t.resDesc2;
-            document.getElementById('txt-res-link2').innerText = t.resLink2;
-            document.getElementById('txt-port-badge').innerText = t.portBadge;
-            document.getElementById('txt-port-heading').innerText = t.portHeading;
-            document.getElementById('txt-port-sub').innerText = t.portSub;
-            document.getElementById('tab-all').innerText = t.tabAll;
-            document.getElementById('tab-arch').innerText = t.tabArch;
-            document.getElementById('tab-urban').innerText = t.tabUrban;
-            document.getElementById('tab-interior').innerText = t.tabInterior;
-            document.getElementById('tab-innovation').innerText = t.tabInnovation;
-            document.getElementById('txt-cred-badge').innerText = t.credBadge;
-            document.getElementById('txt-cred-heading').innerText = t.credHeading;
-            document.getElementById('txt-cred-sub1').innerText = t.credSub1;
-            document.getElementById('txt-cred-desc1').innerText = t.credDesc1;
-            document.getElementById('txt-cred-sub2').innerText = t.credSub2;
-            document.getElementById('txt-cred-desc2').innerText = t.credDesc2;
-            document.getElementById('txt-cred-title3').innerText = t.credTitle3;
-            document.getElementById('txt-cred-sub3').innerText = t.credSub3;
-            document.getElementById('txt-cred-desc3').innerText = t.credDesc3;
-            document.getElementById('txt-contact-heading').innerText = t.contactHeading;
-            document.getElementById('txt-contact-sub').innerText = t.contactSub;
-            document.getElementById('btn-contact-wa').innerText = t.contactWa;
-            document.getElementById('txt-footer-copy').innerText = t.footerCopy;
+    // Load Data
+    async function initData() {
+      try {
+        // Load Settings
+        const resSet = await fetch('/content/settings.json');
+        if (resSet.ok) {
+          const s = await resSet.json();
+          document.getElementById('hero-name').innerText = s.name_ar || s.name_en;
+          document.getElementById('nav-name').innerText = s.name_en;
+          document.getElementById('hero-title').innerText = s.title_ar || s.title_en;
+          document.getElementById('hero-bio').innerText = s.bio_ar || s.bio_en;
+          
+          if(s.profile_image) {
+            document.getElementById('hero-img').src = s.profile_image;
+            document.getElementById('hero-img').classList.remove('hidden');
+            document.getElementById('nav-avatar').src = s.profile_image;
+            document.getElementById('nav-avatar').classList.remove('hidden');
+          }
+          if(s.whatsapp) {
+            document.getElementById('whatsapp-btn').href = `https://wa.me/${s.whatsapp.replace(/[^0-9]/g, '')}`;
+          }
+          if(s.cv_file) {
+            const cvBtn = document.getElementById('cv-btn');
+            cvBtn.href = s.cv_file;
+            cvBtn.classList.remove('hidden');
+          }
         }
 
-        // Drawer Toggle Logic
-        function toggleMenu() {
-            const drawer = document.getElementById('drawerMenu');
-            const overlay = document.getElementById('drawerOverlay');
-            
-            drawer.classList.toggle('translate-x-full');
-            
-            if (overlay.classList.contains('opacity-0')) {
-                overlay.classList.remove('opacity-0', 'pointer-events-none');
-                overlay.classList.add('opacity-100', 'pointer-events-auto');
-            } else {
-                overlay.classList.remove('opacity-100', 'pointer-events-auto');
-                overlay.classList.add('opacity-0', 'pointer-events-none');
-            }
+        // Load Projects
+        const resProj = await fetch('/content/projects.json');
+        if (resProj.ok) {
+          const p = await resProj.json();
+          allProjects = p.items || [];
+          renderProjects(allProjects);
         }
+      } catch (err) {
+        console.error('Error loading content:', err);
+      }
+    }
 
-        // SPA Navigation Logic
-        function showPage(pageId) {
-            const pages = document.querySelectorAll('.page-section');
-            pages.forEach(page => page.classList.add('hidden'));
+    function renderProjects(items) {
+      const grid = document.getElementById('projects-grid');
+      grid.innerHTML = '';
 
-            const target = document.getElementById(pageId);
-            if (target) {
-                target.classList.remove('hidden');
-            }
+      items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'group bg-stone-900 border border-stone-800/80 rounded-2xl overflow-hidden hover:border-amber-500/40 transition duration-300 cursor-pointer flex flex-col';
+        card.onclick = () => openModal(item);
 
-            const drawer = document.getElementById('drawerMenu');
-            if (!drawer.classList.contains('translate-x-full')) {
-                toggleMenu();
-            }
+        card.innerHTML = `
+          <div class="relative h-64 overflow-hidden bg-stone-800">
+            <img src="${item.image}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="${item.title_ar}">
+            <span class="absolute top-4 right-4 bg-stone-950/80 backdrop-blur-md px-3 py-1 rounded-lg text-amber-400 text-xs font-semibold border border-stone-700">${item.category.toUpperCase()}</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="text-xl font-bold text-stone-100 group-hover:text-amber-400 transition">${item.title_ar || item.title_en}</h3>
+              <p class="text-stone-400 text-sm mt-2 line-clamp-2">${item.desc_ar || item.desc_en}</p>
+            </div>
+            <div class="pt-4 border-t border-stone-800/60 flex justify-between items-center text-xs text-stone-500">
+              <span>${item.location || ''}</span>
+              <span>${item.year || ''}</span>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+    function filterProjects(cat) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('bg-amber-500', 'text-stone-950'));
+      event.target.classList.add('bg-amber-500', 'text-stone-950');
 
-        // Portfolio Category Filter Logic
-        function filterPortfolio(category) {
-            const items = document.querySelectorAll('.portfolio-item');
-            const buttons = document.querySelectorAll('.filter-btn');
+      if (cat === 'all') {
+        renderProjects(allProjects);
+      } else {
+        renderProjects(allProjects.filter(p => p.category === cat));
+      }
+    }
 
-            buttons.forEach(btn => {
-                if (btn.getAttribute('data-filter') === category) {
-                    btn.className = 'filter-btn active-tab px-4 py-2 rounded-xl bg-sky-500 text-white transition-all';
-                } else {
-                    btn.className = 'filter-btn px-4 py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all';
-                }
-            });
+    function openModal(item) {
+      document.getElementById('modal-title').innerText = item.title_ar || item.title_en;
+      document.getElementById('modal-cat').innerText = (item.category || '').toUpperCase();
+      document.getElementById('modal-meta').innerText = `${item.location || ''} ${item.year ? '• ' + item.year : ''} ${item.area ? '• ' + item.area : ''}`;
+      document.getElementById('modal-main-img').src = item.image;
+      document.getElementById('modal-details').innerText = item.details || item.desc_ar || '';
 
-            items.forEach(item => {
-                if (category === 'all' || item.getAttribute('data-category') === category) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-    </script>
+      const gal = document.getElementById('modal-gallery');
+      gal.innerHTML = '';
+      if (item.gallery && item.gallery.length > 0) {
+        item.gallery.forEach(imgUrl => {
+          const img = document.createElement('img');
+          img.src = imgUrl;
+          img.className = 'w-full h-56 object-cover rounded-xl border border-stone-800 hover:scale-102 transition';
+          gal.appendChild(img);
+        });
+      } else {
+        gal.parentElement.classList.add('hidden');
+      }
+
+      document.getElementById('project-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('project-modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    window.onload = initData;
+  </script>
 </body>
 </html>
