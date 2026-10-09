@@ -1,0 +1,34 @@
+backend:
+  name: github
+  repo: moh-babeker/mbabeker-site
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "projects"
+    label: "المشاريع (Portfolio)"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "عنوان المشروع (EN)", name: "title_en", widget: "string" }
+      - { label: "عنوان المشروع (عربي)", name: "title_ar", widget: "string" }
+      - { label: "التصنيف", name: "category", widget: "select", options: ["arch", "urban", "interior", "innovation"] }
+      - { label: "الصورة الرئيسية", name: "image", widget: "image" }
+      - { label: "وصف قصير (EN)", name: "desc_en", widget: "text" }
+      - { label: "وصف قصير (عربي)", name: "desc_ar", widget: "text" }
+      - { label: "شرح ومعرض صور المشروع التفصيلي", name: "body", widget: "markdown" }
+
+  - name: "settings"
+    label: "إعدادات الموقع والسيرة الذاتية"
+    files:
+      - file: "content/settings.json"
+        label: "البيانات الرئيسية"
+        name: "general"
+        fields:
+          - { label: "المسمى الوظيفي (EN)", name: "title_en", widget: "string" }
+          - { label: "المسمى الوظيفي (عربي)", name: "title_ar", widget: "string" }
+          - { label: "ملف السيرة الذاتية (PDF)", name: "cv_file", widget: "file" }
+          - { label: "رقم الواتساب", name: "whatsapp", widget: "string" }
