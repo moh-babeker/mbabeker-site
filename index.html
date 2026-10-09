@@ -627,6 +627,73 @@
             console.log("Loading static defaults...", e);
         }
     });
+        document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const settingsRes = await fetch('/content/settings.json');
+            if (settingsRes.ok) {
+                const settings = await settingsRes.json();
+                
+                // دالة تصحيح المسار ليعمل مع Vercel
+                const getFullImgPath = (url) => {
+                    if (!url) return '';
+                    if (url.startsWith('http')) return url;
+                    let path = url.startsWith('/') ? url : '/' + url;
+                    if (!path.startsWith('/public/')) {
+                        path = '/public' + path;
+                    }
+                    return path;
+                };
+
+                // 1. تحديث صورة الغلاف الرئيسية
+                if (settings.hero_bg_image) {
+                    const bgImg = document.querySelector('#home img');
+                    if (bgImg) bgImg.src = getFullImgPath(settings.hero_bg_image);
+                }
+
+                // 2. تحديث الصورة الشخصية
+                if (settings.profile_image) {
+                    document.querySelectorAll('img[alt="MOHAMMED BABEKER"]').forEach(img => {
+                        img.src = getFullImgPath(settings.profile_image);
+                    });
+                }
+
+                // 3. تحديث الروابط
+                if (settings.whatsapp) {
+                    const cleanNum = settings.whatsapp.replace(/[^0-9]/g, '');
+                    document.querySelectorAll('a[href*="wa.me"]').forEach(a => a.href = `https://wa.me/${cleanNum}`);
+                }
+                if (settings.linkedin) {
+                    document.querySelectorAll('a[href*="linkedin.com"]').forEach(a => a.href = settings.linkedin);
+                }
+                if (settings.email) {
+                    document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
+                        a.href = `mailto:${settings.email}`;
+                        if (a.textContent.trim().includes('@')) a.textContent = settings.email;
+                    });
+                }
+                if (settings.cv_file) {
+                    const cvBtn = document.getElementById('btn-download-cv');
+                    if (cvBtn) {
+                        cvBtn.href = getFullImgPath(settings.cv_file);
+                        cvBtn.setAttribute('target', '_blank');
+                    }
+                }
+
+                if (typeof switchLanguage === 'function') switchLanguage(currentLang);
+            }
+
+            // 4. جلب المشاريع
+            const projectsRes = await fetch('/content/projects.json');
+            if (projectsRes.ok) {
+                const projectsData = await projectsRes.json();
+                if (projectsData.items && projectsData.items.length > 0) {
+                    renderProjects(projectsData.items);
+                }
+            }
+        } catch (e) {
+            console.log("Error loading dynamic settings:", e);
+        }
+    });
     </script>
 </body>
 </html>
