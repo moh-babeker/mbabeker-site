@@ -1,13 +1,16 @@
 {
-  "name_en": "MOHAMMED BABEKER",
-  "name_ar": "محمد بابكر",
-  "profile_image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
-  "title_en": "Consultant Architect & BIM Specialist",
-  "title_ar": "مهندس معماري استشاري ومتخصص BIM",
-  "bio_en": "Architectural Consultant specializing in modern building design, BIM coordination, and sustainable urban spaces.",
-  "bio_ar": "استشاري معماري متخصص في تصميم المباني الحديثة، التنسيق بتقنية BIM، وحلول العمارة المستدامة وأنسنة المدن.",
-  "cv_file": "",
-  "email": "contact@mbabeker.com",
-  "whatsapp": "+966500000000",
-  "location": "Riyadh, Saudi Arabia"
+  "drawerName_en": "Mohammed Babeker",
+  "drawerName_ar": "محمد بابكر",
+  "drawerTitle_en": "Architectural Consultant & Urban Planner",
+  "drawerTitle_ar": "مهندس معماري استشاري ومخطط حضري",
+  "drawerExp_en": "+9 Years GCC Experience",
+  "drawerExp_ar": "خبرة +9 سنوات في دول الخليج",
+  "profile_image": "https://via.placeholder.com/150",
+  "hero_bg_image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80",
+  "heroLocation_en": "RIYADH, KINGDOM OF SAUDI ARABIA",
+  "heroLocation_ar": "الرياض، المملكة العربية السعودية",
+  "email": "info@moh-babeker.com",
+  "whatsapp": "966571684681",
+  "linkedin": "https://linkedin.com/in/yourprofile",
+  "cv_file": ""
 }
