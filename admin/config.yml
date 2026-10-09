@@ -2,35 +2,54 @@ backend:
   name: github
   repo: moh-babeker/mbabeker-site
   branch: main
-  base_url: https://decap-cms-oauth-provider.vercel.app
-  auth_endpoint: api/v1/authorize
 
 media_folder: "public/images"
 public_folder: "/images"
 
 collections:
-  - name: "projects"
-    label: "المشاريع (Portfolio)"
-    folder: "content/projects"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "عنوان المشروع (EN)", name: "title_en", widget: "string" }
-      - { label: "عنوان المشروع (عربي)", name: "title_ar", widget: "string" }
-      - { label: "التصنيف", name: "category", widget: "select", options: ["arch", "urban", "interior", "innovation"] }
-      - { label: "الصورة الرئيسية", name: "image", widget: "image" }
-      - { label: "وصف قصير (EN)", name: "desc_en", widget: "text" }
-      - { label: "وصف قصير (عربي)", name: "desc_ar", widget: "text" }
-      - { label: "شرح ومعرض صور المشروع التفصيلي", name: "body", widget: "markdown" }
-
   - name: "settings"
-    label: "إعدادات الموقع والسيرة الذاتية"
+    label: "إعدادات الهوية والبيانات الشخصية"
     files:
       - file: "content/settings.json"
-        label: "البيانات الرئيسية"
+        label: "بيانات المعماري والروابط"
         name: "general"
         fields:
+          - { label: "الاسم بالإنجليزية", name: "name_en", widget: "string" }
+          - { label: "الاسم بالعربية", name: "name_ar", widget: "string" }
+          - { label: "الصورة الشخصية / الشعار", name: "profile_image", widget: "image", required: false }
           - { label: "المسمى الوظيفي (EN)", name: "title_en", widget: "string" }
           - { label: "المسمى الوظيفي (عربي)", name: "title_ar", widget: "string" }
-          - { label: "ملف السيرة الذاتية (PDF)", name: "cv_file", widget: "file" }
+          - { label: "النبذة التعريفية (EN)", name: "bio_en", widget: "text" }
+          - { label: "النبذة التعريفية (عربي)", name: "bio_ar", widget: "text" }
+          - { label: "ملف السيرة الذاتية (PDF)", name: "cv_file", widget: "file", required: false }
+          - { label: "البريد الإلكتروني", name: "email", widget: "string" }
           - { label: "رقم الواتساب", name: "whatsapp", widget: "string" }
+          - { label: "الموقع / المدينة", name: "location", widget: "string" }
+
+  - name: "projects_list"
+    label: "إدارة المشاريع المعمارية (Portfolio)"
+    files:
+      - file: "content/projects.json"
+        label: "قائمة جميع المشاريع"
+        name: "projects"
+        fields:
+          - label: "المشاريع"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "معرف المشروع (Slug)", name: "id", widget: "string" }
+              - { label: "عنوان المشروع (EN)", name: "title_en", widget: "string" }
+              - { label: "عنوان المشروع (عربي)", name: "title_ar", widget: "string" }
+              - { label: "التصنيف", name: "category", widget: "select", options: ["arch", "urban", "interior", "bim"] }
+              - { label: "سنة المشروع", name: "year", widget: "string", required: false }
+              - { label: "الموقع / المدينة", name: "location", widget: "string", required: false }
+              - { label: "المساحة / النطاق", name: "area", widget: "string", required: false }
+              - { label: "صورة الغلاف الرئيسية", name: "image", widget: "image" }
+              - label: "معرض الصور التفصيلي (رفع عدة صور للمشروع)"
+                name: "gallery"
+                widget: "list"
+                required: false
+                field: { label: "صورة", name: "img", widget: "image" }
+              - { label: "وصف ملخص (EN)", name: "desc_en", widget: "text" }
+              - { label: "وصف ملخص (عربي)", name: "desc_ar", widget: "text" }
+              - { label: "الشرح التفصيلي وفكرة التصميم", name: "details", widget: "markdown", required: false }
