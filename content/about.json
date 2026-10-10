@@ -1,0 +1,38 @@
+{
+  "badge_en": "CONSULTANCY OVERVIEW",
+  "badge_ar": "نبذة استشارية",
+  "heading_en": "Merging Architectural Innovation with Urban Humanization",
+  "heading_ar": "دمج الابتكار المعماري مع الاستدامة والتخطيط الحضري",
+  "desc_en": "Over 9 years of extensive experience in architectural consultancy, technical office management, and urban master planning across Saudi Arabia and the UAE. Focused on humanizing cities and transforming public domains into vibrant, sustainable ecosystems.",
+  "desc_ar": "خبرة تمتد لأكثر من 9 سنوات في إعداد الدراسات المعمارية والتخطيطية، إدارة المكتب الفني، ومتابعة تنفيذ المشاريع الكبرى في السعودية والإمارات. أركز على تطوير حلول أنسنة المدن وتحويل الفضاءات العامة إلى بيئات جاذبة ومستدامة.",
+  "stat1_num": "+9 Yrs",
+  "stat1_label_en": "GCC Experience",
+  "stat1_label_ar": "سنوات خبرة بالخليج",
+  "stat2_num": "SCE",
+  "stat2_label_en": "Certified Consultant",
+  "stat2_label_ar": "استشاري معتمد",
+  "expertise_title_en": "Core Areas of Expertise",
+  "expertise_title_ar": "مجالات الاختصاص الرئيسة",
+  "expertise_list": [
+    {
+      "item_en": "Urban Planning & City Humanization Strategies",
+      "item_ar": "التخطيط الحضري وإستراتيجيات أنسنة المدن"
+    },
+    {
+      "item_en": "Architectural Design for Healthcare & Civic Facilities",
+      "item_ar": "التصميم المعماري للمرافق الصحية والمدنية"
+    },
+    {
+      "item_en": "Advanced Technical Office Operations & BIM Coordination",
+      "item_ar": "إدارة العمليات المتقدمة للمكاتب الفنية وتنسيق BIM"
+    },
+    {
+      "item_en": "High-End Interior Architecture & Spatial Planning",
+      "item_ar": "العمارة الداخلية الفاخرة والتخطيط المكاني"
+    },
+    {
+      "item_en": "Building Material Innovations (Breathing Flooring)",
+      "item_ar": "ابتكارات مواد البناء (الأرضيات التنفسية)"
+    }
+  ]
+}
