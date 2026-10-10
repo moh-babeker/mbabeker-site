@@ -10,6 +10,21 @@
       "desc_en": "Design guidelines and public furniture solutions for pedestrian street enhancements.",
       "desc_ar": "دليل التصميم وحلول أثاث الفضاءات العامة لتطوير شوارع المشاة.",
       "image": "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?auto=format&fit=crop&w=800&q=80",
+      "year": "2025",
+      "client": "do8a",
+      "location": "dubai",
+      "gallery": [
+        {
+          "img": "/public/images/I-Only-Need-the-Dukes-Child-رواية.jpg",
+          "caption": "bhgyjhukuyjytu"
+        },
+        {
+          "img": "/public/images/02.PNG",
+          "caption": "hythrhtrhtrh"
+        }
+      ],
+      "full_desc_en": "",
+      "full_desc_ar": "",
       "link": "#"
     },
     {
@@ -22,6 +37,12 @@
       "desc_en": "Advanced outdoor paving tiles for optimal heat dissipation and rainwater collection.",
       "desc_ar": "بلاط تبليط خارجي متطور لتشتيت الحرارة وتجميع مياه الأمطار.",
       "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+      "year": "",
+      "client": "",
+      "location": "",
+      "gallery": [],
+      "full_desc_en": "",
+      "full_desc_ar": "",
       "link": "#"
     },
     {
@@ -34,6 +55,12 @@
       "desc_en": "Comprehensive architectural consultancy balancing medical workflow and local context. hhhhhh",
       "desc_ar": "استشارات معمارية متكاملة توازن بين تدفق العمل الطبي والسياق المحلي.",
       "image": "https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?auto=format&fit=crop&w=800&q=80",
+      "year": "",
+      "client": "",
+      "location": "",
+      "gallery": [],
+      "full_desc_en": "",
+      "full_desc_ar": "",
       "link": "#"
     },
     {
@@ -46,6 +73,12 @@
       "desc_en": "htrryjyjyj",
       "desc_ar": "ثقالقثلاقثق",
       "image": "/public/images/hc.webp",
+      "year": "",
+      "client": "",
+      "location": "",
+      "gallery": [],
+      "full_desc_en": "",
+      "full_desc_ar": "",
       "link": ""
     }
   ]
