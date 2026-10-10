@@ -115,7 +115,7 @@
                     <span id="txt-hero-location">RIYADH, KINGDOM OF SAUDI ARABIA</span>
                 </div>
 
-                <!-- Name (+30% Larger on Mobile: text-3xl | Desktop: sm:text-4xl) -->
+                <!-- Name -->
                 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-wider uppercase whitespace-nowrap mb-2 text-glow w-full text-center">
                     MOHAMMED BABEKER
                 </h1>
@@ -125,7 +125,7 @@
                     Architectural Consultant & Urban Planner
                 </p>
 
-                <!-- Action Buttons (Fit exactly to text content on Mobile) -->
+                <!-- Action Buttons -->
                 <div class="flex flex-row flex-nowrap justify-center items-center gap-2 sm:gap-4 w-full max-w-md mx-auto">
                     <button onclick="showPage('portfolio')" id="btn-hero-portfolio" class="px-4 py-2 sm:px-7 sm:py-3.5 rounded-xl bg-sky-500 text-white font-extrabold text-[9px] sm:text-xs uppercase tracking-wider hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/30 whitespace-nowrap text-center">
                         EXPLORE PORTFOLIO
@@ -162,18 +162,14 @@
                     <div class="absolute -top-10 -right-10 w-40 h-40 bg-sky-500/10 rounded-full blur-3xl"></div>
                     <h3 id="txt-about-expertise-title" class="text-base sm:text-lg font-bold text-white mb-4">Core Areas of Expertise</h3>
                     <ul id="txt-about-expertise-list" class="space-y-3 text-xs text-slate-300">
-                        <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-sky-400"></span>Urban Planning & City Humanization Strategies</li>
-                        <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-sky-400"></span>Architectural Design for Healthcare & Civic Facilities</li>
-                        <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-sky-400"></span>Advanced Technical Office Operations & BIM Coordination</li>
-                        <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-sky-400"></span>High-End Interior Architecture & Spatial Planning</li>
-                        <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-sky-400"></span>Building Material Innovations (Breathing Flooring)</li>
+                        <!-- Dynamic Expertise List -->
                     </ul>
                 </div>
             </div>
         </section>
 
 
-        <!-- 3. RESEARCH & INNOVATIONS PAGE -->
+        <!-- 3. RESEARCH & INNOVATIONS PAGE (100% Dynamic) -->
         <section id="innovations" class="page-section hidden min-h-[calc(100dvh-4rem)] flex items-center py-12 sm:py-16 px-5 sm:px-6 max-w-6xl mx-auto">
             <div class="w-full">
                 <div class="text-center max-w-2xl mx-auto mb-10">
@@ -182,20 +178,7 @@
                 </div>
 
                 <div id="innovationsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                    <!-- Dynamic or Static Fallback -->
-                    <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 hover:border-sky-500/50 transition-all">
-                        <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-lg mb-5">01</div>
-                        <h3 id="txt-res-title1" class="text-lg sm:text-xl font-bold text-white mb-2.5">Breathing Flooring Innovation</h3>
-                        <p id="txt-res-desc1" class="text-slate-400 text-xs leading-relaxed mb-4">An innovative interactive flooring system designed for urban open spaces to promote natural cooling, storm-water drainage, and heat island mitigation.</p>
-                        <span id="txt-res-link1" class="inline-block text-[11px] font-bold text-sky-400">Research Model Verified &rarr;</span>
-                    </div>
-
-                    <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 hover:border-sky-500/50 transition-all">
-                        <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-lg mb-5">02</div>
-                        <h3 id="txt-res-title2" class="text-lg sm:text-xl font-bold text-white mb-2.5">Urban Humanization Studies</h3>
-                        <p id="txt-res-desc2" class="text-slate-400 text-xs leading-relaxed mb-4">Applied research papers focusing on street redesign, pedestrian prioritization, and community engagement in modern Gulf city centers.</p>
-                        <span id="txt-res-link2" class="inline-block text-[11px] font-bold text-sky-400">Applied Study &rarr;</span>
-                    </div>
+                    <!-- Dynamic Innovations Grid Rendered via JS -->
                 </div>
             </div>
         </section>
@@ -229,30 +212,14 @@
         </section>
 
 
-        <!-- 5. CREDENTIALS PAGE -->
+        <!-- 5. CREDENTIALS PAGE (100% Dynamic) -->
         <section id="credentials" class="page-section hidden min-h-[calc(100dvh-4rem)] flex items-center py-12 sm:py-16 px-5 sm:px-6 max-w-6xl mx-auto">
             <div class="w-full">
                 <span id="txt-cred-badge" class="text-xs font-bold uppercase tracking-wider text-sky-500 block mb-2">ACCREDITATIONS & LICENSES</span>
                 <h2 id="txt-cred-heading" class="text-2xl sm:text-3xl font-extrabold text-white mb-8">Professional Status</h2>
 
                 <div id="credentialsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
-                        <div class="text-white font-extrabold text-base mb-1">Saudi Council of Engineers (SCE)</div>
-                        <div id="txt-cred-sub1" class="text-sky-400 text-xs font-bold mb-3">Certified Consultant Engineer</div>
-                        <p id="txt-cred-desc1" class="text-slate-400 text-xs leading-relaxed">Officially licensed for architectural engineering consultancy in Saudi Arabia.</p>
-                    </div>
-
-                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
-                        <div class="text-white font-extrabold text-base mb-1">Abu Dhabi Municipalities</div>
-                        <div id="txt-cred-sub2" class="text-sky-400 text-xs font-bold mb-3">License No: 25138</div>
-                        <p id="txt-cred-desc2" class="text-slate-400 text-xs leading-relaxed">Professional registration for engineering consultancy and project management in UAE.</p>
-                    </div>
-
-                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
-                        <div id="txt-cred-title3" class="text-white font-extrabold text-base mb-1">Field Readiness</div>
-                        <div id="txt-cred-sub3" class="text-sky-400 text-xs font-bold mb-3">Transferable Visa (Immediately Available)</div>
-                        <p id="txt-cred-desc3" class="text-slate-400 text-xs leading-relaxed">QVP Verified + Valid KSA & UAE Driving Licenses.</p>
-                    </div>
+                    <!-- Dynamic Credentials Grid Rendered via JS -->
                 </div>
             </div>
         </section>
@@ -449,19 +416,21 @@
                 }
             }
 
-            // 3. Innovations Data
+            // 3. Innovations Data (100% Dynamic Loop)
             const inn = siteData.innovations;
-            if (inn && inn.items && inn.items.length >= 2) {
+            if (inn && inn.items) {
                 document.getElementById('txt-res-badge').innerText = lang === 'ar' ? "البحث العلمي والتطوير" : "RESEARCH & DEVELOPMENT";
                 document.getElementById('txt-res-heading').innerText = lang === 'ar' ? "الأبحاث والابتكارات المعمارية" : "Innovations & Architectural Papers";
                 
-                document.getElementById('txt-res-title1').innerText = lang === 'ar' ? inn.items[0].title_ar : inn.items[0].title_en;
-                document.getElementById('txt-res-desc1').innerText = lang === 'ar' ? inn.items[0].desc_ar : inn.items[0].desc_en;
-                document.getElementById('txt-res-link1').innerText = (lang === 'ar' ? inn.items[0].link_text_ar : inn.items[0].link_text_en) || '→';
-
-                document.getElementById('txt-res-title2').innerText = lang === 'ar' ? inn.items[1].title_ar : inn.items[1].title_en;
-                document.getElementById('txt-res-desc2').innerText = lang === 'ar' ? inn.items[1].desc_ar : inn.items[1].desc_en;
-                document.getElementById('txt-res-link2').innerText = (lang === 'ar' ? inn.items[1].link_text_ar : inn.items[1].link_text_en) || '→';
+                const innGrid = document.getElementById('innovationsGrid');
+                innGrid.innerHTML = inn.items.map(item => `
+                    <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 hover:border-sky-500/50 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-lg mb-5">${item.number || '01'}</div>
+                        <h3 class="text-lg sm:text-xl font-bold text-white mb-2.5">${lang === 'ar' ? item.title_ar : item.title_en}</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">${lang === 'ar' ? item.desc_ar : item.desc_en}</p>
+                        <a href="${item.url || '#'}" class="inline-block text-[11px] font-bold text-sky-400">${lang === 'ar' ? item.link_text_ar : item.link_text_en} &rarr;</a>
+                    </div>
+                `).join('');
             }
 
             // 4. Portfolio Data
@@ -472,26 +441,20 @@
                 renderProjects(proj.items);
             }
 
-            // 5. Credentials Data
+            // 5. Credentials Data (100% Dynamic Loop)
             const cred = siteData.credentials;
-            if (cred && cred.items && cred.items.length >= 3) {
+            if (cred && cred.items) {
                 document.getElementById('txt-cred-badge').innerText = lang === 'ar' ? "الاعتمادات والتراخيص" : "ACCREDITATIONS & LICENSES";
                 document.getElementById('txt-cred-heading').innerText = lang === 'ar' ? "الوضع المهني" : "Professional Status";
                 
-                // Card 1
-                document.querySelector('#credentialsGrid > div:nth-child(1) .text-white').innerText = lang === 'ar' ? cred.items[0].title_ar : cred.items[0].title_en;
-                document.getElementById('txt-cred-sub1').innerText = lang === 'ar' ? cred.items[0].sub_ar : cred.items[0].sub_en;
-                document.getElementById('txt-cred-desc1').innerText = lang === 'ar' ? cred.items[0].desc_ar : cred.items[0].desc_en;
-
-                // Card 2
-                document.querySelector('#credentialsGrid > div:nth-child(2) .text-white').innerText = lang === 'ar' ? cred.items[1].title_ar : cred.items[1].title_en;
-                document.getElementById('txt-cred-sub2').innerText = lang === 'ar' ? cred.items[1].sub_ar : cred.items[1].sub_en;
-                document.getElementById('txt-cred-desc2').innerText = lang === 'ar' ? cred.items[1].desc_ar : cred.items[1].desc_en;
-
-                // Card 3
-                document.getElementById('txt-cred-title3').innerText = lang === 'ar' ? cred.items[2].title_ar : cred.items[2].title_en;
-                document.getElementById('txt-cred-sub3').innerText = lang === 'ar' ? cred.items[2].sub_ar : cred.items[2].sub_en;
-                document.getElementById('txt-cred-desc3').innerText = lang === 'ar' ? cred.items[2].desc_ar : cred.items[2].desc_en;
+                const credGrid = document.getElementById('credentialsGrid');
+                credGrid.innerHTML = cred.items.map(item => `
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="text-white font-extrabold text-base mb-1">${lang === 'ar' ? item.title_ar : item.title_en}</div>
+                        <div class="text-sky-400 text-xs font-bold mb-3">${lang === 'ar' ? item.sub_ar : item.sub_en}</div>
+                        <p class="text-slate-400 text-xs leading-relaxed">${lang === 'ar' ? item.desc_ar : item.desc_en}</p>
+                    </div>
+                `).join('');
             }
         }
 
