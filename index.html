@@ -21,7 +21,7 @@
             MOHAMMED BABEKER<span class="text-sky-500">.</span>
         </a>
         
-        <!-- Floating Drawer Toggle Button (Original Size) -->
+        <!-- Floating Drawer Toggle Button -->
         <button onclick="toggleMenu()" class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-sky-500 text-white flex items-center justify-center hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/25 focus:outline-none">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
@@ -112,8 +112,8 @@
                     <span id="txt-hero-location">RIYADH, KINGDOM OF SAUDI ARABIA</span>
                 </div>
 
-                <!-- Name in Original Size -->
-                <h1 class="text-lg sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-wider uppercase whitespace-nowrap mb-2 text-glow w-full text-center">
+                <!-- Name (~30% Larger on Mobile: text-3xl | Desktop: sm:text-4xl) -->
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-wider uppercase whitespace-nowrap mb-2 text-glow w-full text-center">
                     MOHAMMED BABEKER
                 </h1>
 
@@ -122,12 +122,12 @@
                     Architectural Consultant & Urban Planner
                 </p>
 
-                <!-- Action Buttons (Reduced by ~30% ONLY on Mobile: text-[8px] & py-1.5 | Unaffected on Desktop: sm:text-xs & sm:py-3.5) -->
+                <!-- Action Buttons (Fit to content on Mobile without flex-1 stretching, original size on Desktop) -->
                 <div class="flex flex-row flex-nowrap justify-center items-center gap-2 sm:gap-4 w-full max-w-md mx-auto">
-                    <button onclick="showPage('portfolio')" id="btn-hero-portfolio" class="flex-1 px-2 py-1.5 sm:px-7 sm:py-3.5 rounded-xl bg-sky-500 text-white font-extrabold text-[8px] sm:text-xs uppercase tracking-wider hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/30 whitespace-nowrap text-center">
+                    <button onclick="showPage('portfolio')" id="btn-hero-portfolio" class="px-4 py-2 sm:px-7 sm:py-3.5 rounded-xl bg-sky-500 text-white font-extrabold text-[9px] sm:text-xs uppercase tracking-wider hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/30 whitespace-nowrap text-center">
                         EXPLORE PORTFOLIO
                     </button>
-                    <button onclick="showPage('contact')" id="btn-hero-contact" class="flex-1 px-2 py-1.5 sm:px-7 sm:py-3.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white font-bold text-[8px] sm:text-xs uppercase tracking-wider hover:bg-slate-900 transition-all backdrop-blur-md whitespace-nowrap text-center">
+                    <button onclick="showPage('contact')" id="btn-hero-contact" class="px-4 py-2 sm:px-7 sm:py-3.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white font-bold text-[9px] sm:text-xs uppercase tracking-wider hover:bg-slate-900 transition-all backdrop-blur-md whitespace-nowrap text-center">
                         DIRECT CONTACT
                     </button>
                 </div>
@@ -602,7 +602,7 @@
                     switchLanguage(currentLang);
                 }
 
-                // جلف المشاريع من ملف JSON
+                // جلب المشاريع من ملف JSON
                 const projectsRes = await fetch('/content/projects.json');
                 if (projectsRes.ok) {
                     const projectsData = await projectsRes.json();
