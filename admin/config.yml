@@ -80,28 +80,39 @@ collections:
               - { label: "نص الرابط (عربي)", name: "link_text_ar", widget: "string" }
               - { label: "رابط التفاصيل", name: "url", widget: "string", required: false }
 
-  # 4. معرض المشاريع (Portfolio)
+  # 4. معرض المشاريع (Portfolio & Rich Details)
   - name: "projects"
     label: "معرض المشاريع المعمارية"
     files:
       - file: "content/projects.json"
-        label: "قائمة المشاريع"
+        label: "قائمة المشاريع وتفاصيلها الغنية"
         name: "projects_list"
         fields:
           - label: "المشاريع"
             name: "items"
             widget: "list"
             fields:
-              - { label: "معرف المشروع (ID فريد)", name: "id", widget: "string" }
+              - { label: "معرف المشروع (ID فريد مثل: p1, p2)", name: "id", widget: "string" }
               - { label: "عنوان المشروع (EN)", name: "title_en", widget: "string" }
               - { label: "عنوان المشروع (عربي)", name: "title_ar", widget: "string" }
               - { label: "التصنيف", name: "category", widget: "select", options: ["arch", "urban", "interior", "innovation"] }
               - { label: "اسم التصنيف للعرض (EN)", name: "tag_en", widget: "string" }
               - { label: "اسم التصنيف للعرض (عربي)", name: "tag_ar", widget: "string" }
-              - { label: "وصف قصير (EN)", name: "desc_en", widget: "text" }
-              - { label: "وصف قصير (عربي)", name: "desc_ar", widget: "text" }
-              - { label: "صورة المشروع", name: "image", widget: "image" }
-              - { label: "رابط تفاصيل المشروع / العرض المعماري", name: "link", widget: "string", required: false }
+              - { label: "وصف قصير للبطاقة (EN)", name: "desc_en", widget: "text" }
+              - { label: "وصف قصير للبطاقة (عربي)", name: "desc_ar", widget: "text" }
+              - { label: "صورة الغلاف الرئيسية (Thumbnail)", name: "image", widget: "image" }
+              - { label: "سنة التنفيذ (مثال: 2026)", name: "year", widget: "string", required: false }
+              - { label: "العميل / الجهة (اختياري)", name: "client", widget: "string", required: false }
+              - { label: "الموقع الجغرافي للمشروع (اختياري)", name: "location", widget: "string", required: false }
+              - label: "معرض الصور التفصيلي للمشروع (صور متعددة)"
+                name: "gallery"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "صورة", name: "img", widget: "image" }
+                  - { label: "تعليق على الصورة (اختياري)", name: "caption", widget: "string", required: false }
+              - { label: "التفاصيل الكاملة / فكرة التصميم (EN)", name: "full_desc_en", widget: "text", required: false }
+              - { label: "التفاصيل الكاملة / فكرة التصميم (عربي)", name: "full_desc_ar", widget: "text", required: false }
 
   # 5. الاعتمادات والتراخيص (Credentials)
   - name: "credentials"
