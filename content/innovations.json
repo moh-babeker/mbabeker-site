@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "number": "01",
+      "title_en": "Breathing Flooring Innovation",
+      "title_ar": "ابتكار الأرضيات التنفسية",
+      "desc_en": "An innovative interactive flooring system designed for urban open spaces to promote natural cooling, storm-water drainage, and heat island mitigation.",
+      "desc_ar": "بحث وتصميم نظام أرضيات تفاعلي ومستدام مخصص للمساحات الحضرية والمناطق المفتوحة يعزز التبريد الطبيعي وتصريف مياه الأمطار وتقليل الاحتباس الحراري.",
+      "link_text_en": "Research Model Verified →",
+      "link_text_ar": "نموذج بحث موثق ←",
+      "url": "#"
+    },
+    {
+      "number": "02",
+      "title_en": "Urban Humanization Studies",
+      "title_ar": "دراسات أنسنة المدن",
+      "desc_en": "Applied research papers focusing on street redesign, pedestrian prioritization, and community engagement in modern Gulf city centers.",
+      "desc_ar": "أوراق بحثية تطبيقية تركز على إعادة تصميم الشوارع وتسييد المشاة والتفاعل المجتمعي في مراكز المدن الخليجية الحديثة.",
+      "link_text_en": "Applied Study →",
+      "link_text_ar": "دراسة تطبيقية ←",
+      "url": "#"
+    }
+  ]
+}
