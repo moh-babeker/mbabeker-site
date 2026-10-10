@@ -97,9 +97,9 @@
         <!-- 1. HOME PAGE (HERO SECTION) -->
         <section id="home" class="page-section min-h-[calc(100dvh-3rem)] sm:min-h-[calc(100dvh-4rem)] flex items-center justify-center text-center px-3 sm:px-6 py-6 relative bg-slate-950 overflow-hidden">
             
-            <!-- Dynamic Background Image with Smooth Fade-in -->
+            <!-- Dynamic Background Image with Smooth 1-Second Fade-in -->
             <div class="absolute inset-0 z-0">
-                <img id="heroBgImg" src="" alt="Architectural Background" class="w-full h-full object-cover object-center transition-opacity duration-700 opacity-0">
+                <img id="heroBgImg" src="" alt="Architectural Background" class="w-full h-full object-cover object-center transition-opacity duration-1000 opacity-0">
                 <!-- Light Subtle Gradient Overlay -->
                 <div class="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/30 to-slate-950/80"></div>
             </div>
@@ -525,7 +525,7 @@
             `).join('');
         }
 
-        // جلب البيانات الديناميكية وتطبيقها بسلاسة تامة
+        // جلب البيانات الديناميكية وتطبيقها بسلاسة وتدرج زمني محدد
         document.addEventListener('DOMContentLoaded', async () => {
             try {
                 const settingsRes = await fetch('/content/settings.json');
@@ -557,13 +557,14 @@
                         return encodeURI(path);
                     };
 
-                    // تحديث صورة الغلاف الرئيسية مع التلاشي السلس لمنع الوميض
+                    // تحديث صورة الغلاف الرئيسية مع التأثير التدريجي خلال ثانية واحدة (1000ms)
                     if (settings.hero_bg_image) {
                         const bgImg = document.getElementById('heroBgImg');
                         if (bgImg) {
                             bgImg.src = fixImgUrl(settings.hero_bg_image);
                             bgImg.onload = () => {
                                 bgImg.classList.remove('opacity-0');
+                                bgImg.classList.add('opacity-65');
                             };
                         }
                     }
