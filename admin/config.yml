@@ -7,6 +7,7 @@ media_folder: "public/images"
 public_folder: "/public/images"
 
 collections:
+  # 1. إعدادات الموقع العامة والتواصل
   - name: "settings"
     label: "إعدادات الموقع والنصوص"
     files:
@@ -25,10 +26,61 @@ collections:
           - { label: "الموقع الجغرافي (EN)", name: "heroLocation_en", widget: "string" }
           - { label: "الموقع الجغرافي (عربي)", name: "heroLocation_ar", widget: "string" }
           - { label: "البريد الإلكتروني", name: "email", widget: "string" }
-          - { label: "رقم الواتساب (مثال: 966571684681)", name: "whatsapp", widget: "string" }
+          - { label: "رقم الواتساب (مثال: 966597261191)", name: "whatsapp", widget: "string" }
           - { label: "رابط لينكد إن", name: "linkedin", widget: "string" }
           - { label: "رابط ملف السيرة الذاتية PDF", name: "cv_file", widget: "file", required: false }
 
+  # 2. قسم عن المهندس (About Me)
+  - name: "about"
+    label: "نبذة عني (About)"
+    files:
+      - file: "content/about.json"
+        label: "محتوى صفحة نبذة عني"
+        name: "about_content"
+        fields:
+          - { label: "العنوان الفرعي (EN)", name: "badge_en", widget: "string" }
+          - { label: "العنوان الفرعي (عربي)", name: "badge_ar", widget: "string" }
+          - { label: "العنوان الرئيسي (EN)", name: "heading_en", widget: "string" }
+          - { label: "العنوان الرئيسي (عربي)", name: "heading_ar", widget: "string" }
+          - { label: "الوصف التفصيلي (EN)", name: "desc_en", widget: "text" }
+          - { label: "الوصف التفصيلي (عربي)", name: "desc_ar", widget: "text" }
+          - { label: "رقم الإحصائية 1 (مثال: +9 Yrs)", name: "stat1_num", widget: "string" }
+          - { label: "تسمية الإحصائية 1 (EN)", name: "stat1_label_en", widget: "string" }
+          - { label: "تسمية الإحصائية 1 (عربي)", name: "stat1_label_ar", widget: "string" }
+          - { label: "رقم الإحصائية 2 (مثال: SCE)", name: "stat2_num", widget: "string" }
+          - { label: "تسمية الإحصائية 2 (EN)", name: "stat2_label_en", widget: "string" }
+          - { label: "تسمية الإحصائية 2 (عربي)", name: "stat2_label_ar", widget: "string" }
+          - { label: "عنوان مجالات الخبرة (EN)", name: "expertise_title_en", widget: "string" }
+          - { label: "عنوان مجالات الخبرة (عربي)", name: "expertise_title_ar", widget: "string" }
+          - label: "قائمة مجالات الخبرة (إضافة/حذف)"
+            name: "expertise_list"
+            widget: "list"
+            fields:
+              - { label: "الخبرة (EN)", name: "item_en", widget: "string" }
+              - { label: "الخبرة (عربي)", name: "item_ar", widget: "string" }
+
+  # 3. قسم الأبحاث والابتكارات (Research & Innovations)
+  - name: "innovations"
+    label: "الأبحاث والابتكارات"
+    files:
+      - file: "content/innovations.json"
+        label: "قائمة الأبحاث والأوراق"
+        name: "innovations_list"
+        fields:
+          - label: "الأبحاث"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "الرقم التسلسلي (مثال: 01)", name: "number", widget: "string" }
+              - { label: "عنوان البحث (EN)", name: "title_en", widget: "string" }
+              - { label: "عنوان البحث (عربي)", name: "title_ar", widget: "string" }
+              - { label: "وصف البحث (EN)", name: "desc_en", widget: "text" }
+              - { label: "وصف البحث (عربي)", name: "desc_ar", widget: "text" }
+              - { label: "نص الرابط (EN)", name: "link_text_en", widget: "string" }
+              - { label: "نص الرابط (عربي)", name: "link_text_ar", widget: "string" }
+              - { label: "رابط التفاصيل", name: "url", widget: "string", required: false }
+
+  # 4. معرض المشاريع (Portfolio)
   - name: "projects"
     label: "معرض المشاريع المعمارية"
     files:
@@ -50,3 +102,22 @@ collections:
               - { label: "وصف قصير (عربي)", name: "desc_ar", widget: "text" }
               - { label: "صورة المشروع", name: "image", widget: "image" }
               - { label: "رابط تفاصيل المشروع / العرض المعماري", name: "link", widget: "string", required: false }
+
+  # 5. الاعتمادات والتراخيص (Credentials)
+  - name: "credentials"
+    label: "الاعتمادات والتراخيص"
+    files:
+      - file: "content/credentials.json"
+        label: "قائمة الاعتمادات المهنية"
+        name: "credentials_list"
+        fields:
+          - label: "الاعتمادات"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "اسم الجهة (EN)", name: "title_en", widget: "string" }
+              - { label: "اسم الجهة (عربي)", name: "title_ar", widget: "string" }
+              - { label: "صفة الترخيص (EN)", name: "sub_en", widget: "string" }
+              - { label: "صفة الترخيص (عربي)", name: "sub_ar", widget: "string" }
+              - { label: "الوصف والتفاصيل (EN)", name: "desc_en", widget: "text" }
+              - { label: "الوصف والتفاصيل (عربي)", name: "desc_ar", widget: "text" }
