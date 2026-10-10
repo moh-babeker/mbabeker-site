@@ -21,13 +21,17 @@
             MOHAMMED BABEKER<span class="text-sky-500">.</span>
         </a>
         
-        <!-- Floating Drawer Toggle Button -->
-        <button onclick="toggleMenu()" class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500 text-white hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/25 animate-pulse focus:outline-none">
-            <span class="text-[11px] sm:text-xs font-extrabold tracking-wider uppercase">Menu / القائمة</span>
-            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-        </button>
+        <!-- Smart Menu Toggle: Circular Button + Pulsing Dynamic Text -->
+        <div class="flex items-center gap-2 cursor-pointer" onclick="toggleMenu()">
+            <span id="btn-menu-text" class="px-2.5 py-1 rounded-full bg-sky-500/20 border border-sky-400/40 text-sky-300 text-[10px] sm:text-xs font-black tracking-wider uppercase animate-pulse backdrop-blur-md">
+                Menu
+            </span>
+            <button class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-sky-500 text-white flex items-center justify-center hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/25 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
     </header>
 
     <!-- ==================== القائمة الجانبية (SIDEBAR DRAWER) ==================== -->
@@ -78,7 +82,7 @@
                 <a href="https://linkedin.com/in/mbabeker" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
-                <!-- WhatsApp Icon -->
+                <!-- WhatsApp Icon (Corrected wa.me format) -->
                 <a href="https://wa.me/966597261191" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
                 </a>
@@ -123,7 +127,7 @@
                     Architectural Consultant & Urban Planner
                 </p>
 
-                <!-- Action Buttons (Fit exactly to text content on Mobile, original size on Desktop) -->
+                <!-- Action Buttons (Fit exactly to text content on Mobile) -->
                 <div class="flex flex-row flex-nowrap justify-center items-center gap-2 sm:gap-4 w-full max-w-md mx-auto">
                     <button onclick="showPage('portfolio')" id="btn-hero-portfolio" class="px-4 py-2 sm:px-7 sm:py-3.5 rounded-xl bg-sky-500 text-white font-extrabold text-[9px] sm:text-xs uppercase tracking-wider hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/30 whitespace-nowrap text-center">
                         EXPLORE PORTFOLIO
@@ -293,6 +297,7 @@
 
         const i18n = {
             en: {
+                menuText: "Menu",
                 drawerName: "Mohammed Babeker",
                 drawerTitle: "Architectural Consultant & Urban Planner",
                 drawerExp: "+9 Years GCC Experience",
@@ -344,6 +349,7 @@
                 footerCopy: "© 2026 MOHAMMED BABEKER. All rights reserved."
             },
             ar: {
+                menuText: "القائمة",
                 drawerName: "محمد بابكر",
                 drawerTitle: "مهندس معماري استشاري ومخطط حضري",
                 drawerExp: "خبرة +9 سنوات في دول الخليج",
@@ -421,6 +427,9 @@
             
             document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
             document.documentElement.setAttribute('lang', lang);
+
+            // تحديث نص زر القائمة العلوي
+            document.getElementById('btn-menu-text').innerText = dict.menuText;
 
             // تحديث النصوص الثابتة
             document.getElementById('txt-drawer-name').innerText = dict.drawerName;
@@ -526,7 +535,7 @@
             `).join('');
         }
 
-        // جلب البيانات الديناميكية وتصفية أرقام الواتساب تلقائياً
+        // جلب البيانات الديناميكية
         document.addEventListener('DOMContentLoaded', async () => {
             try {
                 const settingsRes = await fetch('/content/settings.json');
@@ -578,7 +587,7 @@
                         }
                     }
 
-                    // تحديث تنظيف رابط الواتساب برمجياً وحذف الـ + والمسافات تلقائياً
+                    // تنظيف أرقام الواتساب وحذف الـ + والمسافات
                     if (settings.whatsapp) {
                         const cleanNum = settings.whatsapp.replace(/[^0-9]/g, '');
                         document.querySelectorAll('a[href*="wa.me"]').forEach(a => a.href = `https://wa.me/${cleanNum}`);
