@@ -52,7 +52,7 @@
             <!-- Profile Info Header -->
             <div class="text-center mb-6">
                 <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full border-4 border-white/30 overflow-hidden shadow-xl mb-3 bg-sky-600 flex items-center justify-center">
-                    <img src="https://via.placeholder.com/150" alt="MOHAMMED BABEKER" class="w-full h-full object-cover">
+                    <img id="profileImg" src="" alt="MOHAMMED BABEKER" class="w-full h-full object-cover">
                 </div>
                 <h3 id="txt-drawer-name" class="text-lg sm:text-xl font-extrabold tracking-wide">Mohammed Babeker</h3>
                 <p id="txt-drawer-title" class="text-sky-100 text-xs mt-1 font-medium">Architectural Consultant & Urban Planner</p>
@@ -97,9 +97,9 @@
         <!-- 1. HOME PAGE (HERO SECTION) -->
         <section id="home" class="page-section min-h-[calc(100dvh-3rem)] sm:min-h-[calc(100dvh-4rem)] flex items-center justify-center text-center px-3 sm:px-6 py-6 relative bg-slate-950 overflow-hidden">
             
-            <!-- High-Visibility Background Image -->
+            <!-- Dynamic Background Image with Smooth Fade-in -->
             <div class="absolute inset-0 z-0">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" alt="Architectural Background" class="w-full h-full object-cover object-center opacity-65">
+                <img id="heroBgImg" src="" alt="Architectural Background" class="w-full h-full object-cover object-center transition-opacity duration-700 opacity-0">
                 <!-- Light Subtle Gradient Overlay -->
                 <div class="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/30 to-slate-950/80"></div>
             </div>
@@ -122,7 +122,7 @@
                     Architectural Consultant & Urban Planner
                 </p>
 
-                <!-- Action Buttons (GUARANTEED SIDE-BY-SIDE ON ALL MOBILE SCREENS) -->
+                <!-- Action Buttons -->
                 <div class="flex flex-row flex-nowrap justify-center items-center gap-2 sm:gap-4 w-full max-w-md mx-auto">
                     <button onclick="showPage('portfolio')" id="btn-hero-portfolio" class="flex-1 px-2.5 sm:px-7 py-2.5 sm:py-3.5 rounded-xl bg-sky-500 text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/30 whitespace-nowrap text-center">
                         EXPLORE PORTFOLIO
@@ -219,41 +219,7 @@
 
                 <!-- Projects Grid -->
                 <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="project-card portfolio-item group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-sky-500/50 transition-all" data-category="urban">
-                        <div class="h-48 bg-slate-800 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?auto=format&fit=crop&w=800&q=80" alt="Dubai 2040 Urban Furnishing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <span id="tag-p1" class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-sky-400 text-[10px] font-bold">Urban Planning</span>
-                        </div>
-                        <div class="p-5">
-                            <h4 id="title-p1" class="text-base font-bold text-white group-hover:text-sky-400 transition-colors mb-2">Dubai 2040 Urban Furnishing Project</h4>
-                            <p id="desc-p1" class="text-slate-400 text-xs mb-4">Design guidelines and public furniture solutions for pedestrian street enhancements.</p>
-                            <a href="#" id="link-p1" class="text-[11px] font-bold text-sky-400 hover:underline">View Architectural Board &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card portfolio-item group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-sky-500/50 transition-all" data-category="innovation">
-                        <div class="h-48 bg-slate-800 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Breathing Flooring System" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <span id="tag-p2" class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-sky-400 text-[10px] font-bold">Innovation</span>
-                        </div>
-                        <div class="p-5">
-                            <h4 id="title-p2" class="text-base font-bold text-white group-hover:text-sky-400 transition-colors mb-2">Sustainable Breathing Flooring System</h4>
-                            <p id="desc-p2" class="text-slate-400 text-xs mb-4">Advanced outdoor paving tiles for optimal heat dissipation and rainwater collection.</p>
-                            <a href="#" id="link-p2" class="text-[11px] font-bold text-sky-400 hover:underline">View Research & Specs &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card portfolio-item group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-sky-500/50 transition-all" data-category="arch">
-                        <div class="h-48 bg-slate-800 relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?auto=format&fit=crop&w=800&q=80" alt="Rural Health Center" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <span id="tag-p3" class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-sky-400 text-[10px] font-bold">Architecture</span>
-                        </div>
-                        <div class="p-5">
-                            <h4 id="title-p3" class="text-base font-bold text-white group-hover:text-sky-400 transition-colors mb-2">Rural Health Center Project</h4>
-                            <p id="desc-p3" class="text-slate-400 text-xs mb-4">Comprehensive architectural consultancy balancing medical workflow and local context.</p>
-                            <a href="#" id="link-p3" class="text-[11px] font-bold text-sky-400 hover:underline">View Drawings & Sections &rarr;</a>
-                        </div>
-                    </div>
+                    <!-- Dynamic Grid Items Rendered via JS -->
                 </div>
             </div>
         </section>
@@ -401,142 +367,121 @@
                 resHeading: "الابتكارات والأبحاث المعمارية",
                 resTitle1: "ابتكار الأرضيات التنفسية",
                 resDesc1: "بحث وتصميم نظام أرضيات تفاعلي ومستدام مخصص للمساحات الحضرية والمناطق المفتوحة يعزز التبريد الطبيعي وتصريف مياه الأمطار وتقليل الاحتباس الحراري.",
-                resLink1: "النموذج البحثي معتمد ←",
-                resTitle2: "دراسات أبحاث أنسنة البيئة الحضرية",
-                resDesc2: "أوراق بحثية ودراسات ميدانية لتطوير الفضاءات العامة وإعادة تصميم الشوارع لتكون صديقة للمشاة وتزيد من التفاعل الاجتماعي وجودة الحياة.",
+                resLink1: "نموذج بحث موثق ←",
+                resTitle2: "دراسات أنسنة المدن",
+                resDesc2: "أوراق بحثية تطبيقية تركز على إعادة تصميم الشوارع وتسييد المشاة والتفاعل المجتمعي في مراكز المدن الخليجية الحديثة.",
                 resLink2: "دراسة تطبيقية ←",
                 portBadge: "معرض الأعمال",
-                portHeading: "المشاريع والأبحاث",
-                portSub: "تصفح المشاريع الموزعة حسب التخصص والتصنيف:",
+                portHeading: "المشاريع المختارة",
+                portSub: "تصفية المشاريع حسب التصنيف:",
                 tabAll: "الكل",
-                tabArch: "الهندسة المعمارية",
-                tabUrban: "التخطيط الحضري",
-                tabInterior: "التصميم الداخلي",
-                tabInnovation: "الابتكارات والأبحاث",
+                tabArch: "تصميم معماري",
+                tabUrban: "تخطيط حضري",
+                tabInterior: "تصميم داخلي",
+                tabInnovation: "ابتكارات",
                 credBadge: "الاعتمادات والتراخيص",
-                credHeading: "الموقف المهني والميداني",
-                credSub1: "درجة: مهندس استشاري معتمد",
-                credDesc1: "ترخيص رسمي لممارسة الاستشارات المعمارية والهندسية داخل المملكة العربية السعودية.",
-                credSub2: "ترخيص رقم: 25138",
-                credDesc2: "اعتماد ممارسة المهن الهندسية وتصميم المشاريع في دولة الإمارات العربية المتحدة.",
+                credHeading: "الوضع المهني",
+                credSub1: "مهندس استشاري معتمد",
+                credDesc1: "مرخص رسمياً للاستشارات الهندسية المعمارية في المملكة العربية السعودية.",
+                credSub2: "رقم الترخيص: 25138",
+                credDesc2: "تسجيل مهني للاستشارات الهندسية وإدارة المشاريع في إمارة أبوظبي.",
                 credTitle3: "الجاهزية الميدانية",
-                credSub3: "تأشيرة قابلة للنقل (متاح فوراً)",
-                credDesc3: "توثيق QVP معتمد + رخص قيادة سارية (السعودية والإمارات).",
-                contactHeading: "هل لديك مشروع أو فرصة استشارية؟",
-                contactSub: "متاح للاستشارات المعمارية والتخطيط الحضري والمكاتب الفنية.",
-                contactWa: "تواصل عبر الواتساب",
-                footerCopy: "© 2026 المهندس محمد بابكر. جميع الحقوق محفوظة."
+                credSub3: "إقامة قابلة للتحويل (متاحة فورا)",
+                credDesc3: "معتمد من الهيئة السعودية للمهندسين + رخص قيادة سارية في KSA و UAE.",
+                contactHeading: "هل لديك مشروع أو استفسار استشاري؟",
+                contactSub: "متاح لتقديم الاستشارات المعمارية والتخطيط الحضري وإدارة المكاتب الفنية.",
+                contactWa: "واتساب مباشر",
+                footerCopy: "© 2026 محمد بابكر. جميع الحقوق محفوظة."
             }
         };
 
-        // Switch Language Logic
-        function switchLanguage(lang) {
-            currentLang = lang;
-            const t = i18n[lang];
-
-            if (lang === 'ar') {
-                document.documentElement.setAttribute('dir', 'rtl');
-                document.documentElement.setAttribute('lang', 'ar');
-                document.getElementById('langArBtn').className = "px-3 py-1 rounded-lg bg-white text-sky-600 transition-all";
-                document.getElementById('langEnBtn').className = "px-3 py-1 rounded-lg text-white hover:text-sky-200 transition-all";
-            } else {
-                document.documentElement.setAttribute('dir', 'ltr');
-                document.documentElement.setAttribute('lang', 'en');
-                document.getElementById('langEnBtn').className = "px-3 py-1 rounded-lg bg-white text-sky-600 transition-all";
-                document.getElementById('langArBtn').className = "px-3 py-1 rounded-lg text-white hover:text-sky-200 transition-all";
-            }
-
-            document.getElementById('txt-drawer-name').innerText = t.drawerName;
-            document.getElementById('txt-drawer-title').innerText = t.drawerTitle;
-            document.getElementById('txt-drawer-exp').innerText = t.drawerExp;
-            document.getElementById('nav-home').innerText = t.navHome;
-            document.getElementById('nav-about').innerText = t.navAbout;
-            document.getElementById('nav-innovations').innerText = t.navInnovations;
-            document.getElementById('nav-portfolio').innerText = t.navPortfolio;
-            document.getElementById('nav-credentials').innerText = t.navCredentials;
-            document.getElementById('nav-contact').innerText = t.navContact;
-            document.getElementById('btn-download-cv').innerText = t.downloadCv;
-            document.getElementById('txt-hero-location').innerText = t.heroLocation;
-            document.getElementById('txt-hero-title').innerText = t.heroTitle;
-            document.getElementById('btn-hero-portfolio').innerText = t.heroPortfolioBtn;
-            document.getElementById('btn-hero-contact').innerText = t.heroContactBtn;
-            document.getElementById('txt-about-badge').innerText = t.aboutBadge;
-            document.getElementById('txt-about-heading').innerText = t.aboutHeading;
-            document.getElementById('txt-about-desc').innerText = t.aboutDesc;
-            document.getElementById('txt-about-stat1').innerText = t.aboutStat1;
-            document.getElementById('txt-about-stat2').innerText = t.aboutStat2;
-            document.getElementById('txt-about-expertise-title').innerText = t.aboutExpTitle;
-            document.getElementById('txt-res-badge').innerText = t.resBadge;
-            document.getElementById('txt-res-heading').innerText = t.resHeading;
-            document.getElementById('txt-res-title1').innerText = t.resTitle1;
-            document.getElementById('txt-res-desc1').innerText = t.resDesc1;
-            document.getElementById('txt-res-link1').innerText = t.resLink1;
-            document.getElementById('txt-res-title2').innerText = t.resTitle2;
-            document.getElementById('txt-res-desc2').innerText = t.resDesc2;
-            document.getElementById('txt-res-link2').innerText = t.resLink2;
-            document.getElementById('txt-port-badge').innerText = t.portBadge;
-            document.getElementById('txt-port-heading').innerText = t.portHeading;
-            document.getElementById('txt-port-sub').innerText = t.portSub;
-            document.getElementById('tab-all').innerText = t.tabAll;
-            document.getElementById('tab-arch').innerText = t.tabArch;
-            document.getElementById('tab-urban').innerText = t.tabUrban;
-            document.getElementById('tab-interior').innerText = t.tabInterior;
-            document.getElementById('tab-innovation').innerText = t.tabInnovation;
-            document.getElementById('txt-cred-badge').innerText = t.credBadge;
-            document.getElementById('txt-cred-heading').innerText = t.credHeading;
-            document.getElementById('txt-cred-sub1').innerText = t.credSub1;
-            document.getElementById('txt-cred-desc1').innerText = t.credDesc1;
-            document.getElementById('txt-cred-sub2').innerText = t.credSub2;
-            document.getElementById('txt-cred-desc2').innerText = t.credDesc2;
-            document.getElementById('txt-cred-title3').innerText = t.credTitle3;
-            document.getElementById('txt-cred-sub3').innerText = t.credSub3;
-            document.getElementById('txt-cred-desc3').innerText = t.credDesc3;
-            document.getElementById('txt-contact-heading').innerText = t.contactHeading;
-            document.getElementById('txt-contact-sub').innerText = t.contactSub;
-            document.getElementById('btn-contact-wa').innerText = t.contactWa;
-            document.getElementById('txt-footer-copy').innerText = t.footerCopy;
-        }
-
-        // Drawer Toggle Logic
         function toggleMenu() {
-            const drawer = document.getElementById('drawerMenu');
+            const menu = document.getElementById('drawerMenu');
             const overlay = document.getElementById('drawerOverlay');
-            
-            drawer.classList.toggle('translate-x-full');
-            
-            if (overlay.classList.contains('opacity-0')) {
-                overlay.classList.remove('opacity-0', 'pointer-events-none');
-                overlay.classList.add('opacity-100', 'pointer-events-auto');
-            } else {
-                overlay.classList.remove('opacity-100', 'pointer-events-auto');
-                overlay.classList.add('opacity-0', 'pointer-events-none');
-            }
+            menu.classList.toggle('translate-x-full');
+            overlay.classList.toggle('opacity-0');
+            overlay.classList.toggle('pointer-events-none');
         }
 
-        // SPA Navigation Logic
         function showPage(pageId) {
-            const pages = document.querySelectorAll('.page-section');
-            pages.forEach(page => page.classList.add('hidden'));
-
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.add('hidden'));
             const target = document.getElementById(pageId);
-            if (target) {
-                target.classList.remove('hidden');
-            }
-
-            const drawer = document.getElementById('drawerMenu');
-            if (!drawer.classList.contains('translate-x-full')) {
-                toggleMenu();
-            }
-
+            if (target) target.classList.remove('hidden');
+            toggleMenu();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Portfolio Category Filter Logic
-        function filterPortfolio(category) {
-            const items = document.querySelectorAll('.portfolio-item');
-            const buttons = document.querySelectorAll('.filter-btn');
+        function switchLanguage(lang) {
+            currentLang = lang;
+            const dict = i18n[lang];
 
-            buttons.forEach(btn => {
+            document.getElementById('langEnBtn').className = lang === 'en' ? 'px-3 py-1 rounded-lg bg-white text-sky-600 transition-all' : 'px-3 py-1 rounded-lg text-white hover:text-sky-200 transition-all';
+            document.getElementById('langArBtn').className = lang === 'ar' ? 'px-3 py-1 rounded-lg bg-white text-sky-600 transition-all' : 'px-3 py-1 rounded-lg text-white hover:text-sky-200 transition-all';
+            
+            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            document.documentElement.setAttribute('lang', lang);
+
+            // تحديث النصوص الثابتة
+            document.getElementById('txt-drawer-name').innerText = dict.drawerName;
+            document.getElementById('txt-drawer-title').innerText = dict.drawerTitle;
+            document.getElementById('txt-drawer-exp').innerText = dict.drawerExp;
+            
+            document.getElementById('nav-home').innerText = dict.navHome;
+            document.getElementById('nav-about').innerText = dict.navAbout;
+            document.getElementById('nav-innovations').innerText = dict.navInnovations;
+            document.getElementById('nav-portfolio').innerText = dict.navPortfolio;
+            document.getElementById('nav-credentials').innerText = dict.navCredentials;
+            document.getElementById('nav-contact').innerText = dict.navContact;
+            document.getElementById('btn-download-cv').innerText = dict.downloadCv;
+
+            document.getElementById('txt-hero-location').innerText = dict.heroLocation;
+            document.getElementById('txt-hero-title').innerText = dict.heroTitle;
+            document.getElementById('btn-hero-portfolio').innerText = dict.heroPortfolioBtn;
+            document.getElementById('btn-hero-contact').innerText = dict.heroContactBtn;
+
+            document.getElementById('txt-about-badge').innerText = dict.aboutBadge;
+            document.getElementById('txt-about-heading').innerText = dict.aboutHeading;
+            document.getElementById('txt-about-desc').innerText = dict.aboutDesc;
+            document.getElementById('txt-about-stat1').innerText = dict.aboutStat1;
+            document.getElementById('txt-about-stat2').innerText = dict.aboutStat2;
+            document.getElementById('txt-about-expertise-title').innerText = dict.aboutExpTitle;
+
+            document.getElementById('txt-res-badge').innerText = dict.resBadge;
+            document.getElementById('txt-res-heading').innerText = dict.resHeading;
+            document.getElementById('txt-res-title1').innerText = dict.resTitle1;
+            document.getElementById('txt-res-desc1').innerText = dict.resDesc1;
+            document.getElementById('txt-res-link1').innerText = dict.resLink1;
+            document.getElementById('txt-res-title2').innerText = dict.resTitle2;
+            document.getElementById('txt-res-desc2').innerText = dict.resDesc2;
+            document.getElementById('txt-res-link2').innerText = dict.resLink2;
+
+            document.getElementById('txt-port-badge').innerText = dict.portBadge;
+            document.getElementById('txt-port-heading').innerText = dict.portHeading;
+            document.getElementById('txt-port-sub').innerText = dict.portSub;
+            document.getElementById('tab-all').innerText = dict.tabAll;
+            document.getElementById('tab-arch').innerText = dict.tabArch;
+            document.getElementById('tab-urban').innerText = dict.tabUrban;
+            document.getElementById('tab-interior').innerText = dict.tabInterior;
+            document.getElementById('tab-innovation').innerText = dict.tabInnovation;
+
+            document.getElementById('txt-cred-badge').innerText = dict.credBadge;
+            document.getElementById('txt-cred-heading').innerText = dict.credHeading;
+            document.getElementById('txt-cred-sub1').innerText = dict.credSub1;
+            document.getElementById('txt-cred-desc1').innerText = dict.credDesc1;
+            document.getElementById('txt-cred-sub2').innerText = dict.credSub2;
+            document.getElementById('txt-cred-desc2').innerText = dict.credDesc2;
+            document.getElementById('txt-cred-title3').innerText = dict.credTitle3;
+            document.getElementById('txt-cred-sub3').innerText = dict.credSub3;
+            document.getElementById('txt-cred-desc3').innerText = dict.credDesc3;
+
+            document.getElementById('txt-contact-heading').innerText = dict.contactHeading;
+            document.getElementById('txt-contact-sub').innerText = dict.contactSub;
+            document.getElementById('btn-contact-wa').innerText = dict.contactWa;
+            document.getElementById('txt-footer-copy').innerText = dict.footerCopy;
+        }
+
+        function filterPortfolio(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
                 if (btn.getAttribute('data-filter') === category) {
                     btn.className = 'filter-btn active-tab px-4 py-2 rounded-xl bg-sky-500 text-white transition-all';
                 } else {
@@ -544,7 +489,7 @@
                 }
             });
 
-            items.forEach(item => {
+            document.querySelectorAll('.portfolio-item').forEach(item => {
                 if (category === 'all' || item.getAttribute('data-category') === category) {
                     item.style.display = 'block';
                 } else {
@@ -552,148 +497,122 @@
                 }
             });
         }
-       document.addEventListener('DOMContentLoaded', async () => {
-        try {
-            const settingsRes = await fetch('/content/settings.json');
-            if (settingsRes.ok) {
-                const settings = await settingsRes.json();
-                
-                if (settings.drawerName_en) i18n.en.drawerName = settings.drawerName_en;
-                if (settings.drawerName_ar) i18n.ar.drawerName = settings.drawerName_ar;
-                if (settings.drawerTitle_en) {
-                    i18n.en.drawerTitle = settings.drawerTitle_en;
-                    i18n.en.heroTitle = settings.drawerTitle_en;
-                }
-                if (settings.drawerTitle_ar) {
-                    i18n.ar.drawerTitle = settings.drawerTitle_ar;
-                    i18n.ar.heroTitle = settings.drawerTitle_ar;
-                }
-                if (settings.heroLocation_en) i18n.en.heroLocation = settings.heroLocation_en;
-                if (settings.heroLocation_ar) i18n.ar.heroLocation = settings.heroLocation_ar;
-                if (settings.drawerExp_en) i18n.en.drawerExp = settings.drawerExp_en;
-                if (settings.drawerExp_ar) i18n.ar.drawerExp = settings.drawerExp_ar;
 
-                // تحديث الصورة الشخصية
-                if (settings.profile_image) {
-                    let imgUrl = (settings.profile_image.startsWith('http') || settings.profile_image.startsWith('/')) ? settings.profile_image : '/' + settings.profile_image;
-                    document.querySelectorAll('img[alt="MOHAMMED BABEKER"]').forEach(img => img.src = imgUrl);
-                }
-
-                // تحديث صورة الغلاف الرئيسية
-                if (settings.hero_bg_image) {
-                    let bgUrl = (settings.hero_bg_image.startsWith('http') || settings.hero_bg_image.startsWith('/')) ? settings.hero_bg_image : '/' + settings.hero_bg_image;
-                    const bgImg = document.querySelector('#home img');
-                    if (bgImg) bgImg.src = bgUrl;
-                }
-
-                // تحديث الواتساب
-                if (settings.whatsapp) {
-                    const cleanNum = settings.whatsapp.replace(/[^0-9]/g, '');
-                    document.querySelectorAll('a[href*="wa.me"]').forEach(a => a.href = `https://wa.me/${cleanNum}`);
-                }
-
-                // تحديث لينكد إن
-                if (settings.linkedin) {
-                    document.querySelectorAll('a[href*="linkedin.com"]').forEach(a => a.href = settings.linkedin);
-                }
-
-                // تحديث الإيميل
-                if (settings.email) {
-                    document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
-                        a.href = `mailto:${settings.email}`;
-                        if (a.textContent.trim().includes('@')) a.textContent = settings.email;
-                    });
-                }
-
-                // تحديث السيرة الذاتية
-                if (settings.cv_file) {
-                    let cvUrl = (settings.cv_file.startsWith('http') || settings.cv_file.startsWith('/')) ? settings.cv_file : '/' + settings.cv_file;
-                    const cvBtn = document.getElementById('btn-download-cv');
-                    if (cvBtn) { cvBtn.href = cvUrl; cvBtn.setAttribute('target', '_blank'); }
-                }
-
-                if (typeof switchLanguage === 'function') switchLanguage(currentLang);
-            }
-
-            // جلب المشاريع
-            const projectsRes = await fetch('/content/projects.json');
-            if (projectsRes.ok) {
-                const projectsData = await projectsRes.json();
-                if (projectsData.items && projectsData.items.length > 0) {
-                    renderProjects(projectsData.items);
-                }
-            }
-        } catch (e) {
-            console.log("Loading static defaults...", e);
+        function renderProjects(items) {
+            const grid = document.getElementById('portfolioGrid');
+            if (!grid || !items) return;
+            
+            grid.innerHTML = items.map(item => `
+                <div class="project-card portfolio-item group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-sky-500/50 transition-all" data-category="${item.category}">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <img src="${item.image}" alt="${item.title_en}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-sky-400 text-[10px] font-bold">
+                            ${currentLang === 'ar' ? item.tag_ar : item.tag_en}
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-base font-bold text-white group-hover:text-sky-400 transition-colors mb-2">
+                            ${currentLang === 'ar' ? item.title_ar : item.title_en}
+                        </h4>
+                        <p class="text-slate-400 text-xs mb-4">
+                            ${currentLang === 'ar' ? item.desc_ar : item.desc_en}
+                        </p>
+                        <a href="${item.link || '#'}" class="text-[11px] font-bold text-sky-400 hover:underline">
+                            ${currentLang === 'ar' ? 'عرض تفاصيل المشروع ←' : 'View Project Details →'}
+                        </a>
+                    </div>
+                </div>
+            `).join('');
         }
-    });
+
+        // جلب البيانات الديناميكية وتطبيقها بسلاسة تامة
         document.addEventListener('DOMContentLoaded', async () => {
-        try {
-            const settingsRes = await fetch('/content/settings.json');
-            if (settingsRes.ok) {
-                const settings = await settingsRes.json();
-                
-                // دالة تصحيح المسار ليعمل مع Vercel
-                const getFullImgPath = (url) => {
-                    if (!url) return '';
-                    if (url.startsWith('http')) return url;
-                    let path = url.startsWith('/') ? url : '/' + url;
-                    if (!path.startsWith('/public/')) {
-                        path = '/public' + path;
+            try {
+                const settingsRes = await fetch('/content/settings.json');
+                if (settingsRes.ok) {
+                    const settings = await settingsRes.json();
+                    
+                    if (settings.drawerName_en) i18n.en.drawerName = settings.drawerName_en;
+                    if (settings.drawerName_ar) i18n.ar.drawerName = settings.drawerName_ar;
+                    if (settings.drawerTitle_en) {
+                        i18n.en.drawerTitle = settings.drawerTitle_en;
+                        i18n.en.heroTitle = settings.drawerTitle_en;
                     }
-                    return path;
-                };
+                    if (settings.drawerTitle_ar) {
+                        i18n.ar.drawerTitle = settings.drawerTitle_ar;
+                        i18n.ar.heroTitle = settings.drawerTitle_ar;
+                    }
+                    if (settings.heroLocation_en) i18n.en.heroLocation = settings.heroLocation_en;
+                    if (settings.heroLocation_ar) i18n.ar.heroLocation = settings.heroLocation_ar;
+                    if (settings.drawerExp_en) i18n.en.drawerExp = settings.drawerExp_en;
+                    if (settings.drawerExp_ar) i18n.ar.drawerExp = settings.drawerExp_ar;
 
-                // 1. تحديث صورة الغلاف الرئيسية
-                if (settings.hero_bg_image) {
-                    const bgImg = document.querySelector('#home img');
-                    if (bgImg) bgImg.src = getFullImgPath(settings.hero_bg_image);
+                    const fixImgUrl = (url) => {
+                        if (!url) return '';
+                        if (url.startsWith('http')) return url;
+                        let path = url.startsWith('/') ? url : '/' + url;
+                        if (!path.startsWith('/public/')) {
+                            path = '/public' + path;
+                        }
+                        return encodeURI(path);
+                    };
+
+                    // تحديث صورة الغلاف الرئيسية مع التلاشي السلس لمنع الوميض
+                    if (settings.hero_bg_image) {
+                        const bgImg = document.getElementById('heroBgImg');
+                        if (bgImg) {
+                            bgImg.src = fixImgUrl(settings.hero_bg_image);
+                            bgImg.onload = () => {
+                                bgImg.classList.remove('opacity-0');
+                            };
+                        }
+                    }
+
+                    // تحديث الصورة الشخصية
+                    if (settings.profile_image) {
+                        const profileImg = document.getElementById('profileImg');
+                        if (profileImg) {
+                            profileImg.src = fixImgUrl(settings.profile_image);
+                        }
+                    }
+
+                    // تحديث روابط التواصل
+                    if (settings.whatsapp) {
+                        const cleanNum = settings.whatsapp.replace(/[^0-9]/g, '');
+                        document.querySelectorAll('a[href*="wa.me"]').forEach(a => a.href = `https://wa.me/${cleanNum}`);
+                    }
+                    if (settings.linkedin) {
+                        document.querySelectorAll('a[href*="linkedin.com"]').forEach(a => a.href = settings.linkedin);
+                    }
+                    if (settings.email) {
+                        document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
+                            a.href = `mailto:${settings.email}`;
+                            if (a.textContent.trim().includes('@')) a.textContent = settings.email;
+                        });
+                    }
+                    if (settings.cv_file) {
+                        const cvBtn = document.getElementById('btn-download-cv');
+                        if (cvBtn) {
+                            cvBtn.href = fixImgUrl(settings.cv_file);
+                            cvBtn.setAttribute('target', '_blank');
+                        }
+                    }
+
+                    switchLanguage(currentLang);
                 }
 
-                // 2. تحديث الصورة الشخصية
-                if (settings.profile_image) {
-                    document.querySelectorAll('img[alt="MOHAMMED BABEKER"]').forEach(img => {
-                        img.src = getFullImgPath(settings.profile_image);
-                    });
-                }
-
-                // 3. تحديث الروابط
-                if (settings.whatsapp) {
-                    const cleanNum = settings.whatsapp.replace(/[^0-9]/g, '');
-                    document.querySelectorAll('a[href*="wa.me"]').forEach(a => a.href = `https://wa.me/${cleanNum}`);
-                }
-                if (settings.linkedin) {
-                    document.querySelectorAll('a[href*="linkedin.com"]').forEach(a => a.href = settings.linkedin);
-                }
-                if (settings.email) {
-                    document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
-                        a.href = `mailto:${settings.email}`;
-                        if (a.textContent.trim().includes('@')) a.textContent = settings.email;
-                    });
-                }
-                if (settings.cv_file) {
-                    const cvBtn = document.getElementById('btn-download-cv');
-                    if (cvBtn) {
-                        cvBtn.href = getFullImgPath(settings.cv_file);
-                        cvBtn.setAttribute('target', '_blank');
+                // جلب المشاريع من ملف JSON
+                const projectsRes = await fetch('/content/projects.json');
+                if (projectsRes.ok) {
+                    const projectsData = await projectsRes.json();
+                    if (projectsData.items && projectsData.items.length > 0) {
+                        renderProjects(projectsData.items);
                     }
                 }
-
-                if (typeof switchLanguage === 'function') switchLanguage(currentLang);
+            } catch (e) {
+                console.log("Loading static defaults...", e);
             }
-
-            // 4. جلب المشاريع
-            const projectsRes = await fetch('/content/projects.json');
-            if (projectsRes.ok) {
-                const projectsData = await projectsRes.json();
-                if (projectsData.items && projectsData.items.length > 0) {
-                    renderProjects(projectsData.items);
-                }
-            }
-        } catch (e) {
-            console.log("Error loading dynamic settings:", e);
-        }
-    });
+        });
     </script>
 </body>
 </html>
