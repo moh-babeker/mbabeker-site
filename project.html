@@ -6,16 +6,52 @@
     <title id="pageTitle">Project Details | MOHAMMED BABEKER</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
     <style>
         body { font-family: 'Plus Jakarta Sans', 'Tajawal', sans-serif; }
         .text-glow { text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7); }
+
+        /* المحتوى الغني القادم من محرر لوحة التحكم */
+        .rich-content { color: rgb(203 213 225); font-size: 0.95rem; line-height: 1.95; }
+        .rich-content h1 { font-size: 1.9rem; font-weight: 900; color: #fff; margin: 2rem 0 1rem; line-height: 1.3; }
+        .rich-content h2 { font-size: 1.5rem; font-weight: 800; color: #fff; margin: 1.75rem 0 .8rem; line-height: 1.35; }
+        .rich-content h3 { font-size: 1.2rem; font-weight: 700; color: #fff; margin: 1.5rem 0 .6rem; }
+        .rich-content p { margin: 0 0 1.1rem; }
+        .rich-content strong { color: #fff; font-weight: 700; }
+        .rich-content a { color: rgb(56 189 248); text-decoration: underline; text-underline-offset: 3px; }
+        .rich-content ul, .rich-content ol { margin: 0 0 1.1rem; padding-inline-start: 1.4rem; }
+        .rich-content ul { list-style: disc; } .rich-content ol { list-style: decimal; }
+        .rich-content li { margin-bottom: .35rem; }
+        .rich-content blockquote { border-inline-start: 3px solid rgb(14 165 233); padding: .25rem 1rem; margin: 1.5rem 0; color: rgb(148 163 184); font-style: italic; }
+        .rich-content hr { border-color: rgb(30 41 59); margin: 2rem 0; }
+        .rich-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .85rem; }
+        .rich-content th, .rich-content td { border: 1px solid rgb(30 41 59); padding: .55rem .75rem; text-align: start; }
+        .rich-content th { background: rgb(15 23 42); color: #fff; }
+        .rich-content::after { content: ""; display: block; clear: both; }
+
+        /* أحجام الصور ومواضعها — تُحدَّد بكلمة في خانة عنوان الصورة داخل المحرر */
+        .rich-content figure { margin: 1.75rem auto; }
+        .rich-content figure img { width: 100%; height: auto; border-radius: 1rem; border: 1px solid rgb(30 41 59); }
+        .rich-content figcaption { text-align: center; font-size: .75rem; color: rgb(100 116 139); margin-top: .6rem; }
+        .rich-content .img-wide  { width: 100%; }
+        .rich-content .img-half  { width: 100%; max-width: 50%; }
+        .rich-content .img-small { width: 100%; max-width: 33%; }
+        .rich-content .img-full  { width: calc(100% + 4rem); max-width: none; margin-inline: -2rem; }
+        .rich-content .img-start { width: 45%; float: inline-start; margin: .4rem 0 1rem; margin-inline-end: 1.5rem; }
+        .rich-content .img-end   { width: 45%; float: inline-end;   margin: .4rem 0 1rem; margin-inline-start: 1.5rem; }
+        @media (max-width: 640px) {
+            .rich-content .img-half, .rich-content .img-small { max-width: 100%; }
+            .rich-content .img-start, .rich-content .img-end { width: 100%; float: none; margin-inline: 0; }
+            .rich-content .img-full { width: calc(100% + 3rem); margin-inline: -1.5rem; }
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500 selection:text-white min-h-[100dvh] flex flex-col justify-between">
 
     <!-- Header -->
     <header class="fixed top-0 left-0 right-0 z-40 bg-slate-950/70 backdrop-blur-md border-b border-slate-800/60 px-4 sm:px-8 py-3 flex justify-between items-center">
-        <a href="index.html" class="text-xs sm:text-lg font-black text-white tracking-wider uppercase whitespace-nowrap">
+        <a href="/" class="text-xs sm:text-lg font-black text-white tracking-wider uppercase whitespace-nowrap">
             MOHAMMED BABEKER<span class="text-sky-500">.</span>
         </a>
         
@@ -26,7 +62,7 @@
                 <button id="langArBtn" onclick="switchLanguage('ar')" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white transition-all">عربي</button>
             </div>
             
-            <a href="index.html" class="px-4 py-1.5 rounded-full bg-sky-500 text-white text-xs font-extrabold hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/25">
+            <a href="/" class="px-4 py-1.5 rounded-full bg-sky-500 text-white text-xs font-extrabold hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/25">
                 <span id="txt-back">← Back to Home</span>
             </a>
         </div>
@@ -63,12 +99,74 @@
             return encodeURI(path);
         }
 
-        function getQueryParams() {
-            const params = new URLSearchParams(window.location.search);
-            return params.get('id');
+        // يقرأ المشروع المطلوب من الرابط النظيف /projects/slug أو من الرابط القديم ?id=p3
+        function getRequestedProject() {
+            const match = window.location.pathname.match(/^\/projects\/([^\/]+)\/?$/);
+            return {
+                slug: match ? decodeURIComponent(match[1]) : null,
+                legacyId: new URLSearchParams(window.location.search).get('id')
+            };
         }
 
+        // تحديد اللغة: اختيار الزائر المحفوظ أولاً، وإلا لغة المتصفح
+        function getInitialLang() {
+            try {
+                const saved = localStorage.getItem('siteLang');
+                if (saved === 'ar' || saved === 'en') return saved;
+            } catch (e) {}
+            const browserLang = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
+            return browserLang.toLowerCase().startsWith('ar') ? 'ar' : 'en';
+        }
+
+        // الكلمة الأولى في عنوان الصورة تحدد حجمها/موضعها، وما بعدها يظهر تعليقاً تحتها
+        const IMG_LAYOUTS = {
+            wide: 'img-wide', full: 'img-full', half: 'img-half', small: 'img-small',
+            right: 'img-end', left: 'img-start', start: 'img-start', end: 'img-end',
+            'عريض': 'img-wide', 'كامل': 'img-full', 'نصف': 'img-half', 'صغير': 'img-small',
+            'يمين': 'img-start', 'يسار': 'img-end'
+        };
+
+        function escapeAttr(str) {
+            return String(str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+        }
+
+        function renderRichText(md) {
+            if (!md) return '';
+            if (typeof marked === 'undefined' || typeof DOMPurify === 'undefined') {
+                // احتياط: لو لم تُحمَّل المكتبات يظهر النص كما هو
+                return `<p class="whitespace-pre-line">${escapeAttr(md)}</p>`;
+            }
+            const renderer = new marked.Renderer();
+            renderer.image = function (href, title, text) {
+                try { href = decodeURI(href); } catch (e) {} // منع الترميز المزدوج لأسماء الصور العربية
+                const words = (title || '').trim().split(/\s+/).filter(Boolean);
+                const layout = IMG_LAYOUTS[(words[0] || '').toLowerCase()];
+                if (layout) words.shift();
+                const caption = words.join(' ');
+                return `<figure class="${layout || 'img-wide'}">` +
+                    `<img src="${escapeAttr(fixImgUrl(href))}" alt="${escapeAttr(text)}" loading="lazy">` +
+                    (caption ? `<figcaption>${escapeAttr(caption)}</figcaption>` : '') +
+                    `</figure>`;
+            };
+            const html = marked.parse(md, { renderer, breaks: true, gfm: true });
+            return DOMPurify.sanitize(html, { ADD_ATTR: ['loading', 'target'] });
+        }
+
+        function renderNotFound() {
+            const ar = currentLang === 'ar';
+            document.getElementById('pageTitle').innerText = (ar ? 'المشروع غير موجود' : 'Project not found') + ' | MOHAMMED BABEKER';
+            document.getElementById('projectContainer').innerHTML = `
+                <div class="text-center py-24">
+                    <p class="text-5xl font-black text-slate-700 mb-4">404</p>
+                    <p class="text-slate-300 mb-6">${ar ? 'لم نعثر على هذا المشروع.' : 'We could not find this project.'}</p>
+                    <a href="/" class="px-5 py-2 rounded-full bg-sky-500 text-white text-xs font-extrabold hover:bg-sky-400 transition-all">${ar ? 'العودة للرئيسية' : 'Back to Home'}</a>
+                </div>`;
+        }
+
+        let projectNotFound = false;
+
         function renderProject() {
+            if (projectNotFound) { renderNotFound(); return; }
             if (!projectData) return;
             const p = projectData;
             const lang = currentLang;
@@ -117,7 +215,7 @@
                 ${fullDesc ? `
                 <div class="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800 mb-10">
                     <h3 class="text-lg font-bold text-white mb-3">${lang === 'ar' ? 'فكرة التصميم والتفاصيل الهندسية' : 'Design Concept & Architectural Details'}</h3>
-                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed whitespace-pre-line">${fullDesc}</p>
+                    <div class="rich-content">${renderRichText(fullDesc)}</div>
                 </div>
                 ` : ''}
 
@@ -142,8 +240,11 @@
             document.getElementById('projectContainer').innerHTML = html;
         }
 
-        function switchLanguage(lang) {
+        function switchLanguage(lang, remember = true) {
             currentLang = lang;
+            if (remember) { try { localStorage.setItem('siteLang', lang); } catch (e) {} }
+            const backText = document.getElementById('txt-back');
+            if (backText) backText.innerText = lang === 'ar' ? '← العودة للرئيسية' : '← Back to Home';
             document.getElementById('langEnBtn').className = lang === 'en' ? 'px-2.5 py-1 rounded-lg bg-sky-500 text-white transition-all' : 'px-2.5 py-1 rounded-lg text-slate-400 hover:text-white transition-all';
             document.getElementById('langArBtn').className = lang === 'ar' ? 'px-2.5 py-1 rounded-lg bg-sky-500 text-white transition-all' : 'px-2.5 py-1 rounded-lg text-slate-400 hover:text-white transition-all';
             
@@ -155,19 +256,30 @@
 
         // Fetch Project Data on Load
         document.addEventListener('DOMContentLoaded', async () => {
-            const projectId = getQueryParams();
+            const lang = getInitialLang();
+            const { slug, legacyId } = getRequestedProject();
             try {
                 const res = await fetch('/content/projects.json');
-                if (res.ok) {
-                    const data = await res.json();
-                    if (data.items) {
-                        projectData = data.items.find(item => item.id === projectId) || data.items[0];
-                        renderProject();
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const data = await res.json();
+                const items = data.items || [];
+                const key = slug || legacyId;
+                projectData = key ? items.find(item => item.slug === key || item.id === key) : null;
+
+                if (!projectData) {
+                    projectNotFound = true;
+                } else {
+                    // الرابط القديم (project.html?id=p3) أو المعرّف (/projects/p3) يتحول للرابط النظيف دون إعادة تحميل
+                    const canonical = '/projects/' + encodeURIComponent(projectData.slug || projectData.id);
+                    if (window.location.pathname + window.location.search !== canonical) {
+                        history.replaceState(null, '', canonical);
                     }
                 }
             } catch (e) {
                 console.log("Error loading project details", e);
+                projectNotFound = true;
             }
+            switchLanguage(lang, false);
         });
     </script>
 </body>

@@ -93,6 +93,12 @@ collections:
             widget: "list"
             fields:
               - { label: "معرف المشروع (ID فريد مثل: p1, p2)", name: "id", widget: "string" }
+              - label: "الرابط النظيف (Slug)"
+                name: "slug"
+                widget: "string"
+                required: false
+                hint: "بالإنجليزية الصغيرة والشرطات فقط، مثل: rural-health-center ← يصبح الرابط mbabeker.com/projects/rural-health-center"
+                pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', "أحرف إنجليزية صغيرة وأرقام وشرطات فقط، بلا مسافات"]
               - { label: "عنوان المشروع (EN)", name: "title_en", widget: "string" }
               - { label: "عنوان المشروع (عربي)", name: "title_ar", widget: "string" }
               - { label: "التصنيف", name: "category", widget: "select", options: ["arch", "urban", "interior", "innovation"] }
@@ -111,8 +117,16 @@ collections:
                 fields:
                   - { label: "صورة", name: "img", widget: "image" }
                   - { label: "تعليق على الصورة (اختياري)", name: "caption", widget: "string", required: false }
-              - { label: "التفاصيل الكاملة / فكرة التصميم (EN)", name: "full_desc_en", widget: "text", required: false }
-              - { label: "التفاصيل الكاملة / فكرة التصميم (عربي)", name: "full_desc_ar", widget: "text", required: false }
+              - label: "التفاصيل الكاملة / فكرة التصميم (EN)"
+                name: "full_desc_en"
+                widget: "markdown"
+                required: false
+                hint: "استخدم العناوين والتنسيق والصور بحرية. لتحديد حجم الصورة اكتب في خانة عنوانها (Title) كلمة: wide (عريض) / full (كامل) / half (نصف) / small (صغير) / right (يمين) / left (يسار) — وما بعدها يظهر تعليقاً تحت الصورة."
+              - label: "التفاصيل الكاملة / فكرة التصميم (عربي)"
+                name: "full_desc_ar"
+                widget: "markdown"
+                required: false
+                hint: "استخدم العناوين والتنسيق والصور بحرية. لتحديد حجم الصورة اكتب في خانة عنوانها (Title) كلمة: wide (عريض) / full (كامل) / half (نصف) / small (صغير) / right (يمين) / left (يسار) — وما بعدها يظهر تعليقاً تحت الصورة."
 
   # 5. الاعتمادات والتراخيص (Credentials)
   - name: "credentials"

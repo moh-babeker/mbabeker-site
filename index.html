@@ -458,8 +458,19 @@
             }
         }
 
-        function switchLanguage(lang) {
+        // تحديد اللغة: اختيار الزائر المحفوظ أولاً، وإلا لغة المتصفح
+        function getInitialLang() {
+            try {
+                const saved = localStorage.getItem('siteLang');
+                if (saved === 'ar' || saved === 'en') return saved;
+            } catch (e) {}
+            const browserLang = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
+            return browserLang.toLowerCase().startsWith('ar') ? 'ar' : 'en';
+        }
+
+        function switchLanguage(lang, remember = true) {
             currentLang = lang;
+            if (remember) { try { localStorage.setItem('siteLang', lang); } catch (e) {} }
             document.getElementById('langEnBtn').className = lang === 'en' ? 'px-3 py-1 rounded-lg bg-white text-sky-600 transition-all' : 'px-3 py-1 rounded-lg text-white hover:text-sky-200 transition-all';
             document.getElementById('langArBtn').className = lang === 'ar' ? 'px-3 py-1 rounded-lg bg-white text-sky-600 transition-all' : 'px-3 py-1 rounded-lg text-white hover:text-sky-200 transition-all';
             
@@ -507,7 +518,7 @@
                         <p class="text-slate-400 text-xs mb-4">
                             ${lang === 'ar' ? item.desc_ar : item.desc_en}
                         </p>
-                        <a href="project.html?id=${item.id}" class="text-[11px] font-bold text-sky-400 hover:underline">
+                        <a href="/projects/${encodeURIComponent(item.slug || item.id)}" class="text-[11px] font-bold text-sky-400 hover:underline">
                             ${lang === 'ar' ? 'عرض تفاصيل المشروع ←' : 'View Project Details →'}
                         </a>
                     </div>
@@ -532,7 +543,7 @@
                 if (projectsRes && projectsRes.ok) siteData.projects = await projectsRes.json();
                 if (credentialsRes && credentialsRes.ok) siteData.credentials = await credentialsRes.json();
 
-                updateContent();
+                switchLanguage(getInitialLang(), false);
             } catch (e) {
                 console.log("Loading static mode...", e);
             }

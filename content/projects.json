@@ -2,6 +2,7 @@
   "items": [
     {
       "id": "p1",
+      "slug": "dubai-2040-urban-furnishing",
       "title_en": "Dubai 2040 Urban Furnishing Project",
       "title_ar": "مشروع أثاث وتخطيط الفضاءات الحضرية - دبي 2040",
       "category": "urban",
@@ -29,6 +30,7 @@
     },
     {
       "id": "p2",
+      "slug": "breathing-flooring-system",
       "title_en": "Sustainable Breathing Flooring System",
       "title_ar": "ابتكار نظام الأرضيات التنفسية المستدامة",
       "category": "innovation",
@@ -47,6 +49,7 @@
     },
     {
       "id": "p3",
+      "slug": "rural-health-center",
       "title_en": "Rural Health Center Project",
       "title_ar": "مشروع المركز الصحي الريفي",
       "category": "arch",
@@ -65,6 +68,7 @@
     },
     {
       "id": "p4",
+      "slug": "test-project",
       "title_en": "gthgtrhrth",
       "title_ar": "فااقفففففففففففففففففف",
       "category": "arch",
