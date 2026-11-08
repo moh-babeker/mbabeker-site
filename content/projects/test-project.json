@@ -1,0 +1,27 @@
+{
+  "ar": {
+    "title": "فااقفففففففففففففففففف",
+    "slug": "test-project",
+    "legacy_id": "p4",
+    "category": "healthcare",
+    "order": 4,
+    "published": true,
+    "year": "",
+    "cover": "/public/images/hc.webp",
+    "client": "",
+    "location": "",
+    "summary": "ثقالقثلاقثق",
+    "body": "",
+    "gallery": [],
+    "seo_description": ""
+  },
+  "en": {
+    "title": "gthgtrhrth",
+    "client": "",
+    "location": "",
+    "summary": "htrryjyjyj",
+    "body": "",
+    "gallery": [],
+    "seo_description": ""
+  }
+}

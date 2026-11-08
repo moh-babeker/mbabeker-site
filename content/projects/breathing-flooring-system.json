@@ -1,0 +1,27 @@
+{
+  "ar": {
+    "title": "ابتكار نظام الأرضيات التنفسية المستدامة",
+    "slug": "breathing-flooring-system",
+    "legacy_id": "p2",
+    "category": "innovation",
+    "order": 2,
+    "published": true,
+    "year": "",
+    "cover": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+    "client": "",
+    "location": "",
+    "summary": "بلاط تبليط خارجي متطور لتشتيت الحرارة وتجميع مياه الأمطار.",
+    "body": "",
+    "gallery": [],
+    "seo_description": ""
+  },
+  "en": {
+    "title": "Sustainable Breathing Flooring System",
+    "client": "",
+    "location": "",
+    "summary": "Advanced outdoor paving tiles for optimal heat dissipation and rainwater collection.",
+    "body": "",
+    "gallery": [],
+    "seo_description": ""
+  }
+}

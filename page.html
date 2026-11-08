@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Page | MOHAMMED BABEKER</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+    <link rel="stylesheet" href="/assets/rich-content.css">
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500 selection:text-white min-h-[100dvh] flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-slate-950/70 backdrop-blur-md border-b border-slate-800/60 px-4 sm:px-8 py-3 flex justify-between items-center">
+        <a href="/" class="text-xs sm:text-lg font-black text-white tracking-wider uppercase whitespace-nowrap">
+            MOHAMMED BABEKER<span class="text-sky-500">.</span>
+        </a>
+        
+        <div class="flex items-center gap-3">
+            <!-- Language Switcher -->
+            <div class="inline-flex bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs font-bold">
+                <button id="langEnBtn" onclick="switchLanguage('en')" class="px-2.5 py-1 rounded-lg bg-sky-500 text-white transition-all">EN</button>
+                <button id="langArBtn" onclick="switchLanguage('ar')" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white transition-all">عربي</button>
+            </div>
+            
+            <a href="/" class="px-4 py-1.5 rounded-full bg-sky-500 text-white text-xs font-extrabold hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/25">
+                <span id="txt-back">← Back to Home</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-24 sm:pt-28 pb-16 px-4 sm:px-6 max-w-5xl mx-auto w-full">
+        <div id="projectContainer">
+            <!-- Dynamic Project Content Rendered Here -->
+            <div class="text-center py-20">
+                <div class="inline-block w-8 h-8 border-4 border-sky-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+                <p class="text-slate-400 text-sm">Loading...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-900 py-5 text-center text-xs text-slate-600">
+        <p>© 2026 MOHAMMED BABEKER. All rights reserved.</p>
+    </footer>
+
+    <script src="/assets/site.js"></script>
+    <script>
+        // الصفحات المستقلة التي تُنشأ من لوحة التحكم: mbabeker.com/اسم-الصفحة
+        let currentLang = Site.getInitialLang();
+        let rawPage = null;
+        let notFound = false;
+
+        function render() {
+            const lang = currentLang;
+            const box = document.getElementById('projectContainer');
+            if (notFound) {
+                Site.setMeta(lang === 'ar' ? 'الصفحة غير موجودة' : 'Page not found');
+                box.innerHTML = Site.notFoundHTML(lang, { ar: 'هذه الصفحة', en: 'page' });
+                return;
+            }
+            if (!rawPage) return;
+            const e = Site.esc;
+            const p = Site.localize(rawPage, lang);
+            Site.setMeta(p.title, p.seo_description);
+            box.innerHTML = `
+                <h1 class="text-2xl sm:text-4xl md:text-5xl font-black text-white mb-8 leading-tight">${e(p.title)}</h1>
+                ${p.cover ? `<div class="rounded-3xl overflow-hidden border border-slate-800 shadow-2xl mb-10 bg-slate-900"><img src="${e(Site.fixImgUrl(p.cover))}" alt="${e(p.title)}" class="w-full h-auto"></div>` : ''}
+                <div class="rich-content max-w-3xl mx-auto">${Site.renderRichText(p.body)}</div>
+            `;
+        }
+
+        function switchLanguage(lang, remember = true) {
+            currentLang = lang;
+            if (remember) Site.rememberLang(lang);
+            Site.applyDir(lang);
+            render();
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const slug = decodeURIComponent(location.pathname.replace(/^\/+|\/+$/g, ''));
+            try {
+                const index = await Site.getJSON('/content/_index/pages.json');
+                const entry = slug && index.find(it => it.slug === slug);
+                if (!entry) notFound = true;
+                else rawPage = await Site.getJSON('/content/pages/' + encodeURIComponent(entry.file));
+            } catch (err) {
+                console.log('Error loading page', err);
+                notFound = true;
+            }
+            switchLanguage(currentLang, false);
+        });
+    </script>
+</body>
+</html>

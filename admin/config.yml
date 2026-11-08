@@ -1,12 +1,236 @@
 backend:
   name: github
   repo: moh-babeker/mbabeker-site
-  branch: main
+  branch: feature/pro-cms   # مؤقت للمعاينة — يُعاد إلى main عند الدمج
 
 media_folder: "public/images"
 public_folder: "/public/images"
 
+# اللغات: كل مدخل يُكتب في تبويبين (العربية أولاً)
+i18n:
+  structure: single_file
+  locales: [ar, en]
+  default_locale: ar
+
 collections:
+  # ================================================================
+  # المشاريع — كل مشروع مدخل مستقل (مثل مقالات وردبريس)
+  # ================================================================
+  - name: "projects"
+    label: "المشاريع"
+    label_singular: "مشروع"
+    description: "أضف مشروعاً جديداً أو عدّل مشروعاً قائماً. الحقول المترجمة تظهر في تبويبَي العربية والإنجليزية."
+    icon: "apartment"
+    folder: "content/projects"
+    extension: "json"
+    format: "json"
+    create: true
+    delete: true
+    i18n: true
+    identifier_field: "slug"
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    thumbnail: "cover"
+    sortable_fields: ["order", "title", "year"]
+    view_groups:
+      - { label: "التصنيف", field: "category" }
+      - { label: "حالة النشر", field: "published" }
+    fields:
+      - label: "عنوان المشروع"
+        name: "title"
+        widget: "string"
+        i18n: true
+        required: [ar]
+      - label: "الرابط النظيف"
+        name: "slug"
+        widget: "string"
+        hint: "بالإنجليزية الصغيرة والشرطات، مثل: rural-health-center ← mbabeker.com/projects/rural-health-center"
+        pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', "أحرف إنجليزية صغيرة وأرقام وشرطات فقط، بلا مسافات"]
+      - label: "منشور في الموقع"
+        name: "published"
+        widget: "boolean"
+        default: true
+        hint: "أطفئه ليبقى المشروع مسودة لا تظهر للزوار"
+      - label: "التصنيف"
+        name: "category"
+        widget: "relation"
+        collection: "taxonomy"
+        file: "categories"
+        value_field: "items.*.key"
+        display_fields: ["items.*.name_ar"]
+        search_fields: ["items.*.name_ar", "items.*.name_en"]
+        hint: "تُدار التصنيفات من قسم «تصنيفات المشاريع»، ويمكن اختيار تصنيف رئيسي أو فرعي"
+      - label: "ترتيب الظهور"
+        name: "order"
+        widget: "number"
+        value_type: "int"
+        required: false
+        default: 10
+        hint: "الرقم الأصغر يظهر أولاً في معرض الأعمال"
+      - label: "صورة الغلاف"
+        name: "cover"
+        widget: "image"
+        hint: "تظهر في بطاقة المشروع وأعلى صفحته"
+      - label: "وصف قصير للبطاقة"
+        name: "summary"
+        widget: "text"
+        i18n: true
+        required: false
+      - label: "سنة التنفيذ"
+        name: "year"
+        widget: "string"
+        required: false
+      - label: "العميل / الجهة"
+        name: "client"
+        widget: "string"
+        i18n: true
+        required: false
+      - label: "الموقع الجغرافي"
+        name: "location"
+        widget: "string"
+        i18n: true
+        required: false
+      - label: "المحتوى التفصيلي"
+        name: "body"
+        widget: "markdown"
+        i18n: true
+        required: false
+        buttons: [bold, italic, link, heading-one, heading-two, heading-three, quote, bulleted-list, numbered-list, code]
+        editor_components: [image]
+        hint: "لحجم الصورة أو موضعها اكتب في خانة عنوانها (Title) كلمة: wide (عريض) / full (كامل) / half (نصف) / small (صغير) / right (يمين) / left (يسار)، وما بعدها يظهر تعليقاً تحت الصورة"
+      - label: "معرض الصور"
+        name: "gallery"
+        widget: "list"
+        i18n: duplicate
+        required: false
+        summary: "{{fields.caption}}"
+        fields:
+          - { label: "صورة", name: "img", widget: "image", i18n: duplicate }
+          - { label: "تعليق على الصورة", name: "caption", widget: "string", i18n: true, required: false }
+      - label: "وصف محركات البحث (SEO)"
+        name: "seo_description"
+        widget: "text"
+        i18n: true
+        required: false
+        hint: "جملة أو جملتان تظهران في نتائج جوجل"
+      - { name: "legacy_id", widget: "hidden", required: false }
+
+  # ================================================================
+  # تصنيفات المشاريع — تبويبات معرض الأعمال (قابلة للإضافة والحذف والترتيب)
+  # ================================================================
+  - name: "taxonomy"
+    label: "تصنيفات المشاريع"
+    icon: "category"
+    description: "هذه هي تبويبات معرض الأعمال. اسحب لإعادة الترتيب، واختر «التصنيف الأب» لتجعل التصنيف فرعياً داخل تبويب آخر."
+    files:
+      - name: "categories"
+        label: "قائمة التصنيفات"
+        file: "content/categories.json"
+        fields:
+          - label: "التصنيفات"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.name_ar}} — {{fields.name_en}}"
+            hint: "ترتيب القائمة هنا هو ترتيب التبويبات في الموقع. تبويب «الكل» ثابت دائماً."
+            fields:
+              - { label: "الاسم (عربي)", name: "name_ar", widget: "string" }
+              - { label: "الاسم (English)", name: "name_en", widget: "string" }
+              - label: "المعرّف"
+                name: "key"
+                widget: "string"
+                hint: "كلمة إنجليزية قصيرة فريدة، مثل: healthcare — لا تغيّرها بعد ربط مشاريع بها"
+                pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', "أحرف إنجليزية صغيرة وأرقام وشرطات فقط"]
+              - label: "التصنيف الأب (اختياري)"
+                name: "parent"
+                widget: "relation"
+                collection: "taxonomy"
+                file: "categories"
+                value_field: "items.*.key"
+                display_fields: ["items.*.name_ar"]
+                search_fields: ["items.*.name_ar", "items.*.name_en"]
+                required: false
+                hint: "اتركه فارغاً ليكون تبويباً رئيسياً، أو اختر تبويباً ليظهر هذا التصنيف داخله"
+
+  # ================================================================
+  # المقالات
+  # ================================================================
+  - name: "articles"
+    label: "المقالات"
+    label_singular: "مقال"
+    description: "مقالات وأخبار تظهر على mbabeker.com/articles"
+    icon: "article"
+    folder: "content/articles"
+    extension: "json"
+    format: "json"
+    create: true
+    delete: true
+    i18n: true
+    identifier_field: "slug"
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    thumbnail: "cover"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "عنوان المقال", name: "title", widget: "string", i18n: true, required: [ar] }
+      - label: "الرابط النظيف"
+        name: "slug"
+        widget: "string"
+        hint: "بالإنجليزية الصغيرة والشرطات، مثل: green-urban-floors ← mbabeker.com/articles/green-urban-floors"
+        pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', "أحرف إنجليزية صغيرة وأرقام وشرطات فقط، بلا مسافات"]
+      - { label: "منشور في الموقع", name: "published", widget: "boolean", default: true }
+      - { label: "تاريخ النشر", name: "date", widget: "datetime", time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD" }
+      - { label: "التصنيف", name: "category", widget: "string", i18n: true, required: false }
+      - { label: "صورة الغلاف", name: "cover", widget: "image", required: false }
+      - { label: "مقتطف قصير", name: "excerpt", widget: "text", i18n: true, required: false, hint: "يظهر في قائمة المقالات" }
+      - label: "نص المقال"
+        name: "body"
+        widget: "markdown"
+        i18n: true
+        required: false
+        buttons: [bold, italic, link, heading-one, heading-two, heading-three, quote, bulleted-list, numbered-list, code]
+        editor_components: [image]
+        hint: "لحجم الصورة اكتب في خانة عنوانها: wide / full / half / small / right / left"
+      - { label: "وصف محركات البحث (SEO)", name: "seo_description", widget: "text", i18n: true, required: false }
+
+  # ================================================================
+  # الصفحات المستقلة
+  # ================================================================
+  - name: "pages"
+    label: "الصفحات"
+    label_singular: "صفحة"
+    description: "صفحات مستقلة مثل الخدمات أو سياسة الخصوصية، رابطها mbabeker.com/اسم-الصفحة"
+    icon: "description"
+    folder: "content/pages"
+    extension: "json"
+    format: "json"
+    create: true
+    delete: true
+    i18n: true
+    identifier_field: "slug"
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    sortable_fields: ["menu_order", "title"]
+    fields:
+      - { label: "عنوان الصفحة", name: "title", widget: "string", i18n: true, required: [ar] }
+      - label: "الرابط النظيف"
+        name: "slug"
+        widget: "string"
+        hint: "بالإنجليزية الصغيرة والشرطات، مثل: services ← mbabeker.com/services"
+        pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', "أحرف إنجليزية صغيرة وأرقام وشرطات فقط، بلا مسافات"]
+      - { label: "منشورة في الموقع", name: "published", widget: "boolean", default: true }
+      - { label: "إظهارها في القائمة الجانبية", name: "show_in_menu", widget: "boolean", default: false }
+      - { label: "ترتيبها في القائمة", name: "menu_order", widget: "number", value_type: "int", required: false, default: 10 }
+      - { label: "صورة الغلاف (اختيارية)", name: "cover", widget: "image", required: false }
+      - label: "محتوى الصفحة"
+        name: "body"
+        widget: "markdown"
+        i18n: true
+        required: false
+        buttons: [bold, italic, link, heading-one, heading-two, heading-three, quote, bulleted-list, numbered-list, code]
+        editor_components: [image]
+        hint: "لحجم الصورة اكتب في خانة عنوانها: wide / full / half / small / right / left"
+      - { label: "وصف محركات البحث (SEO)", name: "seo_description", widget: "text", i18n: true, required: false }
+
   # 1. إعدادات الموقع العامة والتواصل
   - name: "settings"
     label: "إعدادات الموقع والنصوص"
@@ -79,54 +303,6 @@ collections:
               - { label: "نص الرابط (EN)", name: "link_text_en", widget: "string" }
               - { label: "نص الرابط (عربي)", name: "link_text_ar", widget: "string" }
               - { label: "رابط التفاصيل", name: "url", widget: "string", required: false }
-
-  # 4. معرض المشاريع (Portfolio & Rich Details)
-  - name: "projects"
-    label: "معرض المشاريع المعمارية"
-    files:
-      - file: "content/projects.json"
-        label: "قائمة المشاريع وتفاصيلها الغنية"
-        name: "projects_list"
-        fields:
-          - label: "المشاريع"
-            name: "items"
-            widget: "list"
-            fields:
-              - { label: "معرف المشروع (ID فريد مثل: p1, p2)", name: "id", widget: "string" }
-              - label: "الرابط النظيف (Slug)"
-                name: "slug"
-                widget: "string"
-                required: false
-                hint: "بالإنجليزية الصغيرة والشرطات فقط، مثل: rural-health-center ← يصبح الرابط mbabeker.com/projects/rural-health-center"
-                pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', "أحرف إنجليزية صغيرة وأرقام وشرطات فقط، بلا مسافات"]
-              - { label: "عنوان المشروع (EN)", name: "title_en", widget: "string" }
-              - { label: "عنوان المشروع (عربي)", name: "title_ar", widget: "string" }
-              - { label: "التصنيف", name: "category", widget: "select", options: ["arch", "urban", "interior", "innovation"] }
-              - { label: "اسم التصنيف للعرض (EN)", name: "tag_en", widget: "string" }
-              - { label: "اسم التصنيف للعرض (عربي)", name: "tag_ar", widget: "string" }
-              - { label: "وصف قصير للبطاقة (EN)", name: "desc_en", widget: "text" }
-              - { label: "وصف قصير للبطاقة (عربي)", name: "desc_ar", widget: "text" }
-              - { label: "صورة الغلاف الرئيسية (Thumbnail)", name: "image", widget: "image" }
-              - { label: "سنة التنفيذ (مثال: 2026)", name: "year", widget: "string", required: false }
-              - { label: "العميل / الجهة (اختياري)", name: "client", widget: "string", required: false }
-              - { label: "الموقع الجغرافي للمشروع (اختياري)", name: "location", widget: "string", required: false }
-              - label: "معرض الصور التفصيلي للمشروع (صور متعددة)"
-                name: "gallery"
-                widget: "list"
-                required: false
-                fields:
-                  - { label: "صورة", name: "img", widget: "image" }
-                  - { label: "تعليق على الصورة (اختياري)", name: "caption", widget: "string", required: false }
-              - label: "التفاصيل الكاملة / فكرة التصميم (EN)"
-                name: "full_desc_en"
-                widget: "markdown"
-                required: false
-                hint: "استخدم العناوين والتنسيق والصور بحرية. لتحديد حجم الصورة اكتب في خانة عنوانها (Title) كلمة: wide (عريض) / full (كامل) / half (نصف) / small (صغير) / right (يمين) / left (يسار) — وما بعدها يظهر تعليقاً تحت الصورة."
-              - label: "التفاصيل الكاملة / فكرة التصميم (عربي)"
-                name: "full_desc_ar"
-                widget: "markdown"
-                required: false
-                hint: "استخدم العناوين والتنسيق والصور بحرية. لتحديد حجم الصورة اكتب في خانة عنوانها (Title) كلمة: wide (عريض) / full (كامل) / half (نصف) / small (صغير) / right (يمين) / left (يسار) — وما بعدها يظهر تعليقاً تحت الصورة."
 
   # 5. الاعتمادات والتراخيص (Credentials)
   - name: "credentials"

@@ -1,0 +1,16 @@
+{
+  "ar": {
+    "title": "صفحة تجريبية",
+    "slug": "test-page",
+    "published": true,
+    "show_in_menu": false,
+    "menu_order": 10,
+    "cover": "",
+    "body": "## صفحة مستقلة\n\nهذه صفحة أُنشئت من لوحة التحكم. يمكنك حذفها.",
+    "seo_description": ""
+  },
+  "en": {
+    "title": "Test page",
+    "body": "## Standalone page\n\nThis page was created from the dashboard. You can delete it."
+  }
+}

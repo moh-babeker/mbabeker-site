@@ -1,0 +1,19 @@
+{
+  "ar": {
+    "title": "مقال تجريبي",
+    "slug": "test-article",
+    "published": true,
+    "date": "2026-11-08",
+    "category": "تجربة",
+    "cover": "/public/images/landscape.webp",
+    "excerpt": "مقال لاختبار المحرر الغني — يمكنك حذفه من لوحة التحكم.",
+    "body": "## عنوان من المستوى الثاني\n\nفقرة **بخط عريض** وأخرى *مائلة*.\n\n![واجهة](/public/images/hc.webp \"right صورة بجانب النص\")\n\nنص يلتف حول الصورة الموضوعة على الجانب.\n\n### عنوان من المستوى الثالث\n\n- بند أول\n- بند ثانٍ\n\n![منظر](/public/images/landscape.webp \"full صورة بعرض كامل\")",
+    "seo_description": ""
+  },
+  "en": {
+    "title": "Test article",
+    "excerpt": "An article to test the rich editor — you can delete it from the dashboard.",
+    "body": "## Heading level two\n\nSome **bold** and *italic* text.\n\n![Facade](/public/images/hc.webp \"right Image beside the text\")\n\nText wraps around the floated image.",
+    "category": "Test"
+  }
+}
