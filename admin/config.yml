@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: moh-babeker/mbabeker-site
-  branch: feature/pro-cms   # مؤقت للمعاينة — يُعاد إلى main عند الدمج
+  branch: main
 
 media_folder: "public/images"
 public_folder: "/public/images"
