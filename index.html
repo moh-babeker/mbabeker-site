@@ -504,7 +504,7 @@
             const lang = currentLang;
             
             grid.innerHTML = items.map(item => `
-                <div class="project-card portfolio-item group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-sky-500/50 transition-all" data-category="${item.category}">
+                <a href="/projects/${encodeURIComponent(item.slug || item.id)}" class="project-card portfolio-item group block cursor-pointer rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-sky-500/50 transition-all" data-category="${item.category}">
                     <div class="h-48 bg-slate-800 relative overflow-hidden">
                         <img src="${fixImgUrl(item.image)}" alt="${item.title_en}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-sky-400 text-[10px] font-bold">
@@ -518,11 +518,11 @@
                         <p class="text-slate-400 text-xs mb-4">
                             ${lang === 'ar' ? item.desc_ar : item.desc_en}
                         </p>
-                        <a href="/projects/${encodeURIComponent(item.slug || item.id)}" class="text-[11px] font-bold text-sky-400 hover:underline">
+                        <span class="text-[11px] font-bold text-sky-400 group-hover:underline">
                             ${lang === 'ar' ? 'عرض تفاصيل المشروع ←' : 'View Project Details →'}
-                        </a>
+                        </span>
                     </div>
-                </div>
+                </a>
             `).join('');
         }
 
