@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Articles | MOHAMMED BABEKER</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+    <link rel="stylesheet" href="/assets/rich-content.css">
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500 selection:text-white min-h-[100dvh] flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-slate-950/70 backdrop-blur-md border-b border-slate-800/60 px-4 sm:px-8 py-3 flex justify-between items-center">
+        <a href="/" class="text-xs sm:text-lg font-black text-white tracking-wider uppercase whitespace-nowrap">
+            MOHAMMED BABEKER<span class="text-sky-500">.</span>
+        </a>
+        
+        <div class="flex items-center gap-3">
+            <!-- Language Switcher -->
+            <div class="inline-flex bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs font-bold">
+                <button id="langEnBtn" onclick="switchLanguage('en')" class="px-2.5 py-1 rounded-lg bg-sky-500 text-white transition-all">EN</button>
+                <button id="langArBtn" onclick="switchLanguage('ar')" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white transition-all">عربي</button>
+            </div>
+            
+            <a href="/" class="px-4 py-1.5 rounded-full bg-sky-500 text-white text-xs font-extrabold hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/25">
+                <span id="txt-back">← Back to Home</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-24 sm:pt-28 pb-16 px-4 sm:px-6 max-w-5xl mx-auto w-full">
+        <div id="projectContainer">
+            <!-- Dynamic Project Content Rendered Here -->
+            <div class="text-center py-20">
+                <div class="inline-block w-8 h-8 border-4 border-sky-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+                <p class="text-slate-400 text-sm">Loading...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-900 py-5 text-center text-xs text-slate-600">
+        <p>© 2026 MOHAMMED BABEKER. All rights reserved.</p>
+    </footer>
+
+    <script src="/assets/site.js"></script>
+    <script>
+        // صفحة واحدة تعرض قائمة المقالات (/articles) أو مقالاً واحداً (/articles/slug)
+        let currentLang = Site.getInitialLang();
+        let index = [];
+        let rawArticle = null;
+        let slug = null;
+        let notFound = false;
+
+        function renderList(lang) {
+            const e = Site.esc;
+            Site.setMeta(lang === 'ar' ? 'المقالات' : 'Articles');
+            const items = index.map(it => ({ slug: it.slug, ...Site.localize(it, lang) }));
+            return `
+                <div class="mb-10">
+                    <span class="text-xs font-bold uppercase tracking-wider text-sky-500 block mb-1">${lang === 'ar' ? 'المدونة' : 'JOURNAL'}</span>
+                    <h1 class="text-2xl sm:text-4xl font-black text-white">${lang === 'ar' ? 'المقالات' : 'Articles'}</h1>
+                </div>
+                ${items.length ? `<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    ${items.map(a => `
+                    <a href="/articles/${encodeURIComponent(a.slug)}" class="group block rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-sky-500/50 transition-all">
+                        ${a.cover ? `<div class="h-48 overflow-hidden"><img src="${e(Site.fixImgUrl(a.cover))}" alt="${e(a.title)}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>` : ''}
+                        <div class="p-5">
+                            <div class="text-[11px] text-slate-500 mb-2">${e(Site.formatDate(a.date, lang))}${a.category ? ' · ' + e(a.category) : ''}</div>
+                            <h2 class="text-lg font-bold text-white group-hover:text-sky-400 transition-colors mb-2">${e(a.title)}</h2>
+                            ${a.excerpt ? `<p class="text-slate-400 text-xs leading-relaxed">${e(a.excerpt)}</p>` : ''}
+                        </div>
+                    </a>`).join('')}
+                </div>` : `<p class="text-slate-400 text-center py-16">${lang === 'ar' ? 'لا توجد مقالات منشورة بعد.' : 'No articles published yet.'}</p>`}
+            `;
+        }
+
+        function renderArticle(lang) {
+            const e = Site.esc;
+            const a = Site.localize(rawArticle, lang);
+            Site.setMeta(a.title, a.seo_description || a.excerpt);
+            return `
+                <article>
+                    <a href="/articles" class="text-xs font-bold text-sky-400 hover:underline">${lang === 'ar' ? '→ كل المقالات' : '← All articles'}</a>
+                    <div class="text-[11px] text-slate-500 mt-6 mb-3">${e(Site.formatDate(a.date, lang))}${a.category ? ' · ' + e(a.category) : ''}</div>
+                    <h1 class="text-2xl sm:text-4xl md:text-5xl font-black text-white mb-6 leading-tight">${e(a.title)}</h1>
+                    ${a.excerpt ? `<p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">${e(a.excerpt)}</p>` : ''}
+                    ${a.cover ? `<div class="rounded-3xl overflow-hidden border border-slate-800 shadow-2xl mb-10 bg-slate-900"><img src="${e(Site.fixImgUrl(a.cover))}" alt="${e(a.title)}" class="w-full h-auto"></div>` : ''}
+                    <div class="rich-content max-w-3xl mx-auto">${Site.renderRichText(a.body)}</div>
+                </article>
+            `;
+        }
+
+        function render() {
+            const lang = currentLang;
+            const box = document.getElementById('projectContainer');
+            if (notFound) {
+                Site.setMeta(lang === 'ar' ? 'المقال غير موجود' : 'Article not found');
+                box.innerHTML = Site.notFoundHTML(lang, { ar: 'هذا المقال', en: 'article' });
+            } else if (slug) {
+                if (rawArticle) box.innerHTML = renderArticle(lang);
+            } else {
+                box.innerHTML = renderList(lang);
+            }
+        }
+
+        function switchLanguage(lang, remember = true) {
+            currentLang = lang;
+            if (remember) Site.rememberLang(lang);
+            Site.applyDir(lang);
+            render();
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const match = location.pathname.match(/^\/articles\/([^\/]+)\/?$/);
+            slug = match ? decodeURIComponent(match[1]) : null;
+            try {
+                index = await Site.getJSON('/content/_index/articles.json');
+                if (slug) {
+                    const entry = index.find(it => it.slug === slug);
+                    if (!entry) notFound = true;
+                    else rawArticle = await Site.getJSON('/content/articles/' + encodeURIComponent(entry.file));
+                }
+            } catch (err) {
+                console.log('Error loading articles', err);
+                notFound = !!slug;
+            }
+            switchLanguage(currentLang, false);
+        });
+    </script>
+</body>
+</html>

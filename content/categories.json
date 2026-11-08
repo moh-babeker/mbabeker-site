@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "key": "arch",
+      "name_ar": "تصميم معماري",
+      "name_en": "Architecture",
+      "parent": ""
+    },
+    {
+      "key": "urban",
+      "name_ar": "تخطيط حضري",
+      "name_en": "Urban Planning",
+      "parent": ""
+    },
+    {
+      "key": "interior",
+      "name_ar": "تصميم داخلي",
+      "name_en": "Interior Design",
+      "parent": ""
+    },
+    {
+      "key": "innovation",
+      "name_ar": "ابتكارات",
+      "name_en": "Innovations",
+      "parent": ""
+    },
+    {
+      "key": "healthcare",
+      "name_ar": "مبانٍ صحية",
+      "name_en": "Healthcare",
+      "parent": "arch"
+    }
+  ]
+}

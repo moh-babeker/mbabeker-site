@@ -70,6 +70,7 @@
                 <a href="javascript:void(0)" onclick="showPage('portfolio')" id="nav-portfolio" class="py-2 rounded-lg hover:bg-white/10 transition-colors">Portfolio</a>
                 <a href="javascript:void(0)" onclick="showPage('credentials')" id="nav-credentials" class="py-2 rounded-lg hover:bg-white/10 transition-colors">Credentials</a>
                 <a href="javascript:void(0)" onclick="showPage('contact')" id="nav-contact" class="py-2 rounded-lg hover:bg-white/10 transition-colors">Contact</a>
+                <div id="extraNav" class="flex flex-col space-y-2"></div>
             </nav>
         </div>
 
@@ -195,14 +196,9 @@
                     <p id="txt-port-sub" class="text-slate-400 text-xs mt-2 md:mt-0 max-w-md">Filter portfolio items by category:</p>
                 </div>
 
-                <!-- Filter Category Tabs -->
-                <div class="flex flex-wrap gap-2 mb-8 text-xs font-bold">
-                    <button onclick="filterPortfolio('all')" id="tab-all" class="filter-btn active-tab px-4 py-2 rounded-xl bg-sky-500 text-white transition-all" data-filter="all">All</button>
-                    <button onclick="filterPortfolio('arch')" id="tab-arch" class="filter-btn px-4 py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-filter="arch">Architecture</button>
-                    <button onclick="filterPortfolio('urban')" id="tab-urban" class="filter-btn px-4 py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-filter="urban">Urban Planning</button>
-                    <button onclick="filterPortfolio('interior')" id="tab-interior" class="filter-btn px-4 py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-filter="interior">Interior Design</button>
-                    <button onclick="filterPortfolio('innovation')" id="tab-innovation" class="filter-btn px-4 py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-filter="innovation">Innovations</button>
-                </div>
+                <!-- Filter Category Tabs (تُبنى ديناميكياً من «تصنيفات المشاريع» في لوحة التحكم) -->
+                <div id="portfolioTabs" class="flex flex-wrap gap-2 mb-3 text-xs font-bold"></div>
+                <div id="portfolioSubTabs" class="flex flex-wrap gap-2 mb-8 text-[11px] font-bold"></div>
 
                 <!-- Projects Grid -->
                 <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -258,9 +254,11 @@
 
 
     <!-- ==================== JAVASCRIPT & LANGUAGE DICTIONARY ==================== -->
+    <script src="/assets/site.js"></script>
     <script>
         let currentLang = 'en';
-        let siteData = { settings: null, about: null, innovations: null, projects: null, credentials: null };
+        let siteData = { settings: null, about: null, innovations: null, projects: [], categories: [], articles: [], pages: [], credentials: null };
+        let activeCat = 'all', activeSub = null;
 
         const i18n = {
             en: {
@@ -345,11 +343,6 @@
             document.getElementById('nav-contact').innerText = ui.navContact;
             document.getElementById('btn-download-cv').innerText = ui.downloadCv;
             document.getElementById('txt-port-sub').innerText = ui.portSub;
-            document.getElementById('tab-all').innerText = ui.tabAll;
-            document.getElementById('tab-arch').innerText = ui.tabArch;
-            document.getElementById('tab-urban').innerText = ui.tabUrban;
-            document.getElementById('tab-interior').innerText = ui.tabInterior;
-            document.getElementById('tab-innovation').innerText = ui.tabInnovation;
             document.getElementById('txt-contact-heading').innerText = ui.contactHeading;
             document.getElementById('txt-contact-sub').innerText = ui.contactSub;
             document.getElementById('btn-contact-wa').innerText = ui.contactWa;
@@ -434,12 +427,12 @@
             }
 
             // 4. Portfolio Data
-            const proj = siteData.projects;
-            if (proj && proj.items) {
-                document.getElementById('txt-port-badge').innerText = lang === 'ar' ? "معرض الأعمال" : "SHOWCASE";
-                document.getElementById('txt-port-heading').innerText = lang === 'ar' ? "المشاريع المختارة" : "Selected Projects";
-                renderProjects(proj.items);
-            }
+            document.getElementById('txt-port-badge').innerText = lang === 'ar' ? "معرض الأعمال" : "SHOWCASE";
+            document.getElementById('txt-port-heading').innerText = lang === 'ar' ? "المشاريع المختارة" : "Selected Projects";
+            renderPortfolio();
+
+            // روابط المقالات والصفحات في القائمة الجانبية
+            renderExtraNav();
 
             // 5. Credentials Data (100% Dynamic Loop)
             const cred = siteData.credentials;
@@ -480,61 +473,126 @@
             updateContent();
         }
 
-        function filterPortfolio(category) {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                if (btn.getAttribute('data-filter') === category) {
-                    btn.className = 'filter-btn active-tab px-4 py-2 rounded-xl bg-sky-500 text-white transition-all';
-                } else {
-                    btn.className = 'filter-btn px-4 py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all';
-                }
-            });
+        // ===== معرض الأعمال: تبويبات هرمية من لوحة التحكم =====
+        const TAB_ON = 'px-4 py-2 rounded-xl bg-sky-500 text-white transition-all';
+        const TAB_OFF = 'px-4 py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all';
+        const SUB_ON = 'px-3 py-1.5 rounded-lg bg-sky-500/20 text-sky-300 border border-sky-500/40 transition-all';
+        const SUB_OFF = 'px-3 py-1.5 rounded-lg text-slate-400 border border-slate-800 hover:text-white transition-all';
 
-            document.querySelectorAll('.portfolio-item').forEach(item => {
-                if (category === 'all' || item.getAttribute('data-category') === category) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
+        function catName(c) {
+            return currentLang === 'ar' ? c.name_ar : (c.name_en || c.name_ar);
+        }
+
+        // يعيد التصنيف الرئيسي الذي يتفرع منه أي تصنيف (يدعم أكثر من مستوى)
+        function rootOf(key) {
+            const cats = siteData.categories;
+            let c = cats.find(x => x.key === key), guard = 0;
+            while (c && c.parent && guard++ < 10) {
+                const p = cats.find(x => x.key === c.parent);
+                if (!p) break;
+                c = p;
+            }
+            return c ? c.key : key;
+        }
+
+        function childrenOf(key) {
+            return siteData.categories.filter(c => c.parent === key);
+        }
+
+        function isUnder(itemKey, ancestorKey) {
+            let k = itemKey, guard = 0;
+            while (k && guard++ < 10) {
+                if (k === ancestorKey) return true;
+                const c = siteData.categories.find(x => x.key === k);
+                k = c ? c.parent : null;
+            }
+            return false;
+        }
+
+        function filterPortfolio(cat, sub = null) {
+            activeCat = cat;
+            activeSub = sub;
+            renderPortfolio();
+        }
+
+        function renderPortfolio() {
+            const ui = i18n[currentLang];
+            const tabs = document.getElementById('portfolioTabs');
+            const subTabs = document.getElementById('portfolioSubTabs');
+            const roots = siteData.categories.filter(c => !c.parent || !siteData.categories.some(p => p.key === c.parent));
+
+            if (activeCat !== 'all' && !roots.some(r => r.key === activeCat)) { activeCat = 'all'; activeSub = null; }
+
+            tabs.innerHTML = `<button onclick="filterPortfolio('all')" class="${activeCat === 'all' ? TAB_ON : TAB_OFF}">${ui.tabAll}</button>` +
+                roots.map(c => `<button onclick="filterPortfolio('${Site.esc(c.key)}')" class="${activeCat === c.key ? TAB_ON : TAB_OFF}">${Site.esc(catName(c))}</button>`).join('');
+
+            const subs = activeCat === 'all' ? [] : childrenOf(activeCat);
+            subTabs.innerHTML = subs.length
+                ? `<button onclick="filterPortfolio('${Site.esc(activeCat)}')" class="${!activeSub ? SUB_ON : SUB_OFF}">${ui.tabAll}</button>` +
+                  subs.map(c => `<button onclick="filterPortfolio('${Site.esc(activeCat)}', '${Site.esc(c.key)}')" class="${activeSub === c.key ? SUB_ON : SUB_OFF}">${Site.esc(catName(c))}</button>`).join('')
+                : '';
+
+            const items = siteData.projects.filter(it => {
+                const k = it.ar.category;
+                if (activeCat === 'all') return true;
+                return isUnder(k, activeSub || activeCat);
             });
+            renderProjects(items);
         }
 
         function renderProjects(items) {
             const grid = document.getElementById('portfolioGrid');
-            if (!grid || !items) return;
+            if (!grid) return;
             const lang = currentLang;
-            
-            grid.innerHTML = items.map(item => `
-                <a href="/projects/${encodeURIComponent(item.slug || item.id)}" class="project-card portfolio-item group block cursor-pointer rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-sky-500/50 transition-all" data-category="${item.category}">
+            const e = Site.esc;
+            if (!items.length) {
+                grid.innerHTML = `<p class="col-span-full text-center text-slate-500 text-sm py-16">${lang === 'ar' ? 'لا توجد مشاريع في هذا التصنيف بعد.' : 'No projects in this category yet.'}</p>`;
+                return;
+            }
+            grid.innerHTML = items.map(it => {
+                const p = Site.localize(it, lang);
+                const cat = siteData.categories.find(c => c.key === p.category);
+                return `
+                <a href="/projects/${encodeURIComponent(it.slug)}" class="project-card portfolio-item group block cursor-pointer rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-sky-500/50 transition-all">
                     <div class="h-48 bg-slate-800 relative overflow-hidden">
-                        <img src="${fixImgUrl(item.image)}" alt="${item.title_en}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-sky-400 text-[10px] font-bold">
-                            ${lang === 'ar' ? item.tag_ar : item.tag_en}
-                        </span>
+                        ${p.cover ? `<img src="${e(Site.fixImgUrl(p.cover))}" alt="${e(p.title)}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">` : ''}
+                        ${cat ? `<span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-sky-400 text-[10px] font-bold">${e(catName(cat))}</span>` : ''}
                     </div>
                     <div class="p-5">
-                        <h4 class="text-base font-bold text-white group-hover:text-sky-400 transition-colors mb-2">
-                            ${lang === 'ar' ? item.title_ar : item.title_en}
-                        </h4>
-                        <p class="text-slate-400 text-xs mb-4">
-                            ${lang === 'ar' ? item.desc_ar : item.desc_en}
-                        </p>
+                        <h4 class="text-base font-bold text-white group-hover:text-sky-400 transition-colors mb-2">${e(p.title)}</h4>
+                        ${p.summary ? `<p class="text-slate-400 text-xs mb-4">${e(p.summary)}</p>` : ''}
                         <span class="text-[11px] font-bold text-sky-400 group-hover:underline">
                             ${lang === 'ar' ? 'عرض تفاصيل المشروع ←' : 'View Project Details →'}
                         </span>
                     </div>
-                </a>
-            `).join('');
+                </a>`;
+            }).join('');
+        }
+
+        function renderExtraNav() {
+            const box = document.getElementById('extraNav');
+            if (!box) return;
+            const lang = currentLang;
+            const links = [];
+            if (siteData.articles.length) links.push({ href: '/articles', label: lang === 'ar' ? 'المقالات' : 'Articles' });
+            siteData.pages.filter(p => p.ar.show_in_menu).forEach(p => {
+                links.push({ href: '/' + encodeURIComponent(p.slug), label: Site.localize(p, lang).title });
+            });
+            box.innerHTML = links.map(l => `<a href="${l.href}" class="py-2 rounded-lg hover:bg-white/10 transition-colors">${Site.esc(l.label)}</a>`).join('');
         }
 
         // Fetch All JSON Content on Load
         document.addEventListener('DOMContentLoaded', async () => {
             try {
-                const [settingsRes, aboutRes, innovationsRes, projectsRes, credentialsRes] = await Promise.all([
+                const [settingsRes, aboutRes, innovationsRes, projectsRes, credentialsRes, categoriesRes, articlesRes, pagesRes] = await Promise.all([
                     fetch('/content/settings.json').catch(() => null),
                     fetch('/content/about.json').catch(() => null),
                     fetch('/content/innovations.json').catch(() => null),
-                    fetch('/content/projects.json').catch(() => null),
-                    fetch('/content/credentials.json').catch(() => null)
+                    fetch('/content/_index/projects.json').catch(() => null),
+                    fetch('/content/credentials.json').catch(() => null),
+                    fetch('/content/categories.json').catch(() => null),
+                    fetch('/content/_index/articles.json').catch(() => null),
+                    fetch('/content/_index/pages.json').catch(() => null)
                 ]);
 
                 if (settingsRes && settingsRes.ok) siteData.settings = await settingsRes.json();
@@ -542,6 +600,9 @@
                 if (innovationsRes && innovationsRes.ok) siteData.innovations = await innovationsRes.json();
                 if (projectsRes && projectsRes.ok) siteData.projects = await projectsRes.json();
                 if (credentialsRes && credentialsRes.ok) siteData.credentials = await credentialsRes.json();
+                if (categoriesRes && categoriesRes.ok) siteData.categories = ((await categoriesRes.json()).items || []).filter(c => c && c.key);
+                if (articlesRes && articlesRes.ok) siteData.articles = await articlesRes.json();
+                if (pagesRes && pagesRes.ok) siteData.pages = await pagesRes.json();
 
                 switchLanguage(getInitialLang(), false);
             } catch (e) {

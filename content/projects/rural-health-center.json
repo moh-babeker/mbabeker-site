@@ -1,0 +1,27 @@
+{
+  "ar": {
+    "title": "مشروع المركز الصحي الريفي",
+    "slug": "rural-health-center",
+    "legacy_id": "p3",
+    "category": "arch",
+    "order": 3,
+    "published": true,
+    "year": "",
+    "cover": "https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?auto=format&fit=crop&w=800&q=80",
+    "client": "",
+    "location": "",
+    "summary": "استشارات معمارية متكاملة توازن بين تدفق العمل الطبي والسياق المحلي.",
+    "body": "",
+    "gallery": [],
+    "seo_description": ""
+  },
+  "en": {
+    "title": "Rural Health Center Project",
+    "client": "",
+    "location": "",
+    "summary": "Comprehensive architectural consultancy balancing medical workflow and local context. hhhhhh",
+    "body": "",
+    "gallery": [],
+    "seo_description": ""
+  }
+}

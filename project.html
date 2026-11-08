@@ -8,44 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
-    <style>
-        body { font-family: 'Plus Jakarta Sans', 'Tajawal', sans-serif; }
-        .text-glow { text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7); }
-
-        /* المحتوى الغني القادم من محرر لوحة التحكم */
-        .rich-content { color: rgb(203 213 225); font-size: 0.95rem; line-height: 1.95; }
-        .rich-content h1 { font-size: 1.9rem; font-weight: 900; color: #fff; margin: 2rem 0 1rem; line-height: 1.3; }
-        .rich-content h2 { font-size: 1.5rem; font-weight: 800; color: #fff; margin: 1.75rem 0 .8rem; line-height: 1.35; }
-        .rich-content h3 { font-size: 1.2rem; font-weight: 700; color: #fff; margin: 1.5rem 0 .6rem; }
-        .rich-content p { margin: 0 0 1.1rem; }
-        .rich-content strong { color: #fff; font-weight: 700; }
-        .rich-content a { color: rgb(56 189 248); text-decoration: underline; text-underline-offset: 3px; }
-        .rich-content ul, .rich-content ol { margin: 0 0 1.1rem; padding-inline-start: 1.4rem; }
-        .rich-content ul { list-style: disc; } .rich-content ol { list-style: decimal; }
-        .rich-content li { margin-bottom: .35rem; }
-        .rich-content blockquote { border-inline-start: 3px solid rgb(14 165 233); padding: .25rem 1rem; margin: 1.5rem 0; color: rgb(148 163 184); font-style: italic; }
-        .rich-content hr { border-color: rgb(30 41 59); margin: 2rem 0; }
-        .rich-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .85rem; }
-        .rich-content th, .rich-content td { border: 1px solid rgb(30 41 59); padding: .55rem .75rem; text-align: start; }
-        .rich-content th { background: rgb(15 23 42); color: #fff; }
-        .rich-content::after { content: ""; display: block; clear: both; }
-
-        /* أحجام الصور ومواضعها — تُحدَّد بكلمة في خانة عنوان الصورة داخل المحرر */
-        .rich-content figure { margin: 1.75rem auto; }
-        .rich-content figure img { width: 100%; height: auto; border-radius: 1rem; border: 1px solid rgb(30 41 59); }
-        .rich-content figcaption { text-align: center; font-size: .75rem; color: rgb(100 116 139); margin-top: .6rem; }
-        .rich-content .img-wide  { width: 100%; }
-        .rich-content .img-half  { width: 100%; max-width: 50%; }
-        .rich-content .img-small { width: 100%; max-width: 33%; }
-        .rich-content .img-full  { width: calc(100% + 4rem); max-width: none; margin-inline: -2rem; }
-        .rich-content .img-start { width: 45%; float: inline-start; margin: .4rem 0 1rem; margin-inline-end: 1.5rem; }
-        .rich-content .img-end   { width: 45%; float: inline-end;   margin: .4rem 0 1rem; margin-inline-start: 1.5rem; }
-        @media (max-width: 640px) {
-            .rich-content .img-half, .rich-content .img-small { max-width: 100%; }
-            .rich-content .img-start, .rich-content .img-end { width: 100%; float: none; margin-inline: 0; }
-            .rich-content .img-full { width: calc(100% + 3rem); margin-inline: -1.5rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/rich-content.css">
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500 selection:text-white min-h-[100dvh] flex flex-col justify-between">
 
@@ -85,201 +48,105 @@
     </footer>
 
     <!-- JavaScript Engine for Project Details -->
+    <script src="/assets/site.js"></script>
     <script>
-        let currentLang = 'en';
-        let projectData = null;
+        let currentLang = Site.getInitialLang();
+        let rawProject = null;      // ملف المشروع كما تحفظه لوحة التحكم ({ar, en})
+        let categories = [];
+        let notFound = false;
 
-        function fixImgUrl(url) {
-            if (!url) return '';
-            if (url.startsWith('http')) return url;
-            let path = url.startsWith('/') ? url : '/' + url;
-            if (!path.startsWith('/public/')) {
-                path = '/public' + path;
-            }
-            return encodeURI(path);
+        function categoryName(key, lang) {
+            const c = categories.find(x => x.key === key);
+            return c ? (lang === 'ar' ? c.name_ar : (c.name_en || c.name_ar)) : '';
         }
-
-        // يقرأ المشروع المطلوب من الرابط النظيف /projects/slug أو من الرابط القديم ?id=p3
-        function getRequestedProject() {
-            const match = window.location.pathname.match(/^\/projects\/([^\/]+)\/?$/);
-            return {
-                slug: match ? decodeURIComponent(match[1]) : null,
-                legacyId: new URLSearchParams(window.location.search).get('id')
-            };
-        }
-
-        // تحديد اللغة: اختيار الزائر المحفوظ أولاً، وإلا لغة المتصفح
-        function getInitialLang() {
-            try {
-                const saved = localStorage.getItem('siteLang');
-                if (saved === 'ar' || saved === 'en') return saved;
-            } catch (e) {}
-            const browserLang = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
-            return browserLang.toLowerCase().startsWith('ar') ? 'ar' : 'en';
-        }
-
-        // الكلمة الأولى في عنوان الصورة تحدد حجمها/موضعها، وما بعدها يظهر تعليقاً تحتها
-        const IMG_LAYOUTS = {
-            wide: 'img-wide', full: 'img-full', half: 'img-half', small: 'img-small',
-            right: 'img-end', left: 'img-start', start: 'img-start', end: 'img-end',
-            'عريض': 'img-wide', 'كامل': 'img-full', 'نصف': 'img-half', 'صغير': 'img-small',
-            'يمين': 'img-start', 'يسار': 'img-end'
-        };
-
-        function escapeAttr(str) {
-            return String(str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
-        }
-
-        function renderRichText(md) {
-            if (!md) return '';
-            if (typeof marked === 'undefined' || typeof DOMPurify === 'undefined') {
-                // احتياط: لو لم تُحمَّل المكتبات يظهر النص كما هو
-                return `<p class="whitespace-pre-line">${escapeAttr(md)}</p>`;
-            }
-            const renderer = new marked.Renderer();
-            renderer.image = function (href, title, text) {
-                try { href = decodeURI(href); } catch (e) {} // منع الترميز المزدوج لأسماء الصور العربية
-                const words = (title || '').trim().split(/\s+/).filter(Boolean);
-                const layout = IMG_LAYOUTS[(words[0] || '').toLowerCase()];
-                if (layout) words.shift();
-                const caption = words.join(' ');
-                return `<figure class="${layout || 'img-wide'}">` +
-                    `<img src="${escapeAttr(fixImgUrl(href))}" alt="${escapeAttr(text)}" loading="lazy">` +
-                    (caption ? `<figcaption>${escapeAttr(caption)}</figcaption>` : '') +
-                    `</figure>`;
-            };
-            const html = marked.parse(md, { renderer, breaks: true, gfm: true });
-            return DOMPurify.sanitize(html, { ADD_ATTR: ['loading', 'target'] });
-        }
-
-        function renderNotFound() {
-            const ar = currentLang === 'ar';
-            document.getElementById('pageTitle').innerText = (ar ? 'المشروع غير موجود' : 'Project not found') + ' | MOHAMMED BABEKER';
-            document.getElementById('projectContainer').innerHTML = `
-                <div class="text-center py-24">
-                    <p class="text-5xl font-black text-slate-700 mb-4">404</p>
-                    <p class="text-slate-300 mb-6">${ar ? 'لم نعثر على هذا المشروع.' : 'We could not find this project.'}</p>
-                    <a href="/" class="px-5 py-2 rounded-full bg-sky-500 text-white text-xs font-extrabold hover:bg-sky-400 transition-all">${ar ? 'العودة للرئيسية' : 'Back to Home'}</a>
-                </div>`;
-        }
-
-        let projectNotFound = false;
 
         function renderProject() {
-            if (projectNotFound) { renderNotFound(); return; }
-            if (!projectData) return;
-            const p = projectData;
             const lang = currentLang;
+            const box = document.getElementById('projectContainer');
+            if (notFound) {
+                Site.setMeta(lang === 'ar' ? 'المشروع غير موجود' : 'Project not found');
+                box.innerHTML = Site.notFoundHTML(lang, { ar: 'هذا المشروع', en: 'project' });
+                return;
+            }
+            if (!rawProject) return;
+            const p = Site.localize(rawProject, lang);
+            const e = Site.esc;
+            const tag = categoryName(p.category, lang) || (lang === 'ar' ? 'مشروع' : 'Project');
+            Site.setMeta(p.title, p.seo_description || p.summary);
 
-            document.getElementById('txt-back').innerText = lang === 'ar' ? '← العودة للرئيسية' : '← Back to Home';
+            const meta = [
+                [lang === 'ar' ? 'سنة التنفيذ' : 'Year', p.year],
+                [lang === 'ar' ? 'العميل' : 'Client', p.client],
+                [lang === 'ar' ? 'الموقع' : 'Location', p.location]
+            ].filter(m => m[1]);
 
-            const title = lang === 'ar' ? p.title_ar : p.title_en;
-            const tag = lang === 'ar' ? p.tag_ar : p.tag_en;
-            const desc = lang === 'ar' ? p.desc_ar : p.desc_en;
-            const fullDesc = lang === 'ar' ? p.full_desc_ar : p.full_desc_en;
-
-            document.getElementById('pageTitle').innerText = `${title} | MOHAMMED BABEKER`;
-
-            let html = `
-                <!-- Project Header Meta -->
+            box.innerHTML = `
                 <div class="mb-8">
-                    <span class="inline-block px-3.5 py-1 rounded-full bg-sky-500/25 border border-sky-400/40 text-sky-300 text-xs font-bold mb-3">
-                        ${tag || 'Architecture'}
-                    </span>
-                    <h1 class="text-2xl sm:text-4xl md:text-5xl font-black text-white mb-4 leading-tight">${title}</h1>
-                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">${desc}</p>
-                    
-                    <!-- Meta Grid (Year, Client, Location) -->
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-sky-500/25 border border-sky-400/40 text-sky-300 text-xs font-bold mb-3">${e(tag)}</span>
+                    <h1 class="text-2xl sm:text-4xl md:text-5xl font-black text-white mb-4 leading-tight">${e(p.title)}</h1>
+                    ${p.summary ? `<p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">${e(p.summary)}</p>` : ''}
+                    ${meta.length ? `
                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800 text-xs">
-                        <div>
-                            <span class="text-slate-500 block mb-0.5">${lang === 'ar' ? 'سنة التنفيذ' : 'Execution Year'}</span>
-                            <span class="text-white font-bold">${p.year || '2026'}</span>
-                        </div>
-                        <div>
-                            <span class="text-slate-500 block mb-0.5">${lang === 'ar' ? 'العميل' : 'Client'}</span>
-                            <span class="text-white font-bold">${p.client || (lang === 'ar' ? 'قطاع خاص / حكومي' : 'Private / Government')}</span>
-                        </div>
-                        <div class="col-span-2 sm:col-span-1">
-                            <span class="text-slate-500 block mb-0.5">${lang === 'ar' ? 'الموقع' : 'Location'}</span>
-                            <span class="text-white font-bold">${p.location || (lang === 'ar' ? 'الرياض، السعودية' : 'Riyadh, KSA')}</span>
-                        </div>
-                    </div>
+                        ${meta.map(m => `<div><span class="text-slate-500 block mb-0.5">${m[0]}</span><span class="text-white font-bold">${e(m[1])}</span></div>`).join('')}
+                    </div>` : ''}
                 </div>
 
-                <!-- Main Hero Image -->
+                ${p.cover ? `
                 <div class="rounded-3xl overflow-hidden border border-slate-800 shadow-2xl mb-10 h-72 sm:h-[450px] bg-slate-900">
-                    <img src="${fixImgUrl(p.image)}" alt="${title}" class="w-full h-full object-cover">
-                </div>
+                    <img src="${e(Site.fixImgUrl(p.cover))}" alt="${e(p.title)}" class="w-full h-full object-cover">
+                </div>` : ''}
 
-                <!-- Full Narrative Description -->
-                ${fullDesc ? `
+                ${p.body ? `
                 <div class="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800 mb-10">
-                    <h3 class="text-lg font-bold text-white mb-3">${lang === 'ar' ? 'فكرة التصميم والتفاصيل الهندسية' : 'Design Concept & Architectural Details'}</h3>
-                    <div class="rich-content">${renderRichText(fullDesc)}</div>
-                </div>
-                ` : ''}
+                    <div class="rich-content">${Site.renderRichText(p.body)}</div>
+                </div>` : ''}
 
-                <!-- Gallery Section (Multiple Images) -->
-                ${p.gallery && p.gallery.length > 0 ? `
+                ${Array.isArray(p.gallery) && p.gallery.length ? `
                 <div class="mb-10">
                     <h3 class="text-lg font-extrabold text-white mb-6">${lang === 'ar' ? 'معرض الصور واللقطات الهندسية' : 'Project Gallery & Visuals'}</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        ${p.gallery.map(g => `
+                        ${p.gallery.filter(g => g && g.img).map(g => `
                             <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 group">
                                 <div class="h-64 sm:h-72 overflow-hidden">
-                                    <img src="${fixImgUrl(g.img)}" alt="Gallery item" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                    <img src="${e(Site.fixImgUrl(g.img))}" alt="${e(g.caption || p.title)}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                 </div>
-                                ${g.caption ? `<div class="p-3 text-center text-slate-400 text-xs font-medium">${g.caption}</div>` : ''}
-                            </div>
-                        `).join('')}
+                                ${g.caption ? `<div class="p-3 text-center text-slate-400 text-xs font-medium">${e(g.caption)}</div>` : ''}
+                            </div>`).join('')}
                     </div>
-                </div>
-                ` : ''}
+                </div>` : ''}
             `;
-
-            document.getElementById('projectContainer').innerHTML = html;
         }
 
         function switchLanguage(lang, remember = true) {
             currentLang = lang;
-            if (remember) { try { localStorage.setItem('siteLang', lang); } catch (e) {} }
-            const backText = document.getElementById('txt-back');
-            if (backText) backText.innerText = lang === 'ar' ? '← العودة للرئيسية' : '← Back to Home';
-            document.getElementById('langEnBtn').className = lang === 'en' ? 'px-2.5 py-1 rounded-lg bg-sky-500 text-white transition-all' : 'px-2.5 py-1 rounded-lg text-slate-400 hover:text-white transition-all';
-            document.getElementById('langArBtn').className = lang === 'ar' ? 'px-2.5 py-1 rounded-lg bg-sky-500 text-white transition-all' : 'px-2.5 py-1 rounded-lg text-slate-400 hover:text-white transition-all';
-            
-            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-            document.documentElement.setAttribute('lang', lang);
-
+            if (remember) Site.rememberLang(lang);
+            Site.applyDir(lang);
             renderProject();
         }
 
-        // Fetch Project Data on Load
         document.addEventListener('DOMContentLoaded', async () => {
-            const lang = getInitialLang();
-            const { slug, legacyId } = getRequestedProject();
+            const match = location.pathname.match(/^\/projects\/([^\/]+)\/?$/);
+            const key = match ? decodeURIComponent(match[1]) : new URLSearchParams(location.search).get('id');
             try {
-                const res = await fetch('/content/projects.json');
-                if (!res.ok) throw new Error('HTTP ' + res.status);
-                const data = await res.json();
-                const items = data.items || [];
-                const key = slug || legacyId;
-                projectData = key ? items.find(item => item.slug === key || item.id === key) : null;
-
-                if (!projectData) {
-                    projectNotFound = true;
+                const [index, cats] = await Promise.all([
+                    Site.getJSON('/content/_index/projects.json'),
+                    Site.getJSON('/content/categories.json').catch(() => ({ items: [] }))
+                ]);
+                categories = cats.items || [];
+                // يقبل الرابط النظيف، أو المعرّف القديم (p3) لدعم الروابط القديمة
+                const entry = key && index.find(it => it.slug === key || it.ar.legacy_id === key);
+                if (!entry) {
+                    notFound = true;
                 } else {
-                    // الرابط القديم (project.html?id=p3) أو المعرّف (/projects/p3) يتحول للرابط النظيف دون إعادة تحميل
-                    const canonical = '/projects/' + encodeURIComponent(projectData.slug || projectData.id);
-                    if (window.location.pathname + window.location.search !== canonical) {
-                        history.replaceState(null, '', canonical);
-                    }
+                    rawProject = await Site.getJSON('/content/projects/' + encodeURIComponent(entry.file));
+                    const canonical = '/projects/' + entry.slug;
+                    if (location.pathname + location.search !== canonical) history.replaceState(null, '', canonical);
                 }
-            } catch (e) {
-                console.log("Error loading project details", e);
-                projectNotFound = true;
+            } catch (err) {
+                console.log('Error loading project', err);
+                notFound = true;
             }
-            switchLanguage(lang, false);
+            switchLanguage(currentLang, false);
         });
     </script>
 </body>
