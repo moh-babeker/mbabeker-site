@@ -97,4 +97,14 @@ fs.writeFileSync(path.join(OUT, 'projects.json'), JSON.stringify(projects));
 fs.writeFileSync(path.join(OUT, 'articles.json'), JSON.stringify(articles));
 fs.writeFileSync(path.join(OUT, 'pages.json'), JSON.stringify(pages));
 
+// خريطة الموقع لمحركات البحث
+const SITE = 'https://mbabeker.com';
+const urls = ['/', ...(articles.length ? ['/articles'] : []),
+  ...projects.map(p => '/projects/' + p.slug),
+  ...articles.map(a => '/articles/' + a.slug),
+  ...pages.map(p => '/' + p.slug)];
+fs.writeFileSync(path.join(ROOT, 'sitemap.xml'),
+  '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+  urls.map(u => `  <url><loc>${SITE}${u}</loc></url>`).join('\n') + '\n</urlset>\n');
+
 console.log(`✅ تم البناء: ${projects.length} مشروع، ${articles.length} مقال، ${pages.length} صفحة`);
