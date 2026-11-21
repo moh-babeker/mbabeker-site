@@ -26,34 +26,46 @@
         "text": "تلتف فراغات المركز حول فناء مزروع بالأعشاب العطرية والطبية، يعمل رئةً للتبريد السلبي ومساحةً للراحة النفسية للمرضى والزوار. وتعلو الأسطحَ ألواحٌ شمسية تحقق للمركز استقلالاً كاملاً في الطاقة."
       },
       {
+        "img": "/public/images/projects/rural-health-center/interior-courtyard.webp",
+        "size": "side",
+        "caption": "قلب المركز",
+        "text": "تنفتح الصيدلية والعيادة وغرفة الطبيب وسائر الفراغات على الفناء المزروع، فيصبح محوراً للحركة والانتظار تحت مظلات خشبية تخفّف حدّة الشمس وتسمح بمرور الهواء."
+      },
+      {
         "img": "/public/images/projects/rural-health-center/interior-education.webp",
         "size": "side",
         "caption": "مساحة التوعية الصحية",
         "text": "مساحة شبه مفتوحة ومظللة تُعقد فيها جلسات موسمية للتوعية بالنظافة والوقاية من الأمراض كالكوليرا والملاريا، وبالاستخدامات العلاجية للنباتات المزروعة في الموقع، فتتعزّز العلاقة بين المركز وسكان القرية."
       },
       {
-        "img": "/public/images/projects/rural-health-center/interior-courtyard.webp",
+        "img": "/public/images/projects/rural-health-center/systems-diagram.webp",
         "size": "side",
-        "caption": "التهوية الطبيعية",
-        "text": "وُزّعت فتحات التهوية بعناية لتسمح بخروج الهواء الساخن ودخول الهواء البارد عبر الفناء، فيتجدّد الهواء داخل الغرف دون أنظمة تكييف ميكانيكية، بينما تخفّف المظلات الخشبية حدّة الشمس."
+        "caption": "منظومة الطاقة والمياه",
+        "text": "**الطاقة الشمسية (الخط الأحمر):** 18 لوحاً كهروضوئياً بمقاس 0.5 × 1.0 م تنتج نحو 3.2 كيلوواط ساعة يومياً، مع بطاريات في غرفة تخزين مهوّاة لتشغيل الإضاءة والتبريد والأجهزة الطبية الأساسية.\n\n**مياه الأمطار (الخط الأزرق):** تُجمع من أسطح الزنك عبر مزاريب ومرشحات شبكية إلى خزان ثنائي الحجرات سعته 5,400 لتر (1.8 × 2.0 × 1.5 م)، مرتفع 0.5 م ليغذّي دورات المياه والوضوء والري بالجاذبية، مع فتحة صيانة خارجية لإزالة الرواسب."
+      },
+      {
+        "img": "/public/images/projects/rural-health-center/rammed-earth-process.webp",
+        "size": "side",
+        "caption": "التربة المدكوكة وأسقف الزنك",
+        "text": "تُبنى الجدران بدكّ التربة المحلية طبقةً فوق طبقة داخل قوالب خشبية، على أساسات ترابية سطحية وبحدّ أدنى من الإسمنت، بينما تُغطّى الفراغات بألواح زنك معزولة خفيفة الوزن. ويشارك أفراد المجتمع في البناء، فتنخفض تكلفة العمالة ويتعزّز شعورهم بملكية المشروع."
       },
       {
         "img": "/public/images/projects/rural-health-center/facade-side.webp",
         "size": "side",
-        "caption": "مواد محلية وطاقة نظيفة",
-        "text": "جدران من التربة المدكوكة بحدّ أدنى من الإسمنت وأساسات ترابية سطحية، و18 لوحاً شمسياً تنتج نحو 3.2 كيلوواط ساعة يومياً مع بطاريات تخزين لتشغيل الإضاءة والتبريد والأجهزة الطبية الأساسية."
+        "caption": "واجهات تستجيب للمناخ",
+        "text": "تحمي البروزات العميقة للأسطح والكاسرات الخشبية الجدرانَ والنوافذ من أشعة الشمس المباشرة، بينما تدخل الإضاءة الطبيعية والهواء من الفتحات العلوية أسفل الأسطح."
       },
       {
         "img": "/public/images/projects/rural-health-center/exterior-front.webp",
         "size": "side",
         "caption": "الشمول والتكلفة",
-        "text": "وصول شامل لذوي الإعاقة عبر منحدر المدخل ودورة مياه مهيّأة، وعناصر مدرّة للدخل كالصيدلية والمشتل. التكلفة التقديرية **11,550–13,000 دولار**، بمواد محلية ومشاركة المجتمع في البناء."
+        "text": "وصول شامل لذوي الإعاقة عبر منحدر المدخل ودورة مياه مهيّأة، وعناصر مدرّة للدخل كالصيدلية والمشتل. التكلفة التقديرية **11,550–13,000 دولار**، بمواد محلية تقلّل التكلفة والبصمة الكربونية."
       },
       {
         "img": "/public/images/projects/rural-health-center/section-a-a.webp",
         "size": "wide",
-        "caption": "القطاع A-A: حركة الهواء وتجميع المياه",
-        "text": "يجمع خزان مرتفع ثنائي الحجرات سعته نحو **5,400 لتر** مياه الأمطار من الأسطح عبر مزاريب ومرشحات شبكية، ويغذّي بالجاذبية الوضوءَ ودورات المياه والري، بينما يُعاد استخدام المياه الرمادية عبر نظام ترسيب بسيط منخفض الصيانة."
+        "caption": "القطاع A-A: التهوية الطبيعية",
+        "text": "يخرج الهواء الساخن من الفتحات العلوية في أعلى الجدران، ويدخل الهواء البارد عبر الفناء المزروع ليتجدّد داخل الغرف دون أي تكييف ميكانيكي."
       }
     ],
     "seo_description": "المركز الصحي الريفي — مقترح تصميمي من المعماري محمد بابكر لمركز صحي مستدام من التربة المدكوكة في منطقة الساحل الإفريقي، بالطاقة الشمسية وتجميع مياه الأمطار."
@@ -78,34 +90,46 @@
         "text": "The spaces wrap around a courtyard planted with aromatic and medicinal herbs, acting as a passive cooling lung and a place of psychological relief. Solar panels on the roofs give the center full energy independence."
       },
       {
+        "img": "/public/images/projects/rural-health-center/interior-courtyard.webp",
+        "size": "side",
+        "caption": "The heart of the center",
+        "text": "The pharmacy, clinic, doctor's room and other spaces open onto the planted courtyard, making it the hub of movement and waiting beneath timber pergolas that soften the sun and let air pass through."
+      },
+      {
         "img": "/public/images/projects/rural-health-center/interior-education.webp",
         "size": "side",
         "caption": "Community health education",
         "text": "A shaded semi-open space hosting seasonal sessions on sanitation, disease prevention such as cholera and malaria, and the medicinal uses of the plants grown on site — strengthening the bond between the center and the village."
       },
       {
-        "img": "/public/images/projects/rural-health-center/interior-courtyard.webp",
+        "img": "/public/images/projects/rural-health-center/systems-diagram.webp",
         "size": "side",
-        "caption": "Natural ventilation",
-        "text": "Carefully placed openings let warm air escape and cool air enter through the courtyard, refreshing the rooms without mechanical cooling, while timber pergolas soften the sun."
+        "caption": "Energy & water systems",
+        "text": "**Solar energy (red line):** 18 photovoltaic panels of 0.5 × 1.0 m producing about 3.2 kWh per day, with batteries in a ventilated storage room powering lighting, refrigeration and basic medical equipment.\n\n**Rainwater (blue line):** collected from the zinc roofs through gutters and mesh filters into a 5,400-litre dual-chamber tank (1.8 × 2.0 × 1.5 m), raised 0.5 m to feed toilets, ablution and irrigation by gravity, with an external hatch for periodic sludge removal."
+      },
+      {
+        "img": "/public/images/projects/rural-health-center/rammed-earth-process.webp",
+        "size": "side",
+        "caption": "Rammed earth & zinc roofs",
+        "text": "Walls are built by compacting local earth layer by layer inside timber formwork, on shallow earthen footings with minimal cement, while the spaces are covered with lightweight insulated zinc sandwich panels. Community members take part in construction, lowering labour costs and fostering ownership."
       },
       {
         "img": "/public/images/projects/rural-health-center/facade-side.webp",
         "size": "side",
-        "caption": "Local materials, clean energy",
-        "text": "Rammed earth walls with minimal cement on shallow earthen footings, and 18 solar panels producing about 3.2 kWh per day with battery storage for lighting, refrigeration and basic medical equipment."
+        "caption": "Climate-responsive façades",
+        "text": "Deep roof overhangs and timber louvres shield the walls and windows from direct sun, while daylight and air enter through high openings beneath the roofs."
       },
       {
         "img": "/public/images/projects/rural-health-center/exterior-front.webp",
         "size": "side",
         "caption": "Inclusion & cost",
-        "text": "Full accessibility through an entrance ramp and an accessible toilet, plus revenue-generating components such as the pharmacy and nursery. Estimated cost **USD 11,550–13,000**, using local materials and community participation in construction."
+        "text": "Full accessibility through an entrance ramp and an accessible toilet, plus revenue-generating components such as the pharmacy and nursery. Estimated cost **USD 11,550–13,000**, using local materials that cut cost and carbon footprint."
       },
       {
         "img": "/public/images/projects/rural-health-center/section-a-a.webp",
         "size": "wide",
-        "caption": "Section A-A: air flow and water harvesting",
-        "text": "A raised dual-chamber tank of about **5,400 litres** collects rainwater from the roofs through gutters and mesh filters, feeding ablution, toilets and irrigation by gravity, while greywater is reused through a simple low-maintenance sedimentation system."
+        "caption": "Section A-A: natural ventilation",
+        "text": "Warm air escapes through high openings at the top of the walls while cool air enters through the planted courtyard, refreshing the rooms without any mechanical cooling."
       }
     ],
     "seo_description": "Rural Health Center — a proposed design by architect Mohammed Babeker: a sustainable rammed-earth health facility for the African Sahel, with solar power and rainwater harvesting."
