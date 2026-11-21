@@ -86,9 +86,12 @@
                     </section>`;
                 }
                 const longText = text && (text.length > 600 || /<ol|<ul/.test(text));
+                const caption = !g.caption ? '' : text
+                    ? `<h3 class="gal-title gal-title-below">${e(g.caption)}</h3>`
+                    : `<figcaption class="gal-cap">${e(g.caption)}</figcaption>`;
                 return `<figure class="gal-${size}">
                     ${img}
-                    ${g.caption ? `<figcaption class="gal-cap">${e(g.caption)}</figcaption>` : ''}
+                    ${caption}
                     ${text ? `<div class="gal-text rich-content${longText ? ' cols' : ''}">${text}</div>` : ''}
                 </figure>`;
             }).join('');

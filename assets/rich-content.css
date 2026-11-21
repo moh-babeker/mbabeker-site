@@ -49,7 +49,10 @@ body { font-family: 'Plus Jakarta Sans', 'Tajawal', sans-serif; }
 .gal-title::before { content: ""; display: block; width: 2rem; height: 3px; border-radius: 3px; background: rgb(14 165 233); margin-bottom: .6rem; }
 .gal-text { margin-top: .75rem; }
 .gal-text.rich-content { font-size: .85rem; line-height: 1.85; }
-@media (min-width: 768px) { .gal-wide .gal-text.cols { columns: 2; column-gap: 2.5rem; } .gal-text.cols li { break-inside: avoid; } }
+.gal-title-below { margin-top: 1rem; }
+.gal-text.cols ol, .gal-text.cols ul { columns: 2; column-gap: 1.25rem; font-size: .72rem; line-height: 1.6; }
+.gal-text.cols li { break-inside: avoid; margin-bottom: .45rem; }
+@media (min-width: 768px) { .gal-text.cols ol, .gal-text.cols ul { columns: 3; column-gap: 2rem; font-size: .8rem; } }
 
 /* صورة بجانب نص: على الهاتف الصورة والعنوان متجاوران والنص تحتهما، وعلى الشاشات الأكبر النص كاملاً بجانب الصورة */
 .gal-side { display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "img head" "body body"; gap: .75rem 1rem; align-items: center; margin-block: .5rem; }

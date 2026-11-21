@@ -11,7 +11,7 @@
     "client": "منظمة دولية",
     "location": "منطقة الساحل الإفريقي",
     "summary": "مقترح تصميمي لمركز رعاية صحية ريفي مستدام من التربة المدكوكة، يعمل بالطاقة الشمسية وتجميع مياه الأمطار.",
-    "body": "> **مقترح تصميمي لمنظمة دولية — لم يُنفَّذ بعد.** التصميم المعماري كاملاً: م. محمد بابكر.\n\nنموذج معاصر ومستدام للرعاية الطبية في القرى النائية، يجمع بين الذكاء البيئي وكرامة الإنسان والاعتماد على الموارد المحلية، بمواد محلية منخفضة التكلفة وبيئة علاجية تستجيب للمناخ وتنتمي إلى ثقافة المكان.",
+    "body": "> **مركز صحي ريفي مستدام — لصالح منظمة دولية**\n\nنموذج معاصر ومستدام للرعاية الطبية في القرى النائية، يجمع بين الذكاء البيئي وكرامة الإنسان والاعتماد على الموارد المحلية، بمواد محلية منخفضة التكلفة وبيئة علاجية تستجيب للمناخ وتنتمي إلى ثقافة المكان.",
     "gallery": [
       {
         "img": "/public/images/projects/rural-health-center/plan-and-front-view.webp",
@@ -21,7 +21,7 @@
       },
       {
         "img": "/public/images/projects/rural-health-center/aerial.webp",
-        "size": "side",
+        "size": "wide",
         "caption": "الفناء: رئة المبنى",
         "text": "تلتف فراغات المركز حول فناء مزروع بالأعشاب العطرية والطبية، يعمل رئةً للتبريد السلبي ومساحةً للراحة النفسية للمرضى والزوار. وتعلو الأسطحَ ألواحٌ شمسية تحقق للمركز استقلالاً كاملاً في الطاقة."
       },
@@ -38,6 +38,12 @@
         "text": "مساحة شبه مفتوحة ومظللة تُعقد فيها جلسات موسمية للتوعية بالنظافة والوقاية من الأمراض كالكوليرا والملاريا، وبالاستخدامات العلاجية للنباتات المزروعة في الموقع، فتتعزّز العلاقة بين المركز وسكان القرية."
       },
       {
+        "img": "/public/images/projects/rural-health-center/facade-side.webp",
+        "size": "wide",
+        "caption": "واجهات تستجيب للمناخ",
+        "text": "تحمي البروزات العميقة للأسطح والكاسرات الخشبية الجدرانَ والنوافذ من أشعة الشمس المباشرة، بينما تدخل الإضاءة الطبيعية والهواء من الفتحات العلوية أسفل الأسطح."
+      },
+      {
         "img": "/public/images/projects/rural-health-center/systems-diagram.webp",
         "size": "side",
         "caption": "منظومة الطاقة والمياه",
@@ -50,14 +56,8 @@
         "text": "تُبنى الجدران بدكّ التربة المحلية طبقةً فوق طبقة داخل قوالب خشبية، على أساسات ترابية سطحية وبحدّ أدنى من الإسمنت، بينما تُغطّى الفراغات بألواح زنك معزولة خفيفة الوزن. ويشارك أفراد المجتمع في البناء، فتنخفض تكلفة العمالة ويتعزّز شعورهم بملكية المشروع."
       },
       {
-        "img": "/public/images/projects/rural-health-center/facade-side.webp",
-        "size": "side",
-        "caption": "واجهات تستجيب للمناخ",
-        "text": "تحمي البروزات العميقة للأسطح والكاسرات الخشبية الجدرانَ والنوافذ من أشعة الشمس المباشرة، بينما تدخل الإضاءة الطبيعية والهواء من الفتحات العلوية أسفل الأسطح."
-      },
-      {
         "img": "/public/images/projects/rural-health-center/exterior-front.webp",
-        "size": "side",
+        "size": "wide",
         "caption": "الشمول والتكلفة",
         "text": "وصول شامل لذوي الإعاقة عبر منحدر المدخل ودورة مياه مهيّأة، وعناصر مدرّة للدخل كالصيدلية والمشتل. التكلفة التقديرية **11,550–13,000 دولار**، بمواد محلية تقلّل التكلفة والبصمة الكربونية."
       },
@@ -75,7 +75,7 @@
     "client": "International organization",
     "location": "African Sahel region",
     "summary": "A proposed sustainable rural healthcare facility in rammed earth, powered by solar energy and rainwater harvesting.",
-    "body": "> **Proposed design for an international organization — unbuilt.** Full architectural design: Arch. Mohammed Babeker.\n\nA contemporary, sustainable model for medical care in remote villages, blending environmental intelligence, human dignity and local self-reliance — built with low-cost local materials to create a healing environment that is climate-responsive and culturally rooted.",
+    "body": "> **Sustainable rural health center — for an international organization**\n\nA contemporary, sustainable model for medical care in remote villages, blending environmental intelligence, human dignity and local self-reliance — built with low-cost local materials to create a healing environment that is climate-responsive and culturally rooted.",
     "gallery": [
       {
         "img": "/public/images/projects/rural-health-center/plan-and-front-view.webp",
@@ -85,7 +85,7 @@
       },
       {
         "img": "/public/images/projects/rural-health-center/aerial.webp",
-        "size": "side",
+        "size": "wide",
         "caption": "The courtyard: the building's lung",
         "text": "The spaces wrap around a courtyard planted with aromatic and medicinal herbs, acting as a passive cooling lung and a place of psychological relief. Solar panels on the roofs give the center full energy independence."
       },
@@ -102,6 +102,12 @@
         "text": "A shaded semi-open space hosting seasonal sessions on sanitation, disease prevention such as cholera and malaria, and the medicinal uses of the plants grown on site — strengthening the bond between the center and the village."
       },
       {
+        "img": "/public/images/projects/rural-health-center/facade-side.webp",
+        "size": "wide",
+        "caption": "Climate-responsive façades",
+        "text": "Deep roof overhangs and timber louvres shield the walls and windows from direct sun, while daylight and air enter through high openings beneath the roofs."
+      },
+      {
         "img": "/public/images/projects/rural-health-center/systems-diagram.webp",
         "size": "side",
         "caption": "Energy & water systems",
@@ -114,14 +120,8 @@
         "text": "Walls are built by compacting local earth layer by layer inside timber formwork, on shallow earthen footings with minimal cement, while the spaces are covered with lightweight insulated zinc sandwich panels. Community members take part in construction, lowering labour costs and fostering ownership."
       },
       {
-        "img": "/public/images/projects/rural-health-center/facade-side.webp",
-        "size": "side",
-        "caption": "Climate-responsive façades",
-        "text": "Deep roof overhangs and timber louvres shield the walls and windows from direct sun, while daylight and air enter through high openings beneath the roofs."
-      },
-      {
         "img": "/public/images/projects/rural-health-center/exterior-front.webp",
-        "size": "side",
+        "size": "wide",
         "caption": "Inclusion & cost",
         "text": "Full accessibility through an entrance ramp and an accessible toilet, plus revenue-generating components such as the pharmacy and nursery. Estimated cost **USD 11,550–13,000**, using local materials that cut cost and carbon footprint."
       },
