@@ -1,27 +1,99 @@
 {
   "ar": {
-    "title": "مشروع المركز الصحي الريفي",
+    "title": "المركز الصحي الريفي",
     "slug": "rural-health-center",
     "legacy_id": "p3",
     "category": "arch",
     "order": 3,
     "published": true,
-    "year": "",
+    "year": "2024",
     "cover": "https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?auto=format&fit=crop&w=800&q=80",
-    "client": "",
-    "location": "",
-    "summary": "استشارات معمارية متكاملة توازن بين تدفق العمل الطبي والسياق المحلي.",
-    "body": "",
-    "gallery": [],
-    "seo_description": ""
+    "client": "منظمة دولية",
+    "location": "منطقة الساحل الإفريقي",
+    "summary": "مقترح تصميمي لمركز رعاية صحية ريفي مستدام من التربة المدكوكة، يعمل بالطاقة الشمسية وتجميع مياه الأمطار.",
+    "body": "> **مقترح تصميمي لمنظمة دولية — لم يُنفَّذ بعد.** التصميم المعماري كاملاً: م. محمد بابكر.\n\n## الفكرة التصميمية\n\nيقدّم المركز الصحي الريفي نموذجاً معاصراً ومستداماً للرعاية الطبية في القرى النائية، يجمع بين الذكاء البيئي وكرامة الإنسان والاعتماد على الموارد المحلية. صُمِّم المبنى بمواد محلية منخفضة التكلفة، ليقدّم بيئة علاجية عالية الجودة تستجيب للمناخ وتنتمي إلى ثقافة المكان.\n\n## الفناء: رئة المبنى\n\nفي قلب المشروع فناء مزروع بالأعشاب العطرية والطبية، يعمل رئةً للتبريد السلبي ومساحةً للراحة النفسية. وتجاوره مساحة شبه مفتوحة ومظللة مخصّصة للتوعية الصحية المجتمعية، تُعقد فيها جلسات موسمية للتوعية بالنظافة والوقاية من الأمراض كالكوليرا والملاريا، وبالاستخدامات العلاجية للنباتات المزروعة في الموقع. وبذلك تتعزّز العلاقة بين المركز والسكان، ويُدعَم تغيير السلوك ونشر الثقافة الصحية.\n\n## التهوية الطبيعية\n\nوُزِّعت فتحات التهوية بعناية لتسمح بخروج الهواء الساخن ودخول الهواء البارد، فيتجدّد الهواء داخل المبنى دون الحاجة إلى أنظمة تكييف ميكانيكية.\n\n## الأنظمة المستدامة\n\n- **تجميع مياه الأمطار:** خزان مرتفع ثنائي الحجرات سعته نحو 5,400 لتر، يُغذّى من الأسطح عبر مزاريب ومرشحات شبكية، ويعمل بالجاذبية لتوفير المياه للوضوء ودورات المياه والري.\n- **إعادة استخدام المياه الرمادية:** نظام ترسيب بسيط بحجرتين دون مرشحات معقدة، مما يخفض تكاليف الصيانة.\n- **الطاقة الشمسية:** 18 لوحاً كهروضوئياً عالي الكفاءة تنتج نحو 3.2 كيلوواط ساعة يومياً، مع بطاريات تخزين في غرفة مهوّاة، لتشغيل الإضاءة والتبريد والأجهزة الطبية الأساسية، وتحقيق استقلال كامل في الطاقة.\n- **جدران التربة المدكوكة:** تقنية تستخدم حداً أدنى من الإسمنت، وتعتمد على أساسات ترابية سطحية بدل الأساسات الخرسانية.\n\n## الشمول والاستدامة المالية\n\nيوفّر التصميم وصولاً شاملاً لذوي الإعاقة عبر منحدر مدخل ودورة مياه مهيّأة. وتدعم عناصر مدرّة للدخل، كالصيدلية ومشتل الشتلات، الاستدامة المالية للمركز على المدى الطويل.\n\n## البرنامج المعماري\n\nمبنى من طابق واحد بأبعاد **15 × 17 م**، يضم:\n\n1. فناء خارجي مرصوف بمقاعد من التربة المدكوكة\n2. مدخل بمنطقة انتظار شبه مفتوحة ومنحدر لذوي الإعاقة\n3. الاستقبال وتسجيل المرضى ومنطقة الانتظار\n4. الصيدلية\n5. العيادة (غرفة الفحص)\n6. دورة مياه عادية\n7. دورة مياه لذوي الإعاقة\n8. خزان تجميع المياه الرمادية (نظام ترسيب بحجرتين)\n9. المخزن\n10. مبرّد مياه طبيعي بالجرار الفخارية\n11. منطقة الوضوء\n12. غرفة الطبيب\n13. فناء التوعية الصحية والانتظار الداخلي مع مشتل النباتات الطبية\n14. جناح المرضى\n15. غرفة الطوارئ\n16. قاعة متعددة الاستخدامات\n\n## التكلفة التقديرية\n\nتتراوح التكلفة التقديرية الإجمالية بين **11,550 و13,000 دولار أمريكي**. معظم المواد مصدرها محلي، مما يقلّل التكلفة والبصمة الكربونية، ويشارك أفراد المجتمع المحلي في أعمال البناء، فتنخفض تكلفة العمالة ويتعزّز شعورهم بملكية المشروع.\n\nالنتيجة نموذج كريم وقابل للتكرار لعمارة الرعاية الصحية في المناطق الريفية.",
+    "gallery": [
+      {
+        "img": "/public/images/projects/rural-health-center/exterior-sunset.webp",
+        "size": "wide",
+        "caption": "المنظر الأمامي للمركز عند الغروب"
+      },
+      {
+        "img": "/public/images/projects/rural-health-center/aerial.webp",
+        "size": "wide",
+        "caption": "منظور علوي يُظهر الفناء الداخلي والألواح الشمسية"
+      },
+      {
+        "img": "/public/images/projects/rural-health-center/interior-courtyard.webp",
+        "size": "half",
+        "caption": "الفناء المزروع بالنباتات الطبية"
+      },
+      {
+        "img": "/public/images/projects/rural-health-center/interior-education.webp",
+        "size": "half",
+        "caption": "مساحة التوعية الصحية المجتمعية"
+      },
+      {
+        "img": "/public/images/projects/rural-health-center/exterior-front.webp",
+        "size": "wide",
+        "caption": "الواجهة الجانبية وجدران التربة المدكوكة"
+      },
+      {
+        "img": "/public/images/projects/rural-health-center/ground-floor-plan.webp",
+        "size": "medium",
+        "caption": "المسقط الأفقي للطابق الأرضي"
+      },
+      {
+        "img": "/public/images/projects/rural-health-center/section-a-a.webp",
+        "size": "wide",
+        "caption": "القطاع A-A: التهوية الطبيعية وحركة الهواء"
+      }
+    ],
+    "seo_description": "المركز الصحي الريفي — مقترح تصميمي من المعماري محمد بابكر لمركز صحي مستدام من التربة المدكوكة في منطقة الساحل الإفريقي، بالطاقة الشمسية وتجميع مياه الأمطار."
   },
   "en": {
-    "title": "Rural Health Center Project",
-    "client": "",
-    "location": "",
-    "summary": "Comprehensive architectural consultancy balancing medical workflow and local context. hhhhhh",
-    "body": "",
-    "gallery": [],
-    "seo_description": ""
+    "title": "Rural Health Center",
+    "client": "International organization",
+    "location": "African Sahel region",
+    "summary": "A proposed sustainable rural healthcare facility in rammed earth, powered by solar energy and rainwater harvesting.",
+    "body": "> **Proposed design for an international organization — unbuilt.** Full architectural design: Arch. Mohammed Babeker.\n\n## Design Concept\n\nThe Rural Health Center offers a contemporary, sustainable model for medical care in remote villages, blending environmental intelligence, human dignity and local self-reliance. Built with low-cost local materials, the design creates a high-quality healing environment that is both climate-responsive and culturally rooted.\n\n## The Courtyard: The Building's Lung\n\nAt its core lies a courtyard planted with aromatic and medicinal herbs, acting as a passive cooling lung and a zone of psychological relief. Next to it, a shaded semi-open space hosts community health education, with seasonal sessions on sanitation, disease prevention (such as cholera and malaria) and the medicinal uses of the plants grown on site, strengthening the bond between the center and the people it serves.\n\n## Natural Ventilation\n\nCarefully placed ventilation openings let warm air escape and cool air circulate, removing the need for mechanical cooling systems.\n\n## Sustainable Systems\n\n- **Rainwater harvesting:** a raised dual-chamber tank of about 5,400 litres, fed from the roofs through gutters and mesh filters, supplying water by gravity for ablution, toilets and irrigation.\n- **Greywater reuse:** a simple two-chamber sedimentation system without advanced filters, keeping maintenance low.\n- **Solar energy:** 18 high-efficiency photovoltaic panels producing about 3.2 kWh per day, with battery storage in a ventilated room, powering lighting, refrigeration and basic medical equipment for full energy independence.\n- **Rammed earth walls:** minimal cement and shallow earthen footings instead of concrete foundations.\n\n## Inclusion & Financial Sustainability\n\nThe design provides full accessibility for people with disabilities through an entrance ramp and an accessible toilet, while revenue-generating components such as the pharmacy and the seedling nursery support the center's long-term financial sustainability.\n\n## Spatial Program\n\nA single-storey building of **15 × 17 m**, comprising:\n\n1. Outdoor paved courtyard with rammed earth benches\n2. Entrance with semi-open waiting area and accessible ramp\n3. Reception, patient registration and waiting area\n4. Pharmacy\n5. Clinic (examination room)\n6. Standard toilet\n7. Accessible toilet\n8. Greywater collection tank (two-chamber sedimentation)\n9. Storage room\n10. Earthen pot-based natural water cooler\n11. Ablution area\n12. Doctor's room\n13. Community health education & indoor waiting courtyard with medicinal nursery\n14. Patient ward\n15. Emergency room\n16. Multipurpose room\n\n## Estimated Cost\n\nThe total estimated cost ranges between **USD 11,550 and 13,000**. Most materials are sourced locally, reducing cost and carbon footprint, and community members take part in construction, lowering labour costs and fostering a sense of ownership.\n\nThe result is a replicable, dignified prototype for rural healthcare architecture.",
+    "gallery": [
+      {
+        "img": "/public/images/projects/rural-health-center/exterior-sunset.webp",
+        "size": "wide",
+        "caption": "Front view of the center at sunset"
+      },
+      {
+        "img": "/public/images/projects/rural-health-center/aerial.webp",
+        "size": "wide",
+        "caption": "Aerial view showing the inner courtyard and solar panels"
+      },
+      {
+        "img": "/public/images/projects/rural-health-center/interior-courtyard.webp",
+        "size": "half",
+        "caption": "The courtyard planted with medicinal herbs"
+      },
+      {
+        "img": "/public/images/projects/rural-health-center/interior-education.webp",
+        "size": "half",
+        "caption": "The community health education space"
+      },
+      {
+        "img": "/public/images/projects/rural-health-center/exterior-front.webp",
+        "size": "wide",
+        "caption": "Side elevation and rammed earth walls"
+      },
+      {
+        "img": "/public/images/projects/rural-health-center/ground-floor-plan.webp",
+        "size": "medium",
+        "caption": "Ground floor plan"
+      },
+      {
+        "img": "/public/images/projects/rural-health-center/section-a-a.webp",
+        "size": "wide",
+        "caption": "Section A-A: natural ventilation and air flow"
+      }
+    ],
+    "seo_description": "Rural Health Center — a proposed design by architect Mohammed Babeker: a sustainable rammed-earth health facility for the African Sahel, with solar power and rainwater harvesting."
   }
 }

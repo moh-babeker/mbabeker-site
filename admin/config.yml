@@ -106,6 +106,16 @@ collections:
         summary: "{{fields.caption}}"
         fields:
           - { label: "صورة", name: "img", widget: "image", i18n: duplicate }
+          - label: "حجم الصورة في المعرض"
+            name: "size"
+            widget: "select"
+            i18n: duplicate
+            default: "wide"
+            options:
+              - { label: "عرض كامل", value: "wide" }
+              - { label: "نصف عرض (صورتان متجاورتان)", value: "half" }
+              - { label: "متوسط في المنتصف (للمساقط والصور الطولية)", value: "medium" }
+            hint: "ضع صورتين متتاليتين بنصف عرض لتظهرا جنباً إلى جنب على الشاشات الكبيرة"
           - { label: "تعليق على الصورة", name: "caption", widget: "string", i18n: true, required: false }
       - label: "وصف محركات البحث (SEO)"
         name: "seo_description"
