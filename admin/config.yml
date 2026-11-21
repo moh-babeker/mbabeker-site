@@ -115,8 +115,18 @@ collections:
               - { label: "عرض كامل", value: "wide" }
               - { label: "نصف عرض (صورتان متجاورتان)", value: "half" }
               - { label: "متوسط في المنتصف (للمساقط والصور الطولية)", value: "medium" }
-            hint: "ضع صورتين متتاليتين بنصف عرض لتظهرا جنباً إلى جنب على الشاشات الكبيرة"
-          - { label: "تعليق على الصورة", name: "caption", widget: "string", i18n: true, required: false }
+              - { label: "بجانب نص (يتبادل يميناً ويساراً تلقائياً)", value: "side" }
+            hint: "نصف عرض: ضع صورتين متتاليتين لتظهرا متجاورتين. بجانب نص: يظهر العنوان والنص بجانب الصورة"
+          - { label: "عنوان الصورة / تعليقها", name: "caption", widget: "string", i18n: true, required: false }
+          - label: "نص مرافق للصورة (اختياري)"
+            name: "text"
+            widget: "markdown"
+            i18n: true
+            required: false
+            minimal: true
+            buttons: [bold, italic, link, bulleted-list, numbered-list]
+            editor_components: []
+            hint: "يظهر بجانب الصورة في حجم «بجانب نص»، أو تحتها في الأحجام الأخرى"
       - label: "وصف محركات البحث (SEO)"
         name: "seo_description"
         widget: "text"

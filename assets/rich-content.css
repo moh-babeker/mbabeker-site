@@ -34,3 +34,33 @@ body { font-family: 'Plus Jakarta Sans', 'Tajawal', sans-serif; }
   .rich-content .img-start, .rich-content .img-end { width: 100%; float: none; margin-inline: 0; }
   .rich-content .img-full { width: calc(100% + 3rem); margin-inline: -1.5rem; }
 }
+
+/* ===== معرض المشروع: كولاج + صور بجانب النصوص (تبادل يمين/يسار) ===== */
+.gal { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+@media (min-width: 640px) { .gal { gap: 1.5rem; } }
+.gal > * { min-width: 0; margin: 0; }
+.gal-wide, .gal-medium, .gal-side { grid-column: 1 / -1; }
+.gal-img { display: block; overflow: hidden; border-radius: 1rem; border: 1px solid rgb(30 41 59); background: rgb(15 23 42); }
+.gal-img img { width: 100%; height: auto; display: block; transition: transform .5s; }
+.gal-img:hover img { transform: scale(1.02); }
+.gal-cap { margin-top: .5rem; text-align: center; font-size: .72rem; color: rgb(148 163 184); }
+.gal-medium .gal-img { max-width: 36rem; margin-inline: auto; }
+.gal-title { color: #fff; font-weight: 800; font-size: 1rem; line-height: 1.4; }
+.gal-title::before { content: ""; display: block; width: 2rem; height: 3px; border-radius: 3px; background: rgb(14 165 233); margin-bottom: .6rem; }
+.gal-text { margin-top: .75rem; }
+.gal-text.rich-content { font-size: .85rem; line-height: 1.85; }
+@media (min-width: 768px) { .gal-wide .gal-text.cols { columns: 2; column-gap: 2.5rem; } .gal-text.cols li { break-inside: avoid; } }
+
+/* صورة بجانب نص: على الهاتف الصورة والعنوان متجاوران والنص تحتهما، وعلى الشاشات الأكبر النص كاملاً بجانب الصورة */
+.gal-side { display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "img head" "body body"; gap: .75rem 1rem; align-items: center; margin-block: .5rem; }
+.gal-side.rev { grid-template-areas: "head img" "body body"; }
+.gal-side .gs-img { grid-area: img; }
+.gal-side .gs-head { grid-area: head; }
+.gal-side .gs-body { grid-area: body; }
+.gal-side .gs-body .gal-text { margin-top: 0; }
+@media (min-width: 768px) {
+  .gal-side { grid-template-columns: 7fr 5fr; grid-template-areas: "img head" "img body"; grid-template-rows: auto 1fr; column-gap: 2.25rem; row-gap: .5rem; align-items: start; }
+  .gal-side.rev { grid-template-columns: 5fr 7fr; grid-template-areas: "head img" "body img"; }
+  .gal-side .gs-head { align-self: end; padding-top: 1rem; }
+  .gal-side .gal-title { font-size: 1.25rem; }
+}

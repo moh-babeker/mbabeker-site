@@ -66,6 +66,34 @@
             return c ? (lang === 'ar' ? c.name_ar : (c.name_en || c.name_ar)) : '';
         }
 
+        // معرض المشروع: wide (عرض كامل والنص تحته) / half (صورتان متجاورتان حتى على الهاتف)
+        // medium (متوسط في المنتصف) / side (الصورة بجانب النص، مع التبادل يميناً ويساراً تلقائياً)
+        function renderGallery(gallery, projectTitle) {
+            const e = Site.esc;
+            let sideIndex = 0;
+            return gallery.filter(g => g && g.img).map(g => {
+                const src = e(Site.fixImgUrl(g.img));
+                const alt = e(g.caption || projectTitle);
+                const img = `<a href="${src}" target="_blank" rel="noopener" class="gal-img"><img src="${src}" alt="${alt}" loading="lazy"></a>`;
+                const text = g.text ? Site.renderRichText(g.text) : '';
+                const size = ['wide', 'half', 'medium', 'side'].includes(g.size) ? g.size : 'wide';
+                if (size === 'side') {
+                    const rev = sideIndex++ % 2 === 1 ? ' rev' : '';
+                    return `<section class="gal-side${rev}">
+                        <div class="gs-img">${img}</div>
+                        <div class="gs-head">${g.caption ? `<h3 class="gal-title">${e(g.caption)}</h3>` : ''}</div>
+                        <div class="gs-body">${text ? `<div class="gal-text rich-content">${text}</div>` : ''}</div>
+                    </section>`;
+                }
+                const longText = text && (text.length > 600 || /<ol|<ul/.test(text));
+                return `<figure class="gal-${size}">
+                    ${img}
+                    ${g.caption ? `<figcaption class="gal-cap">${e(g.caption)}</figcaption>` : ''}
+                    ${text ? `<div class="gal-text rich-content${longText ? ' cols' : ''}">${text}</div>` : ''}
+                </figure>`;
+            }).join('');
+        }
+
         function renderProject() {
             const lang = currentLang;
             const box = document.getElementById('projectContainer');
@@ -109,16 +137,7 @@
 
                 ${Array.isArray(p.gallery) && p.gallery.length ? `
                 <div class="mb-10">
-                    <h3 class="text-lg font-extrabold text-white mb-6">${lang === 'ar' ? 'معرض الصور واللقطات الهندسية' : 'Project Gallery & Visuals'}</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                        ${p.gallery.filter(g => g && g.img).map(g => `
-                            <figure class="${g.size === 'half' ? '' : g.size === 'medium' ? 'sm:col-span-2 w-full max-w-xl mx-auto' : 'sm:col-span-2'} rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 group">
-                                <a href="${e(Site.fixImgUrl(g.img))}" target="_blank" rel="noopener" class="block overflow-hidden">
-                                    <img src="${e(Site.fixImgUrl(g.img))}" alt="${e(g.caption || p.title)}" loading="lazy" class="w-full h-auto block group-hover:scale-[1.02] transition-transform duration-500">
-                                </a>
-                                ${g.caption ? `<figcaption class="p-3 text-center text-slate-400 text-xs font-medium">${e(g.caption)}</figcaption>` : ''}
-                            </figure>`).join('')}
-                    </div>
+                    <div class="gal">${renderGallery(p.gallery, p.title)}</div>
                 </div>` : ''}
             `;
         }
