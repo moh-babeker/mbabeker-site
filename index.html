@@ -586,11 +586,11 @@
                 const cat = siteData.categories.find(c => c.key === p.category);
                 return `
                 <a href="/projects/${encodeURIComponent(it.slug)}" class="project-card portfolio-item group block cursor-pointer rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-sky-500/50 transition-all">
-                    <div class="h-48 bg-slate-800 relative overflow-hidden">
-                        ${p.cover ? `<img src="${e(Site.fixImgUrl(p.cover))}" alt="${e(p.title)}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">` : ''}
-                        ${cat ? `<span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-sky-400 text-[10px] font-bold">${e(catName(cat))}</span>` : ''}
+                    <div class="aspect-[3/2] bg-slate-950 relative overflow-hidden">
+                        ${p.cover ? `<img src="${e(Site.fixImgUrl(p.cover))}" alt="${e(p.title)}" loading="lazy" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">` : ''}
                     </div>
                     <div class="p-5">
+                        ${cat ? `<span class="inline-block mb-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-[10px] font-bold">${e(catName(cat))}</span>` : ''}
                         <h4 class="text-base font-bold text-white group-hover:text-sky-400 transition-colors mb-2">${e(p.title)}</h4>
                         ${p.summary ? `<p class="text-slate-400 text-xs mb-4">${e(p.summary)}</p>` : ''}
                         <span class="text-[11px] font-bold text-sky-400 group-hover:underline">

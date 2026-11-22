@@ -129,8 +129,8 @@
                 </div>
 
                 ${p.cover ? `
-                <div class="rounded-3xl overflow-hidden border border-slate-800 shadow-2xl mb-10 h-72 sm:h-[450px] bg-slate-900">
-                    <img src="${e(Site.fixImgUrl(p.cover))}" alt="${e(p.title)}" class="w-full h-full object-cover">
+                <div class="rounded-3xl overflow-hidden border border-slate-800 shadow-2xl mb-10 bg-slate-900">
+                    <img src="${e(Site.fixImgUrl(p.cover))}" alt="${e(p.title)}" class="w-full h-auto block">
                 </div>` : ''}
 
                 ${p.body ? `
