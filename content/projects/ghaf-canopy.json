@@ -9,26 +9,50 @@
     "cover": "/public/images/projects/ghaf-canopy/cover-aerial.webp",
     "client": "رؤية دبي 2040",
     "location": "دبي، الإمارات العربية المتحدة",
-    "summary": "مظلة حضرية ذكية مستوحاة من شجرة الغاف، تجمع الظل والجلوس والطاقة الشمسية والتبريد التبخيري والإضاءة الليلية.",
+    "summary": "مظلة حضرية ذكية مستوحاة من شجرة الغاف، بأوراق قماشية منقوشة وطاقة شمسية وتبريد تبخيري وإضاءة ليلية.",
     "body": "> **مظلة حضرية ذكية — ضمن رؤية دبي 2040**\n\nعنصر حضري يجمع الظل والجلوس والطاقة النظيفة والتبريد الطبيعي في وحدة واحدة مستوحاة من الشجرة الوطنية لدولة الإمارات.",
     "gallery": [
       {
-        "img": "/public/images/projects/ghaf-canopy/front-waterfront.webp",
+        "img": "/public/images/projects/ghaf-canopy/aerial-waterfront.webp",
         "size": "wide",
         "caption": "مستوحاة من شجرة الغاف",
-        "text": "تمثّل مظلة الغاف وحدة حضرية مستدامة متكاملة، يستلهم شكلها العضوي تفرّعَ أغصان شجرة الغاف، الشجرة الوطنية لدولة الإمارات ورمز الصمود في البيئة الصحراوية. وتجمع المظلة بين الظل والجلوس والطاقة النظيفة والتبريد الطبيعي في عنصر واحد."
+        "text": "تمثّل مظلة الغاف وحدة حضرية مستدامة متكاملة، يستلهم شكلها العضوي شجرة الغاف، الشجرة الوطنية لدولة الإمارات ورمز الصمود في البيئة الصحراوية: جذع واحد تتفرّع منه أغصان تحمل تاجاً من الأوراق، فتجمع المظلة الظل والجلوس والطاقة النظيفة والتبريد الطبيعي في عنصر واحد."
+      },
+      {
+        "img": "/public/images/projects/ghaf-canopy/abstraction.webp",
+        "size": "half",
+        "caption": "التجريد: ورقة الغاف المركّبة",
+        "text": ""
+      },
+      {
+        "img": "/public/images/projects/ghaf-canopy/fabric-pattern.webp",
+        "size": "half",
+        "caption": "النقش على قماش المظلة",
+        "text": ""
+      },
+      {
+        "img": "/public/images/projects/ghaf-canopy/top-view.webp",
+        "size": "side",
+        "caption": "مظلة قماشية بنقش أوراق الغاف",
+        "text": "جُرّدت ورقة الغاف المركّبة إلى خطوط بسيطة، ثم نُسجت نقشاً على قماش معماري مشدود داخل أُطر دائرية معدنية. ومن الأعلى تبدو الأوراق الخمس حول الورقة المركزية تاجَ شجرة يمنح ظلاً واسعاً على المقعد من كل الجهات، ويرشّح القماش أشعة الشمس إلى ظلٍّ ناعم يشبه ظل الغاف."
       },
       {
         "img": "/public/images/projects/ghaf-canopy/canopy-leaves.webp",
         "size": "side",
-        "caption": "أوراق مثقّبة بنقش الغاف",
-        "text": "خمس أوراق دائرية تتفرّع من جذع مركزي، ثُقّبت بنقش مستوحى من أغصان الغاف وأوراقه الدقيقة، فتنكسر أشعة الشمس عبرها إلى ظلٍّ متدرّج يشبه ظلال الشجرة، بينما تحمل الورقة العلوية الألواح الشمسية."
+        "caption": "الطاقة الشمسية",
+        "text": "تحمل الورقة الوسطى العلوية ألواحاً شمسية على كامل سطحها، وتحمل ورقتان فرعيتان ألواحاً على نصف سطحيهما، بمساحة إجمالية تقارب 11 م². وتُقدَّر قدرتها بنحو 1.5–2 كيلوواط ذروة، وإنتاجها بنحو 7–10 كيلوواط ساعة يومياً في مناخ دبي، بينما لا تتجاوز حاجة الإضاءة الليلية نحو 2 كيلوواط ساعة، فتكفي لتشغيلها طوال الليل مع فائض للأيام الأقل إشماساً. *(أرقام تقديرية)*"
       },
       {
         "img": "/public/images/projects/ghaf-canopy/seating.webp",
         "size": "side",
-        "caption": "مقعد دائري بنقوش السدو",
-        "text": "يلتف حول قاعدة المظلة مقعد دائري يحيط بحوض للنباتات المزهرة، وتزيّن واجهته تثقيبات بنقوش السدو التراثية تسمح بالتهوية الطبيعية، مع شرائط إضاءة مدمجة تمنح المكان حضوراً ليلياً آمناً."
+        "caption": "مقعد دائري حول حوض النباتات",
+        "text": "يلتف حول قاعدة المظلة مقعد دائري بسطح خشبي يحيط بحوض للنباتات المزهرة، فيجلس الناس في كل الاتجاهات تحت ظل واحد، وتتحوّل المظلة إلى نقطة لقاء على الواجهة المائية."
+      },
+      {
+        "img": "/public/images/projects/ghaf-canopy/sadu-detail.webp",
+        "size": "side",
+        "caption": "نقوش السدو",
+        "text": "تزيّن واجهة القاعدة الحجرية تثقيبات بنقوش السدو التراثية الإماراتية، تسمح بمرور الهواء الرطب الصاعد من التربة للتبريد، وتتخلّلها شرائط إضاءة مدمجة."
       },
       {
         "img": "/public/images/projects/ghaf-canopy/evaporative-cooling.webp",
@@ -37,22 +61,22 @@
         "text": "يخزّن خزان مدفون تحت القاعدة مياه الري الزائدة، وتتسرّب الرطوبة عبر بطانة مثقّبة إلى التربة المحيطة، ثم تتبخّر صاعدةً عبر القاعدة لتلطّف الهواء حول الجالسين دون أي طاقة إضافية."
       },
       {
-        "img": "/public/images/projects/ghaf-canopy/aerial-waterfront.webp",
+        "img": "/public/images/projects/ghaf-canopy/night.webp",
+        "size": "wide",
+        "caption": "الإضاءة الليلية",
+        "text": "بعد الغروب تضيء شرائط الإضاءة المدمجة في المقعد، وتنعكس الإنارة على قماش الأوراق فيتوهّج نقش الغاف، لتبقى المظلة معلماً مضيئاً ونقطة لقاء آمنة على الواجهة المائية، تعمل كلها بطاقة الشمس المخزّنة نهاراً."
+      },
+      {
+        "img": "/public/images/projects/ghaf-canopy/front-waterfront.webp",
         "size": "wide",
         "caption": "نظام معياري قابل للتكرار",
-        "text": "صُمّمت المظلة وحدةً معياريةً موحّدة يمكن تكرارها وتوزيعها على الواجهات المائية والساحات والممرات في مختلف السياقات الحضرية لدبي، ضمن رؤية دبي 2040.\n\n**مواصفات تقريبية:**\n\n- الارتفاع: نحو 5 م\n- امتداد المظلة: نحو 7 م\n- قطر المقعد: نحو 4 م\n- يتسع لنحو 10 أشخاص\n- خمس أوراق مثقّبة وورقة علوية شمسية\n- هيكل معدني بلون ذهبي، وقاعدة حجرية بنقوش السدو"
+        "text": "صُمّمت المظلة وحدةً معياريةً موحّدة يمكن تكرارها وتوزيعها على الواجهات المائية والساحات والممرات في مختلف السياقات الحضرية لدبي، ضمن رؤية دبي 2040.\n\n**مواصفات تقريبية:**\n\n- الارتفاع: نحو 5 م\n- امتداد المظلة: نحو 7 م\n- قطر المقعد: نحو 4 م\n- يتسع لنحو 10 أشخاص\n- خمس أوراق قماشية بنقش الغاف وورقة علوية شمسية\n- هيكل معدني بلون ذهبي، وقاعدة حجرية بنقوش السدو"
       },
       {
         "img": "/public/images/projects/ghaf-canopy/urban-context.webp",
         "size": "side",
-        "caption": "طاقة شمسية وإضاءة ليلية",
-        "text": "تشحن الألواح الشمسية في أعلى المظلة بطاريات تغذّي الإضاءة الليلية المدمجة في المقعد، فتعمل المظلة باستقلال كامل عن الشبكة، وتبقى نقطة لقاء مضيئة وآمنة بعد الغروب."
-      },
-      {
-        "img": "/public/images/projects/ghaf-canopy/top-view.webp",
-        "size": "side",
-        "caption": "هيئة الشجرة من الأعلى",
-        "text": "يكشف المنظر العلوي توزيع الأوراق الخمس حول الورقة الشمسية المركزية كتاجِ شجرة، يمنح ظلاً واسعاً على المقعد من كل الجهات."
+        "caption": "في سياقات حضرية متنوعة",
+        "text": "تتكيّف المظلة مع الساحات والممرات وأسفل الجسور وبجوار المباني التاريخية، فتضيف الظل والحياة إلى الفراغات المهملة في المدينة."
       }
     ],
     "seo_description": "مظلة الغاف — مظلة حضرية ذكية من تصميم المعماري محمد بابكر، مستوحاة من شجرة الغاف، بالطاقة الشمسية والتبريد التبخيري والإضاءة الليلية، ضمن رؤية دبي 2040."
@@ -61,26 +85,50 @@
     "title": "Ghaf Canopy",
     "client": "Dubai 2040 Vision",
     "location": "Dubai, United Arab Emirates",
-    "summary": "A smart urban canopy inspired by the Ghaf tree, combining shade, seating, solar power, evaporative cooling and night lighting.",
+    "summary": "A smart urban canopy inspired by the Ghaf tree, with patterned fabric leaves, solar power, evaporative cooling and night lighting.",
     "body": "> **Smart urban canopy — within the Dubai 2040 vision**\n\nAn urban element combining shade, seating, clean energy and natural cooling in a single unit inspired by the UAE's national tree.",
     "gallery": [
       {
-        "img": "/public/images/projects/ghaf-canopy/front-waterfront.webp",
+        "img": "/public/images/projects/ghaf-canopy/aerial-waterfront.webp",
         "size": "wide",
         "caption": "Inspired by the Ghaf tree",
-        "text": "The Ghaf Canopy is a comprehensive sustainable urban unit whose organic form draws on the branching structure of the Ghaf — the UAE's national tree and a symbol of resilience in the desert. It combines shade, seating, clean energy and natural cooling in a single element."
+        "text": "The Ghaf Canopy is a comprehensive sustainable urban unit whose organic form draws on the Ghaf — the UAE's national tree and a symbol of resilience in the desert: a single trunk branching into a crown of leaves, combining shade, seating, clean energy and natural cooling in one element."
+      },
+      {
+        "img": "/public/images/projects/ghaf-canopy/abstraction.webp",
+        "size": "half",
+        "caption": "Abstraction: the bipinnate Ghaf leaf",
+        "text": ""
+      },
+      {
+        "img": "/public/images/projects/ghaf-canopy/fabric-pattern.webp",
+        "size": "half",
+        "caption": "The pattern on the canopy fabric",
+        "text": ""
+      },
+      {
+        "img": "/public/images/projects/ghaf-canopy/top-view.webp",
+        "size": "side",
+        "caption": "A fabric canopy woven with Ghaf leaves",
+        "text": "The bipinnate Ghaf leaf is abstracted into simple lines and woven as a pattern into architectural fabric tensioned within circular metal frames. From above, the five leaves around the central one read as a tree crown, shading the bench on every side, while the fabric filters sunlight into soft shade like the Ghaf's own."
       },
       {
         "img": "/public/images/projects/ghaf-canopy/canopy-leaves.webp",
         "size": "side",
-        "caption": "Perforated Ghaf leaves",
-        "text": "Five circular leaves branch from a central trunk, perforated with a pattern inspired by the Ghaf's branches and fine foliage, filtering sunlight into dappled shade like the tree's own, while the top leaf carries the solar panels."
+        "caption": "Solar energy",
+        "text": "The central top leaf is fully covered with solar panels, and two of the side leaves carry panels on half their surface — about 11 m² in total. This is estimated at roughly 1.5–2 kWp, producing about 7–10 kWh per day in Dubai's climate, while the night lighting needs only around 2 kWh — enough to run it all night with a reserve for less sunny days. *(estimates)*"
       },
       {
         "img": "/public/images/projects/ghaf-canopy/seating.webp",
         "size": "side",
-        "caption": "Circular bench with Sadu patterns",
-        "text": "A circular bench wraps the base around a flowering planter. Its face is perforated with traditional Sadu patterns that allow natural ventilation, with integrated light strips giving the space a safe night-time presence."
+        "caption": "A circular bench around a planter",
+        "text": "A circular timber-topped bench wraps the base around a flowering planter, letting people sit facing every direction under one shade and turning the canopy into a meeting point on the waterfront."
+      },
+      {
+        "img": "/public/images/projects/ghaf-canopy/sadu-detail.webp",
+        "size": "side",
+        "caption": "Sadu patterns",
+        "text": "The stone base is perforated with traditional Emirati Sadu patterns that let moist air rising from the soil pass through for cooling, interlaced with integrated light strips."
       },
       {
         "img": "/public/images/projects/ghaf-canopy/evaporative-cooling.webp",
@@ -89,22 +137,22 @@
         "text": "A buried reservoir beneath the base stores excess irrigation water. Moisture seeps through a perforated liner into the surrounding soil and rises by evaporation through the base, cooling the air around the seating without any additional energy."
       },
       {
-        "img": "/public/images/projects/ghaf-canopy/aerial-waterfront.webp",
+        "img": "/public/images/projects/ghaf-canopy/night.webp",
+        "size": "wide",
+        "caption": "Night lighting",
+        "text": "After sunset, the light strips in the bench glow and light washes across the leaf fabric, making the Ghaf pattern shine — keeping the canopy a luminous landmark and a safe meeting point on the waterfront, all powered by solar energy stored during the day."
+      },
+      {
+        "img": "/public/images/projects/ghaf-canopy/front-waterfront.webp",
         "size": "wide",
         "caption": "A modular, repeatable system",
-        "text": "The canopy is designed as a unified modular unit that can be repeated across waterfronts, plazas and walkways in the various urban contexts of Dubai, in line with the Dubai 2040 vision.\n\n**Approximate specifications:**\n\n- Height: about 5 m\n- Canopy spread: about 7 m\n- Bench diameter: about 4 m\n- Seats about 10 people\n- Five perforated leaves and a solar top leaf\n- Gold-finish metal structure on a stone base with Sadu patterns"
+        "text": "The canopy is designed as a unified modular unit that can be repeated across waterfronts, plazas and walkways in the various urban contexts of Dubai, in line with the Dubai 2040 vision.\n\n**Approximate specifications:**\n\n- Height: about 5 m\n- Canopy spread: about 7 m\n- Bench diameter: about 4 m\n- Seats about 10 people\n- Five Ghaf-patterned fabric leaves and a solar top leaf\n- Gold-finish metal structure on a stone base with Sadu patterns"
       },
       {
         "img": "/public/images/projects/ghaf-canopy/urban-context.webp",
         "size": "side",
-        "caption": "Solar power & night lighting",
-        "text": "Solar panels on top of the canopy charge batteries that power the lighting integrated into the bench, so the canopy runs fully off-grid and remains a lit, safe meeting point after sunset."
-      },
-      {
-        "img": "/public/images/projects/ghaf-canopy/top-view.webp",
-        "size": "side",
-        "caption": "The tree form from above",
-        "text": "The top view reveals the five leaves arranged around the central solar leaf like a tree crown, casting wide shade over the bench on every side."
+        "caption": "In diverse urban settings",
+        "text": "The canopy adapts to plazas, walkways, spaces beneath bridges and next to historic buildings, bringing shade and life to overlooked corners of the city."
       }
     ],
     "seo_description": "Ghaf Canopy — a smart urban canopy by architect Mohammed Babeker, inspired by the Ghaf tree, with solar power, evaporative cooling and night lighting, within the Dubai 2040 vision."
