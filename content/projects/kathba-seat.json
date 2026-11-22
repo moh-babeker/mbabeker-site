@@ -10,14 +10,8 @@
     "client": "رؤية دبي 2040",
     "location": "دبي، الإمارات العربية المتحدة",
     "summary": "مقعد حضري نحتي مستوحى من كثبان دبي، يتكيّف شكله مع طابع كل منطقة في المدينة.",
-    "body": "> **عنصر حضري — ضمن رؤية دبي 2040**",
+    "body": "> **عنصر حضري — ضمن رؤية دبي 2040**\n\nمقعد حضري نحتي يستلهم انسياب الكثبان الرملية في دبي، ويعبّر عن هويتها المتجددة ضمن رؤية دبي 2040. يتكيّف شكله العضوي مع طابع كل منطقة في المدينة: بسيطاً في الأحياء السكنية، ورمزياً في المناطق الثقافية والتاريخية، وأنيقاً في المراكز الراقية، ومتيناً في المناطق الصناعية، ومريحاً للجميع في المناطق الشاملة.\n\n- **مواد محلية أقل كربوناً:** خلطة خرسانية هجينة تدخل فيها رمال صحراوية محلية، مع لمسات خشبية دافئة.\n- **بلا أساسات خرسانية:** هيكل متوازن يحافظ على التربة ويخفض تكلفة التركيب.\n\nليس مجرد مقعد، بل تجربة عامة تجمع الإنسان بالمكان بلغة تصميمية واحدة تعكس طبيعة دبي وروحها المستقبلية.",
     "gallery": [
-      {
-        "img": "/public/images/projects/kathba-seat/residential-1.webp",
-        "size": "wide",
-        "caption": "مقعد الكثبة",
-        "text": "مقعد حضري نحتي يستلهم انسياب الكثبان الرملية في دبي، ويعبّر عن هويتها المتجددة ضمن رؤية دبي 2040. يتكيّف شكله العضوي مع طابع كل منطقة في المدينة: بسيطاً في الأحياء السكنية، ورمزياً في المناطق الثقافية والتاريخية، وأنيقاً في المراكز الراقية، ومتيناً في المناطق الصناعية، ومريحاً للجميع في المناطق الشاملة.\n\n- **مواد محلية أقل كربوناً:** خلطة خرسانية هجينة تدخل فيها رمال صحراوية معاد تدويرها، مع لمسات خشبية دافئة.\n- **تبريد سلبي:** تجاويف أسفل المقعد تحسّن الراحة الحرارية دون كهرباء.\n- **بلا أساسات خرسانية:** هيكل متوازن يحافظ على التربة ويخفض تكلفة التركيب.\n\nليس مجرد مقعد، بل تجربة عامة تجمع الإنسان بالمكان بلغة تصميمية واحدة تعكس طبيعة دبي وروحها المستقبلية."
-      },
       {
         "img": "/public/images/projects/kathba-seat/historic.webp",
         "size": "half",
@@ -55,21 +49,15 @@
         "text": ""
       }
     ],
-    "seo_description": "مقعد الكثبة — مقعد حضري نحتي من تصميم المعماري محمد بابكر، مستوحى من كثبان دبي ضمن رؤية دبي 2040، بتبريد سلبي ومواد محلية."
+    "seo_description": "مقعد الكثبة — مقعد حضري نحتي من تصميم المعماري محمد بابكر، مستوحى من كثبان دبي ضمن رؤية دبي 2040، بمواد محلية وبلا أساسات خرسانية."
   },
   "en": {
     "title": "Al-Kathba Seat",
     "client": "Dubai 2040 Vision",
     "location": "Dubai, United Arab Emirates",
     "summary": "A sculptural urban seat inspired by Dubai's dunes, adapting its form to the character of each district.",
-    "body": "> **Urban element — within the Dubai 2040 vision**",
+    "body": "> **Urban element — within the Dubai 2040 vision**\n\nA sculptural urban seat inspired by the flowing dunes of Dubai, embodying the city's evolving identity within the Dubai 2040 vision. Its organic form adapts to the character of each district: minimal in residential areas, symbolic in cultural and historic quarters, elegant in upscale hubs, robust in industrial zones and comfortable for all in inclusive spaces.\n\n- **Lower-carbon local materials:** a hybrid concrete mix incorporating local desert sand, with warm timber accents.\n- **No concrete foundations:** a balanced structure that preserves the soil and lowers installation costs.\n\nMore than a seat — a public experience uniting people and place through one design language that reflects Dubai's natural and futuristic spirit.",
     "gallery": [
-      {
-        "img": "/public/images/projects/kathba-seat/residential-1.webp",
-        "size": "wide",
-        "caption": "Al-Kathba Seat",
-        "text": "A sculptural urban seat inspired by the flowing dunes of Dubai, embodying the city's evolving identity within the Dubai 2040 vision. Its organic form adapts to the character of each district: minimal in residential areas, symbolic in cultural and historic quarters, elegant in upscale hubs, robust in industrial zones and comfortable for all in inclusive spaces.\n\n- **Lower-carbon local materials:** a hybrid concrete mix incorporating recycled desert sand, with warm timber accents.\n- **Passive cooling:** under-seat cavities improve thermal comfort without electricity.\n- **No concrete foundations:** a balanced structure that preserves the soil and lowers installation costs.\n\nMore than a seat — a public experience uniting people and place through one design language that reflects Dubai's natural and futuristic spirit."
-      },
       {
         "img": "/public/images/projects/kathba-seat/historic.webp",
         "size": "half",
@@ -107,6 +95,6 @@
         "text": ""
       }
     ],
-    "seo_description": "Al-Kathba Seat — a sculptural urban seat by architect Mohammed Babeker, inspired by Dubai's dunes within the Dubai 2040 vision, with passive cooling and local materials."
+    "seo_description": "Al-Kathba Seat — a sculptural urban seat by architect Mohammed Babeker, inspired by Dubai's dunes within the Dubai 2040 vision, using local materials and no concrete foundations."
   }
 }
