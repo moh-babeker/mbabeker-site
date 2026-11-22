@@ -67,3 +67,7 @@ body { font-family: 'Plus Jakarta Sans', 'Tajawal', sans-serif; }
   .gal-side .gs-head { align-self: end; padding-top: 1rem; }
   .gal-side .gal-title { font-size: 1.25rem; }
 }
+
+/* قسم نصي بلا صورة */
+.gal-textonly { max-width: 46rem; margin-inline: auto; padding: 1.25rem 0; }
+@media (min-width: 768px) { .gal-textonly .gal-title { font-size: 1.25rem; } }

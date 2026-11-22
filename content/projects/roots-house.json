@@ -61,20 +61,14 @@
         "text": "ألواح ستائرية قابلة للضبط يدوياً، مصنوعة من سعف نخيل محلي معاد تدويره، معالج حرارياً عند 60–70°م لمقاومة الرطوبة والآفات، ومشبّع بزيت النخيل لمقاومة الأشعة والتشقق. خفيفة ومسامية تصنع ظلاً متحركاً، وتستلهم «العريش» الإماراتي بأساليب حديثة، مستندةً إلى أبحاث TU Delft وDesert Board."
       },
       {
-        "img": "/public/images/projects/roots-house/prayer.webp",
-        "size": "side",
+        "img": "",
+        "size": "wide",
         "caption": "غرفة الصلاة وعدسة السماء",
         "text": "في قلب غرفة الصلاة عدسة دائرية مسطّحة بقطر 1.6 م: طبقتان من الزجاج منخفض الحديد تحيطان بحجرة محكمة من سائل بصري شفاف يتحرّك ببطء، فيعكس السماء نهاراً والضوء الخافت ليلاً، ويحوّل السقف إلى صفحة حيّة تؤنس سكون المصلّي.\n\n**«الفراغ هنا لا يخدم المناخ وحده، بل اليقين أيضاً.»**"
       },
       {
-        "img": "/public/images/projects/roots-house/sky-lens.webp",
-        "size": "medium",
-        "caption": "مقطع تفصيلي في عدسة السماء",
-        "text": ""
-      },
-      {
-        "img": "/public/images/projects/roots-house/printing.webp",
-        "size": "side",
+        "img": "",
+        "size": "wide",
         "caption": "جدران مطبوعة تتنفّس",
         "text": "تُطبع الجدران الإنشائية كاملة بتقنية Crane WASP من تربة محلية منخولة مقوّاة بألياف النخيل، بسماكة 40 سم تتخللها قنوات تهوية رأسية (Ø7 سم) وأنفاق أفقية تطرد الحرارة المحتبسة، بينما تنظّم الطين والألياف الرطوبةَ الداخلية طبيعياً. وتُدمج تمديدات الكهرباء والسباكة أثناء الطباعة.\n\nجدران بلا إسمنت ولا طوب، وانبعاثات كربونية أقل بنحو 87% من الخرسانة *(تقديري)*، ومراحل بناء: تجهيز الموقع 3 أيام، وطباعة كل طابق 7 أيام، وتركيب الأسقف 3 أيام."
       },
@@ -179,20 +173,14 @@
         "text": "Curtain-like, manually adjustable panels made from locally sourced upcycled palm fronds, heat-treated at 60–70°C against moisture and pests and infused with palm oil against UV and cracking. Lightweight and breathable, they create dynamic shade — the traditional Emirati \"Arish\" reinterpreted, informed by research from TU Delft and Desert Board."
       },
       {
-        "img": "/public/images/projects/roots-house/prayer.webp",
-        "size": "side",
+        "img": "",
+        "size": "wide",
         "caption": "Prayer room & the sky lens",
         "text": "At the heart of the prayer space lies a flat circular lens 1.6 m wide: two layers of low-iron tempered glass sealing a chamber of clear optical fluid that moves slowly, reflecting the sky by day and ambient light by night — a living ceiling animating the stillness below.\n\n**\"The void serves not only the climate but also conviction.\"**"
       },
       {
-        "img": "/public/images/projects/roots-house/sky-lens.webp",
-        "size": "medium",
-        "caption": "Sky lens section detail",
-        "text": ""
-      },
-      {
-        "img": "/public/images/projects/roots-house/printing.webp",
-        "size": "side",
+        "img": "",
+        "size": "wide",
         "caption": "Breathing printed walls",
         "text": "The structural walls are fully 3D printed with Crane WASP technology from local sieved earth reinforced with palm fibres — 40 cm thick, with vertical air shafts (Ø7 cm) and horizontal tunnels that evacuate trapped heat, while clay and fibre naturally stabilise indoor humidity. Electrical and plumbing services are embedded during printing.\n\nWalls with no cement or bricks, about 87% lower carbon than concrete *(est.)*, built in phases: site preparation 3 days, printing each floor 7 days, roof installation 3 days."
       },

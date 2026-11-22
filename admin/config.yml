@@ -105,7 +105,7 @@ collections:
         required: false
         summary: "{{fields.caption}}"
         fields:
-          - { label: "صورة", name: "img", widget: "image", i18n: duplicate }
+          - { label: "صورة", name: "img", widget: "image", i18n: duplicate, required: false, hint: "اتركها فارغة لقسم نصي بلا صورة" }
           - label: "حجم الصورة في المعرض"
             name: "size"
             widget: "select"

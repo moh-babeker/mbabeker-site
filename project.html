@@ -71,7 +71,14 @@
         function renderGallery(gallery, projectTitle) {
             const e = Site.esc;
             let sideIndex = 0;
-            return gallery.filter(g => g && g.img).map(g => {
+            return gallery.filter(g => g && (g.img || g.text)).map(g => {
+                if (!g.img) {
+                    // قسم نصي بلا صورة
+                    return `<section class="gal-wide gal-textonly">
+                        ${g.caption ? `<h3 class="gal-title">${e(g.caption)}</h3>` : ''}
+                        <div class="gal-text rich-content">${Site.renderRichText(g.text)}</div>
+                    </section>`;
+                }
                 const src = e(Site.fixImgUrl(g.img));
                 const alt = e(g.caption || projectTitle);
                 const img = `<a href="${src}" target="_blank" rel="noopener" class="gal-img"><img src="${src}" alt="${alt}" loading="lazy"></a>`;
