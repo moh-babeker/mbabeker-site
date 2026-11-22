@@ -1,0 +1,244 @@
+{
+  "ar": {
+    "title": "بيت الجذور",
+    "slug": "roots-house",
+    "category": "innovation",
+    "order": 3,
+    "published": true,
+    "year": "2025",
+    "cover": "/public/images/projects/roots-house/cover.webp",
+    "client": "مسابقة بيت المستقبل",
+    "location": "دبي، الإمارات العربية المتحدة",
+    "summary": "البيت الإماراتي المستقبلي: جدران مطبوعة من التربة، وطاقة منتجة، ونافذة مشتركة تعيد روابط الجيرة.",
+    "body": "> **البيت الإماراتي المستقبلي — مسابقة بيت المستقبل، دبي**\n\nبيت يتنفّس ويتأمّل وينتمي… مبنيّ من التربة، ومصمَّم للمستقبل.",
+    "gallery": [
+      {
+        "img": "/public/images/projects/roots-house/elevation.webp",
+        "size": "wide",
+        "caption": "عودة ذكية إلى البيت الإماراتي",
+        "text": "بيت الجذور عودة واعية إلى البيت الإماراتي الأصيل: جدران تتنفّس بالتربة، وشمس تدخل بحكمة، وجيران يلتقون عبر نافذة مشتركة لا عبر شاشة. مسكن يجمع الطاقة المستدامة بالدفء الاجتماعي، ويعيد تعريف الخصوصية لا بوصفها عزلة، بل مسافةً مظللة وفراغاً رحباً وهواءً نقياً. في فنائه الأوسط تجتمع الأسرة حول الضوء لا بعيداً عنه، وفي قلبه غرفة صلاة تتجه إلى القبلة، فتحضر الهوية الإسلامية اتجاهاً ونبضاً يومياً لا زخرفة.\n\n**جدرانه من التربة… ورؤيته نحو المستقبل.**"
+      },
+      {
+        "img": "/public/images/projects/roots-house/sun-study.webp",
+        "size": "side",
+        "caption": "دراسة الشمس والتوجيه",
+        "text": "وُزّعت الفراغات وفق حركة الشمس: فتحات واسعة للمعيشة وغرف النوم الرئيسية على الواجهة الشمالية ذات الضوء الهادئ، وفتحات معتدلة بكاسرات رأسية شرقاً، بينما تحتضن الواجهتان الغربية والجنوبية الأشد حرارةً الخدماتِ والحمامات والحركة والمناطق الخضراء العازلة، بأقل قدر من الزجاج."
+      },
+      {
+        "img": "/public/images/projects/roots-house/zones.webp",
+        "size": "side",
+        "caption": "التوزيع الوظيفي",
+        "text": "تتدرّج المناطق من الضيافة عند المدخل، إلى المعيشة حول الفناء، فالأسرة في الطابق الأول، بينما تتجمّع الخدمات على جانب واحد. ويربط الطوابقَ محورا حركة رأسية وملقف هواء، مع منطقة تقنية على السطح ومساحة محجوزة للتوسعة المستقبلية."
+      },
+      {
+        "img": "/public/images/projects/roots-house/plans.webp",
+        "size": "medium",
+        "caption": "المسقطان الأفقيان للطابقين الأرضي والأول",
+        "text": "1. المجلس\n2. مغسلة\n3. دورة مياه\n4. ردهة\n5. غرفة السائق\n6. دورة مياه\n7. بهو المدخل\n8. الدرج\n9. المعيشة\n10. ممر\n11. غرفة الخادمة\n12. دورة مياه\n13. غرفة الغسيل\n14. المطبخ\n15. مطبخ التحضير\n16. مغسلة\n17. دورة مياه\n18. ملاقف الهواء\n19. المطبخ الخارجي\n20. الفناء\n21. الحديقة الخلفية\n22. ممر\n23. مغسلة\n24. دورة مياه\n25. غرفة الصلاة\n26. المعيشة العائلية\n27. ردهة\n28. دورة مياه\n29. غرفة نوم 2\n30. غرفة نوم 1\n31. ردهة\n32. غرفة الملابس\n33. حمام رئيسي\n34. غرفة النوم الرئيسية\n35. غرفة الكهرباء"
+      },
+      {
+        "img": "/public/images/projects/roots-house/section.webp",
+        "size": "wide",
+        "caption": "القطاع A-A: المياه والمراقبة الذكية",
+        "text": "يجمع خزان تحت الأرض مياه الأمطار، وتُخزَّن المياه في خزانات سعتها 15,000 لتر مع غرفة مضخات، بينما تُعاد المياه الرمادية بعد ترشيحها لصناديق الطرد والري تحت السطحي. وتراقب حساسات دقيقة مستويات الخزانات وتنبّه عند الفيضان، مرتبطةً بلوحة الطاقة والمياه المركزية للمنزل."
+      },
+      {
+        "img": "/public/images/projects/roots-house/shared-window.webp",
+        "size": "side",
+        "caption": "النافذة المشتركة مع الجار",
+        "text": "نافذة جانبية تقليدية بارتفاع 2 م في جدار المطبخ تطل على الحد المشترك مع الفيلا المجاورة، تُحيي عادةً كانت النساء الإماراتيات يتبادلن عبرها الطعام المنزلي والخيرات الموسمية. لفتة معمارية تعيد بناء روابط الجيرة في مواجهة عزلة البيوت الحديثة، وتجعل البيت جزءاً من نسيج حيّ متصل."
+      },
+      {
+        "img": "/public/images/projects/roots-house/courtyard.webp",
+        "size": "side",
+        "caption": "الفناء: قلب البيت",
+        "text": "فناء مزدوج الارتفاع بنخلة ونباتات محلية، تظلله عوارض علوية وألواح قابلة للحركة، ويطل عليه المطبخ الخارجي وجلسات الأسرة، فيصبح مصدر الضوء والهواء ومكان الاجتماع اليومي."
+      },
+      {
+        "img": "/public/images/projects/roots-house/shading.webp",
+        "size": "side",
+        "caption": "نظام التظليل اليدوي من سعف النخيل",
+        "text": "ألواح ستائرية قابلة للضبط يدوياً، مصنوعة من سعف نخيل محلي معاد تدويره، معالج حرارياً عند 60–70°م لمقاومة الرطوبة والآفات، ومشبّع بزيت النخيل لمقاومة الأشعة والتشقق. خفيفة ومسامية تصنع ظلاً متحركاً، وتستلهم «العريش» الإماراتي بأساليب حديثة، مستندةً إلى أبحاث TU Delft وDesert Board."
+      },
+      {
+        "img": "/public/images/projects/roots-house/prayer.webp",
+        "size": "side",
+        "caption": "غرفة الصلاة وعدسة السماء",
+        "text": "في قلب غرفة الصلاة عدسة دائرية مسطّحة بقطر 1.6 م: طبقتان من الزجاج منخفض الحديد تحيطان بحجرة محكمة من سائل بصري شفاف يتحرّك ببطء، فيعكس السماء نهاراً والضوء الخافت ليلاً، ويحوّل السقف إلى صفحة حيّة تؤنس سكون المصلّي.\n\n**«الفراغ هنا لا يخدم المناخ وحده، بل اليقين أيضاً.»**"
+      },
+      {
+        "img": "/public/images/projects/roots-house/sky-lens.webp",
+        "size": "medium",
+        "caption": "مقطع تفصيلي في عدسة السماء",
+        "text": ""
+      },
+      {
+        "img": "/public/images/projects/roots-house/printing.webp",
+        "size": "side",
+        "caption": "جدران مطبوعة تتنفّس",
+        "text": "تُطبع الجدران الإنشائية كاملة بتقنية Crane WASP من تربة محلية منخولة مقوّاة بألياف النخيل، بسماكة 40 سم تتخللها قنوات تهوية رأسية (Ø7 سم) وأنفاق أفقية تطرد الحرارة المحتبسة، بينما تنظّم الطين والألياف الرطوبةَ الداخلية طبيعياً. وتُدمج تمديدات الكهرباء والسباكة أثناء الطباعة.\n\nجدران بلا إسمنت ولا طوب، وانبعاثات كربونية أقل بنحو 87% من الخرسانة *(تقديري)*، ومراحل بناء: تجهيز الموقع 3 أيام، وطباعة كل طابق 7 أيام، وتركيب الأسقف 3 أيام."
+      },
+      {
+        "img": "/public/images/projects/roots-house/windcatcher.webp",
+        "size": "side",
+        "caption": "ملقف الهواء الذكي",
+        "text": "نظام تهوية سلبي–نشط يجمع الملقف التقليدي بمروحة منخفضة الطاقة، وترشيح HEPA للغبار، وحجرة تبريد تبخيري تخفض حرارة الهواء بنحو 4–6°م، مع حساسات تضبط التدفق والجودة، وتشغيل بالطاقة الشمسية، وقنوات معيارية توصل الهواء بهدوء إلى كل غرفة."
+      },
+      {
+        "img": "/public/images/projects/roots-house/wind-study.webp",
+        "size": "wide",
+        "caption": "دراسة اتجاه الرياح وحركة الهواء في الطابقين",
+        "text": ""
+      },
+      {
+        "img": "/public/images/projects/roots-house/energy.webp",
+        "size": "side",
+        "caption": "بيت منتج للطاقة",
+        "text": "تنتج الألواح الشمسية على السطح نحو 35,384 كيلوواط ساعة سنوياً، بينما ينخفض الاستهلاك بفضل الأنظمة السلبية إلى نحو 28,000 كيلوواط ساعة. يُستهلك 79.1% من الإنتاج في المنزل، ويُصدَّر 20.9% إلى شبكة هيئة كهرباء ومياه دبي، فيصبح البيت منتجاً للطاقة لا مستهلكاً لها."
+      },
+      {
+        "img": "/public/images/projects/roots-house/solar.webp",
+        "size": "side",
+        "caption": "منظومة شمسية وأنظمة ذكية",
+        "text": "منظومة هجينة من ألواح كهروضوئية، ومحوّل هجين، وبطاريات ليثيوم فوسفات الحديد، ومنظم شحن، ولوحة متابعة لحظية عبر التطبيق، مع مفاتيح ذكية وحساسات بيئية تضبط الإضاءة والتهوية حسب الإشغال، وشاحن للسيارة الكهربائية.\n\n**البيت لا يعمل بالشمس فحسب… بل يُصغي ويتعلّم ويتكيّف.**"
+      },
+      {
+        "img": "/public/images/projects/roots-house/living.webp",
+        "size": "half",
+        "caption": "المعيشة",
+        "text": ""
+      },
+      {
+        "img": "/public/images/projects/roots-house/carport.webp",
+        "size": "half",
+        "caption": "مدخل السيارات وشاحن السيارة الكهربائية",
+        "text": ""
+      },
+      {
+        "img": "/public/images/projects/roots-house/night.webp",
+        "size": "wide",
+        "caption": "ليلاً، ومساحة للتوسعة المستقبلية",
+        "text": "تتوهّج المشربيات المستوحاة من سعف النخيل ليلاً، بينما تحجز الكتلة العلوية مساحةً لتوسعة مستقبلية تنمو مع الأسرة."
+      }
+    ],
+    "seo_description": "بيت الجذور — البيت الإماراتي المستقبلي، مشاركة المعماري محمد بابكر في مسابقة بيت المستقبل بدبي 2025: جدران مطبوعة من التربة، وملقف هواء ذكي، وبيت منتج للطاقة."
+  },
+  "en": {
+    "title": "Roots House",
+    "client": "Future House Competition",
+    "location": "Dubai, United Arab Emirates",
+    "summary": "The future Emirati home: 3D-printed earth walls, energy-positive systems and a shared window that reconnects neighbours.",
+    "body": "> **The Future Emirati Home — Future House Competition, Dubai**\n\nA home that breathes, reflects and belongs… built from earth and made for the future.",
+    "gallery": [
+      {
+        "img": "/public/images/projects/roots-house/elevation.webp",
+        "size": "wide",
+        "caption": "A smart return to the Emirati home",
+        "text": "Roots House is a deliberate return to the authentic Emirati home — where walls breathe with earth, the sun is welcomed with wisdom, and neighbours reconnect through a shared window, not a screen. A dwelling that merges sustainable energy with social warmth, redefining privacy not as isolation but as shaded distance, generous space and fresh air. In its central courtyard the family gathers around the light, and at its heart a prayer space faces the Qibla — letting Islamic identity emerge as direction and daily pulse, not decoration.\n\n**Its walls are of the soil… and its vision, toward the future.**"
+      },
+      {
+        "img": "/public/images/projects/roots-house/sun-study.webp",
+        "size": "side",
+        "caption": "Sun study & orientation",
+        "text": "Spaces follow the sun: large openings for living rooms and main bedrooms on the softly lit north façade, moderate openings with vertical fins to the east, while the harsher west and south façades host services, bathrooms, circulation and green buffers with minimal glazing."
+      },
+      {
+        "img": "/public/images/projects/roots-house/zones.webp",
+        "size": "side",
+        "caption": "Functional zoning",
+        "text": "Zones move from guests at the entrance, to living around the courtyard, to the family upstairs, with services gathered on one side. A vertical circulation core and a wind tower link the floors, with a technical roof zone and space reserved for future expansion."
+      },
+      {
+        "img": "/public/images/projects/roots-house/plans.webp",
+        "size": "medium",
+        "caption": "Ground & first floor plans",
+        "text": "1. Majlis\n2. Wash\n3. Bath\n4. Lobby\n5. Driver room\n6. Bath\n7. Foyer\n8. Staircase\n9. Living area\n10. Passage\n11. Maid room\n12. Bath\n13. Laundry\n14. Kitchen\n15. Dirty kitchen\n16. Wash\n17. Bath\n18. Wind towers\n19. Outdoor kitchen\n20. Courtyard\n21. Backyard garden\n22. Passage\n23. Wash\n24. Bath\n25. Prayer room\n26. Living area\n27. Lobby\n28. Bath\n29. Bedroom 02\n30. Bedroom 01\n31. Lobby\n32. Dress\n33. Master bath\n34. Master bedroom\n35. Electrical room"
+      },
+      {
+        "img": "/public/images/projects/roots-house/section.webp",
+        "size": "wide",
+        "caption": "Section A-A: water & smart monitoring",
+        "text": "An underground tank harvests rainwater, water is stored in 15,000-litre tanks with a pump room, and filtered greywater is reused for toilet flushing and subsurface irrigation. High-precision level sensors monitor the tanks with overflow alerts, integrated into the home's central energy-water dashboard."
+      },
+      {
+        "img": "/public/images/projects/roots-house/shared-window.webp",
+        "size": "side",
+        "caption": "The shared window",
+        "text": "A traditional 2-metre-high side window in the kitchen wall opens onto the shared boundary with the neighbouring villa, reviving a tradition through which Emirati women exchanged homemade food and seasonal goods. A gesture that rebuilds neighbourly ties against the isolation of modern homes, making the house part of a living, connected neighbourhood."
+      },
+      {
+        "img": "/public/images/projects/roots-house/courtyard.webp",
+        "size": "side",
+        "caption": "The courtyard: heart of the home",
+        "text": "A double-height courtyard with a palm and native planting, shaded by overhead beams and movable panels and overlooked by the outdoor kitchen and family seating — the source of light and air and the place of daily gathering."
+      },
+      {
+        "img": "/public/images/projects/roots-house/shading.webp",
+        "size": "side",
+        "caption": "Manual palm-frond shading",
+        "text": "Curtain-like, manually adjustable panels made from locally sourced upcycled palm fronds, heat-treated at 60–70°C against moisture and pests and infused with palm oil against UV and cracking. Lightweight and breathable, they create dynamic shade — the traditional Emirati \"Arish\" reinterpreted, informed by research from TU Delft and Desert Board."
+      },
+      {
+        "img": "/public/images/projects/roots-house/prayer.webp",
+        "size": "side",
+        "caption": "Prayer room & the sky lens",
+        "text": "At the heart of the prayer space lies a flat circular lens 1.6 m wide: two layers of low-iron tempered glass sealing a chamber of clear optical fluid that moves slowly, reflecting the sky by day and ambient light by night — a living ceiling animating the stillness below.\n\n**\"The void serves not only the climate but also conviction.\"**"
+      },
+      {
+        "img": "/public/images/projects/roots-house/sky-lens.webp",
+        "size": "medium",
+        "caption": "Sky lens section detail",
+        "text": ""
+      },
+      {
+        "img": "/public/images/projects/roots-house/printing.webp",
+        "size": "side",
+        "caption": "Breathing printed walls",
+        "text": "The structural walls are fully 3D printed with Crane WASP technology from local sieved earth reinforced with palm fibres — 40 cm thick, with vertical air shafts (Ø7 cm) and horizontal tunnels that evacuate trapped heat, while clay and fibre naturally stabilise indoor humidity. Electrical and plumbing services are embedded during printing.\n\nWalls with no cement or bricks, about 87% lower carbon than concrete *(est.)*, built in phases: site preparation 3 days, printing each floor 7 days, roof installation 3 days."
+      },
+      {
+        "img": "/public/images/projects/roots-house/windcatcher.webp",
+        "size": "side",
+        "caption": "Smart wind catcher",
+        "text": "A passive-active system combining a traditional intake tower with a low-energy fan, HEPA filtration, and an evaporative chamber cooling air by about 4–6°C, with smart sensors adjusting flow and quality, solar-powered operation, and modular ducts delivering air silently to each room."
+      },
+      {
+        "img": "/public/images/projects/roots-house/wind-study.webp",
+        "size": "wide",
+        "caption": "Wind direction study across both floors",
+        "text": ""
+      },
+      {
+        "img": "/public/images/projects/roots-house/energy.webp",
+        "size": "side",
+        "caption": "An energy-positive home",
+        "text": "Rooftop solar panels generate about 35,384 kWh per year, while passive systems cut consumption to around 28,000 kWh. 79.1% of the energy is used on site and 20.9% is exported to the DEWA grid — an energy-positive home."
+      },
+      {
+        "img": "/public/images/projects/roots-house/solar.webp",
+        "size": "side",
+        "caption": "Solar & smart systems",
+        "text": "A hybrid system of PV panels, a hybrid inverter, LiFePO4 batteries, an MPPT controller and a real-time monitoring app, with IoT switches and environmental sensors adjusting lighting and ventilation to occupancy, plus an EV charger.\n\n**The home doesn't just run on the sun — it listens, learns and adapts.**"
+      },
+      {
+        "img": "/public/images/projects/roots-house/living.webp",
+        "size": "half",
+        "caption": "Living room",
+        "text": ""
+      },
+      {
+        "img": "/public/images/projects/roots-house/carport.webp",
+        "size": "half",
+        "caption": "Carport with EV charger",
+        "text": ""
+      },
+      {
+        "img": "/public/images/projects/roots-house/night.webp",
+        "size": "wide",
+        "caption": "By night, with room to grow",
+        "text": "The palm-inspired screens glow at night, while the upper volume reserves space for a future extension that grows with the family."
+      }
+    ],
+    "seo_description": "Roots House — The Future Emirati Home, by architect Mohammed Babeker for the Future House Competition, Dubai 2025: 3D-printed earth walls, a smart wind catcher and an energy-positive design."
+  }
+}
