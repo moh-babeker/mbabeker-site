@@ -13,7 +13,7 @@
     "body": "> **عنصر حضري — ضمن رؤية دبي 2040**",
     "gallery": [
       {
-        "img": "/public/images/projects/kathba-seat/upscale.webp",
+        "img": "/public/images/projects/kathba-seat/residential-1.webp",
         "size": "wide",
         "caption": "مقعد الكثبة",
         "text": "مقعد حضري نحتي يستلهم انسياب الكثبان الرملية في دبي، ويعبّر عن هويتها المتجددة ضمن رؤية دبي 2040. يتكيّف شكله العضوي مع طابع كل منطقة في المدينة: بسيطاً في الأحياء السكنية، ورمزياً في المناطق الثقافية والتاريخية، وأنيقاً في المراكز الراقية، ومتيناً في المناطق الصناعية، ومريحاً للجميع في المناطق الشاملة.\n\n- **مواد محلية أقل كربوناً:** خلطة خرسانية هجينة تدخل فيها رمال صحراوية معاد تدويرها، مع لمسات خشبية دافئة.\n- **تبريد سلبي:** تجاويف أسفل المقعد تحسّن الراحة الحرارية دون كهرباء.\n- **بلا أساسات خرسانية:** هيكل متوازن يحافظ على التربة ويخفض تكلفة التركيب.\n\nليس مجرد مقعد، بل تجربة عامة تجمع الإنسان بالمكان بلغة تصميمية واحدة تعكس طبيعة دبي وروحها المستقبلية."
@@ -22,12 +22,6 @@
         "img": "/public/images/projects/kathba-seat/historic.webp",
         "size": "half",
         "caption": "المناطق التاريخية والفنية",
-        "text": ""
-      },
-      {
-        "img": "/public/images/projects/kathba-seat/residential-1.webp",
-        "size": "half",
-        "caption": "المناطق السكنية 1",
         "text": ""
       },
       {
@@ -43,15 +37,21 @@
         "text": ""
       },
       {
+        "img": "/public/images/projects/kathba-seat/inclusive.webp",
+        "size": "half",
+        "caption": "المناطق الشاملة",
+        "text": ""
+      },
+      {
         "img": "/public/images/projects/kathba-seat/upscale-waterfront.webp",
         "size": "half",
         "caption": "المناطق الراقية: الواجهة المائية",
         "text": ""
       },
       {
-        "img": "/public/images/projects/kathba-seat/inclusive.webp",
+        "img": "/public/images/projects/kathba-seat/upscale.webp",
         "size": "half",
-        "caption": "المناطق الشاملة",
+        "caption": "المناطق الراقية",
         "text": ""
       }
     ],
@@ -65,7 +65,7 @@
     "body": "> **Urban element — within the Dubai 2040 vision**",
     "gallery": [
       {
-        "img": "/public/images/projects/kathba-seat/upscale.webp",
+        "img": "/public/images/projects/kathba-seat/residential-1.webp",
         "size": "wide",
         "caption": "Al-Kathba Seat",
         "text": "A sculptural urban seat inspired by the flowing dunes of Dubai, embodying the city's evolving identity within the Dubai 2040 vision. Its organic form adapts to the character of each district: minimal in residential areas, symbolic in cultural and historic quarters, elegant in upscale hubs, robust in industrial zones and comfortable for all in inclusive spaces.\n\n- **Lower-carbon local materials:** a hybrid concrete mix incorporating recycled desert sand, with warm timber accents.\n- **Passive cooling:** under-seat cavities improve thermal comfort without electricity.\n- **No concrete foundations:** a balanced structure that preserves the soil and lowers installation costs.\n\nMore than a seat — a public experience uniting people and place through one design language that reflects Dubai's natural and futuristic spirit."
@@ -74,12 +74,6 @@
         "img": "/public/images/projects/kathba-seat/historic.webp",
         "size": "half",
         "caption": "Historic & artistic",
-        "text": ""
-      },
-      {
-        "img": "/public/images/projects/kathba-seat/residential-1.webp",
-        "size": "half",
-        "caption": "Residential area 1",
         "text": ""
       },
       {
@@ -95,15 +89,21 @@
         "text": ""
       },
       {
+        "img": "/public/images/projects/kathba-seat/inclusive.webp",
+        "size": "half",
+        "caption": "Inclusive zone",
+        "text": ""
+      },
+      {
         "img": "/public/images/projects/kathba-seat/upscale-waterfront.webp",
         "size": "half",
         "caption": "Upscale zone: waterfront",
         "text": ""
       },
       {
-        "img": "/public/images/projects/kathba-seat/inclusive.webp",
+        "img": "/public/images/projects/kathba-seat/upscale.webp",
         "size": "half",
-        "caption": "Inclusive zone",
+        "caption": "Upscale zone",
         "text": ""
       }
     ],
