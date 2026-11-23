@@ -106,6 +106,10 @@
                 s.src = 'https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js';
                 document.head.appendChild(s);
             }
+            // تنزيل النموذج في الخلفية بعد اكتمال الصفحة، فيكون جاهزاً حين يصل إليه الزائر
+            const warm = () => viewers.forEach(mv => { mv.setAttribute('loading', 'eager'); });
+            if (document.readyState === 'complete') setTimeout(warm, 1200);
+            else window.addEventListener('load', () => setTimeout(warm, 1200), { once: true });
             viewers.forEach(mv => {
                 const wrap = mv.closest('.m3d');
                 // التقريب يتفعّل بعد أول لمسة أو نقرة، حتى لا تعيق عجلة الفأرة تمرير الصفحة

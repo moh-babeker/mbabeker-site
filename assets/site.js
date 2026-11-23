@@ -43,9 +43,17 @@ const Site = (() => {
     for (const [k, v] of Object.entries(own)) {
       if (v !== '' && v != null && !(Array.isArray(v) && v.length === 0)) out[k] = v;
     }
-    // تعليقات معرض الصور: نأخذ الصور من العربية والتعليق من لغة الزائر إن وُجد
+    // معرض الصور: الصورة والحجم والنموذج من العربية، وكل نص (العنوان والفقرة) من لغة الزائر إن وُجد
     if (Array.isArray(raw.ar && raw.ar.gallery) && lang !== 'ar' && Array.isArray(own.gallery)) {
-      out.gallery = raw.ar.gallery.map((g, i) => ({ ...g, caption: (own.gallery[i] && own.gallery[i].caption) || g.caption }));
+      out.gallery = raw.ar.gallery.map((g, i) => {
+        const t = own.gallery[i] || {};
+        const item = { ...g };
+        for (const k of ['caption', 'text']) {
+          if (t[k] !== undefined && t[k] !== null && t[k] !== '') item[k] = t[k];
+          else if (k === 'text') item[k] = '';   // لا نعرض فقرة عربية في الوضع الإنجليزي
+        }
+        return item;
+      });
     }
     return out;
   }
