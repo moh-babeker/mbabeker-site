@@ -13,29 +13,26 @@
     "body": "> **عنصر حضري — ساحة خلفية لفندق**\n\nسلسلة من الجلسات الخارجية تقدّم تجربة استرخاء فريدة في محيط طبيعي راقٍ، تجمع مبادئ العمارة الحديثة بجماليات مستوحاة من الطبيعة، فتمتزج الجلسة بمحيطها امتزاجاً سلساً.",
     "gallery": [
       {
-        "img": "/public/images/projects/outdoor-lounges/concept-process.webp",
-        "size": "wide",
-        "caption": "من المحارة إلى الجلسة",
-        "text": "تستلهم الجلسات شكل المحارة التي تحتضن اللؤلؤة. جُرّد شكل المحارة أولاً إلى هيكل هندسي بسيط يشكّل إطار الجلسة، ثم أُضيف إليه معنى الاحتواء والحماية رمزاً للدفء والراحة، كما تحمي المحارة لؤلؤتها، وأخيراً صُقل الشكل في هيئته النهائية التي توازن بين الراحة والانسيابية والتناغم البصري.\n\n**التجريد، والاحتواء، والانسيابية.**"
-      },
-      {
-        "img": "/public/images/projects/outdoor-lounges/elevation.webp",
-        "size": "wide",
-        "caption": "المقياس الإنساني",
-        "text": "تتسع الجلسة لعدة أشخاص تحت قوس يحتضنهم، بعرض نحو 2.1 م وارتفاع نحو 2.2 م، فتمنح إحساساً بالخصوصية دون أن تنغلق على محيطها."
-      },
-      {
-        "img": "/public/images/projects/outdoor-lounges/front-view.webp",
-        "size": "side",
-        "caption": "بين الانفتاح والخصوصية",
-        "text": "هيكل معدني بإطار من الخشب المستدام، وظهر من الخيزران المنسوج يسمح بمرور الهواء والضوء ويحافظ على الصلة البصرية بالطبيعة، مع وسائد مريحة وإضاءة دافئة مدمجة في القوس، فتتحوّل الجلسة ليلاً إلى ركن هادئ يضيء الساحة."
-      },
-      {
         "img": "",
         "model": "/public/models/outdoor-lounges/lounge.glb",
         "size": "wide",
         "caption": "الجلسة بأبعادها الثلاثة",
         "text": "حرّك الجلسة بنفسك: اسحب بإصبعك أو بالفأرة لتدويرها من كل الاتجاهات، وانقر مرة ثم قرّب بإصبعين أو بعجلة الفأرة لترى تفاصيل الإطار الخشبي وظهر الخيزران المنسوج."
+      },
+      {
+        "img": "/public/images/projects/outdoor-lounges/elevation.webp",
+        "img2": "/public/images/projects/outdoor-lounges/concept-card.webp",
+        "img3": "/public/images/projects/outdoor-lounges/front-view.webp",
+        "size": "board",
+        "caption": "من المحارة إلى الجلسة",
+        "text": "تستلهم الجلسات شكل المحارة التي تحتضن اللؤلؤة. جُرّد شكل المحارة أولاً إلى هيكل هندسي بسيط يشكّل إطار الجلسة، ثم أُضيف إليه معنى الاحتواء والحماية رمزاً للدفء والراحة، كما تحمي المحارة لؤلؤتها، وأخيراً صُقل الشكل في هيئته النهائية التي توازن بين الراحة والانسيابية والتناغم البصري.\n\n**التجريد، والاحتواء، والانسيابية.**",
+        "text2": "هيكل معدني بإطار من الخشب المستدام، وظهر من الخيزران المنسوج يسمح بمرور الهواء والضوء ويحافظ على الصلة البصرية بالطبيعة، مع وسائد مريحة وإضاءة دافئة مدمجة في القوس، فتتحوّل الجلسة ليلاً إلى ركن هادئ يضيء الساحة.\n\nتتسع الجلسة لعدة أشخاص تحت قوس يحتضنهم، بعرض نحو 2.1 م وارتفاع نحو 2.2 م، فتمنح إحساساً بالخصوصية دون أن تنغلق على محيطها."
+      },
+      {
+        "img": "/public/images/projects/outdoor-lounges/sunset-pool.webp",
+        "size": "wide",
+        "caption": "الجلسات عند الغروب",
+        "text": ""
       }
     ],
     "seo_description": "الجلسات الخارجية — عنصر حضري من تصميم المعماري محمد بابكر لساحة فندق في دبي 2025، مستوحى من المحارة واللؤلؤة، بالخشب المستدام والخيزران المنسوج."
@@ -48,29 +45,26 @@
     "body": "> **Urban element — hotel backyard plaza**\n\nA series of outdoor lounges offering a unique relaxation experience in a refined natural setting, blending modern architectural principles with nature-driven aesthetics for a seamless bond between structure and environment.",
     "gallery": [
       {
-        "img": "/public/images/projects/outdoor-lounges/concept-process.webp",
-        "size": "wide",
-        "caption": "From oyster shell to lounge",
-        "text": "The lounges draw on the form of an oyster shell enclosing its pearl. The shell was first abstracted into a simple geometric structure forming the seat's frame, then the idea of enclosure and protection was introduced as a symbol of warmth and comfort — just as the shell protects the pearl — and finally the form was refined into its final shape, balancing comfort, fluidity and visual harmony.\n\n**Abstraction, enclosure and fluidity.**"
-      },
-      {
-        "img": "/public/images/projects/outdoor-lounges/elevation.webp",
-        "size": "wide",
-        "caption": "Human scale",
-        "text": "Each lounge seats several people beneath an embracing arch, about 2.1 m wide and 2.2 m high — offering a sense of privacy without closing off its surroundings."
-      },
-      {
-        "img": "/public/images/projects/outdoor-lounges/front-view.webp",
-        "size": "side",
-        "caption": "Between openness and intimacy",
-        "text": "A metal structure framed in sustainable wood, with a woven-rattan back that lets air and light through and keeps a visual connection with nature, plus comfortable cushions and warm lighting set into the arch — turning each lounge into a calm, glowing retreat at night."
-      },
-      {
         "img": "",
         "model": "/public/models/outdoor-lounges/lounge.glb",
         "size": "wide",
         "caption": "The lounge in three dimensions",
         "text": "Explore the lounge yourself: drag with a finger or mouse to rotate it from every angle, then tap once and pinch or scroll to zoom into the timber frame and woven-rattan back."
+      },
+      {
+        "img": "/public/images/projects/outdoor-lounges/elevation.webp",
+        "img2": "/public/images/projects/outdoor-lounges/concept-card.webp",
+        "img3": "/public/images/projects/outdoor-lounges/front-view.webp",
+        "size": "board",
+        "caption": "From oyster shell to lounge",
+        "text": "The lounges draw on the form of an oyster shell enclosing its pearl. The shell was first abstracted into a simple geometric structure forming the seat's frame, then the idea of enclosure and protection was introduced as a symbol of warmth and comfort — just as the shell protects the pearl — and finally the form was refined into its final shape, balancing comfort, fluidity and visual harmony.\n\n**Abstraction, enclosure and fluidity.**",
+        "text2": "A metal structure framed in sustainable wood, with a woven-rattan back that lets air and light through and keeps a visual connection with nature, plus comfortable cushions and warm lighting set into the arch — turning each lounge into a calm, glowing retreat at night.\n\nEach lounge seats several people beneath an embracing arch, about 2.1 m wide and 2.2 m high — offering a sense of privacy without closing off its surroundings."
+      },
+      {
+        "img": "/public/images/projects/outdoor-lounges/sunset-pool.webp",
+        "size": "wide",
+        "caption": "The lounges at sunset",
+        "text": ""
       }
     ],
     "seo_description": "Outdoor Lounges — an urban element by architect Mohammed Babeker for a hotel plaza in Dubai, 2025, inspired by an oyster shell and its pearl, in sustainable wood and woven rattan."

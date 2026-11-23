@@ -48,9 +48,9 @@ const Site = (() => {
       out.gallery = raw.ar.gallery.map((g, i) => {
         const t = own.gallery[i] || {};
         const item = { ...g };
-        for (const k of ['caption', 'text']) {
+        for (const k of ['caption', 'text', 'text2']) {
           if (t[k] !== undefined && t[k] !== null && t[k] !== '') item[k] = t[k];
-          else if (k === 'text') item[k] = '';   // لا نعرض فقرة عربية في الوضع الإنجليزي
+          else if (k !== 'caption') item[k] = '';   // لا نعرض فقرة عربية في الوضع الإنجليزي
         }
         return item;
       });

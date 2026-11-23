@@ -124,7 +124,10 @@ collections:
               - { label: "نصف عرض (صورتان متجاورتان)", value: "half" }
               - { label: "متوسط في المنتصف (للمساقط والصور الطولية)", value: "medium" }
               - { label: "بجانب نص (يتبادل يميناً ويساراً تلقائياً)", value: "side" }
+              - { label: "لوحة متداخلة (شريط عريض تعلوه بطاقتان)", value: "board" }
             hint: "نصف عرض: ضع صورتين متتاليتين لتظهرا متجاورتين. بجانب نص: يظهر العنوان والنص بجانب الصورة"
+          - { label: "صورة البطاقة العلوية (للوحة المتداخلة)", name: "img2", widget: "image", i18n: duplicate, required: false }
+          - { label: "صورة البطاقة السفلية (للوحة المتداخلة)", name: "img3", widget: "image", i18n: duplicate, required: false }
           - { label: "عنوان الصورة / تعليقها", name: "caption", widget: "string", i18n: true, required: false }
           - label: "نص مرافق للصورة (اختياري)"
             name: "text"
@@ -135,6 +138,7 @@ collections:
             buttons: [bold, italic, link, bulleted-list, numbered-list]
             editor_components: []
             hint: "يظهر بجانب الصورة في حجم «بجانب نص»، أو تحتها في الأحجام الأخرى"
+          - { label: "نص ثانٍ (للوحة المتداخلة)", name: "text2", widget: "markdown", i18n: true, required: false, minimal: true, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
       - label: "وصف محركات البحث (SEO)"
         name: "seo_description"
         widget: "text"
