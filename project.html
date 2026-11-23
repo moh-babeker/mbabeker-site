@@ -150,9 +150,8 @@
                     const pic = (u, cls) => u ? `<a href="${e(Site.fixImgUrl(u))}" target="_blank" rel="noopener" class="${cls}"><img src="${e(Site.fixImgUrl(u))}" alt="${alt}" loading="lazy"></a>` : '';
                     return `<section class="board">
                         <div class="b-text1">${g.caption ? `<h3 class="gal-title">${e(g.caption)}</h3>` : ''}${text ? `<div class="gal-text rich-content">${text}</div>` : ''}</div>
-                        ${pic(g.img2, 'b-card b-card1')}
                         ${pic(g.img, 'b-strip')}
-                        ${pic(g.img3, 'b-card b-card2')}
+                        <div class="b-cards">${pic(g.img2, 'b-card')}${pic(g.img3, 'b-card')}</div>
                         <div class="b-text2">${g.text2 ? `<div class="gal-text rich-content">${Site.renderRichText(g.text2)}</div>` : ''}</div>
                     </section>`;
                 }
