@@ -29,6 +29,13 @@
         "size": "side",
         "caption": "بين الانفتاح والخصوصية",
         "text": "هيكل معدني بإطار من الخشب المستدام، وظهر من الخيزران المنسوج يسمح بمرور الهواء والضوء ويحافظ على الصلة البصرية بالطبيعة، مع وسائد مريحة وإضاءة دافئة مدمجة في القوس، فتتحوّل الجلسة ليلاً إلى ركن هادئ يضيء الساحة."
+      },
+      {
+        "img": "",
+        "model": "/public/models/outdoor-lounges/lounge.glb",
+        "size": "wide",
+        "caption": "الجلسة بأبعادها الثلاثة",
+        "text": "حرّك الجلسة بنفسك: اسحب بإصبعك أو بالفأرة لتدويرها من كل الاتجاهات، وانقر مرة ثم قرّب بإصبعين أو بعجلة الفأرة لترى تفاصيل الإطار الخشبي وظهر الخيزران المنسوج."
       }
     ],
     "seo_description": "الجلسات الخارجية — عنصر حضري من تصميم المعماري محمد بابكر لساحة فندق في دبي 2025، مستوحى من المحارة واللؤلؤة، بالخشب المستدام والخيزران المنسوج."
@@ -57,6 +64,13 @@
         "size": "side",
         "caption": "Between openness and intimacy",
         "text": "A metal structure framed in sustainable wood, with a woven-rattan back that lets air and light through and keeps a visual connection with nature, plus comfortable cushions and warm lighting set into the arch — turning each lounge into a calm, glowing retreat at night."
+      },
+      {
+        "img": "",
+        "model": "/public/models/outdoor-lounges/lounge.glb",
+        "size": "wide",
+        "caption": "The lounge in three dimensions",
+        "text": "Explore the lounge yourself: drag with a finger or mouse to rotate it from every angle, then tap once and pinch or scroll to zoom into the timber frame and woven-rattan back."
       }
     ],
     "seo_description": "Outdoor Lounges — an urban element by architect Mohammed Babeker for a hotel plaza in Dubai, 2025, inspired by an oyster shell and its pearl, in sustainable wood and woven rattan."

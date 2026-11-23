@@ -3,15 +3,45 @@
   "buildCommand": "node scripts/build.js",
   "outputDirectory": ".",
   "rewrites": [
-    { "source": "/projects/:slug", "destination": "/project.html" },
-    { "source": "/articles", "destination": "/article.html" },
-    { "source": "/articles/:slug", "destination": "/article.html" },
-    { "source": "/:slug", "destination": "/page.html" }
+    {
+      "source": "/projects/:slug",
+      "destination": "/project.html"
+    },
+    {
+      "source": "/articles",
+      "destination": "/article.html"
+    },
+    {
+      "source": "/articles/:slug",
+      "destination": "/article.html"
+    },
+    {
+      "source": "/:slug",
+      "destination": "/page.html"
+    }
   ],
   "headers": [
     {
       "source": "/content/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/public/models/(.*)\\.glb",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "model/gltf-binary"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
     }
   ]
 }

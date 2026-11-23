@@ -106,6 +106,14 @@ collections:
         summary: "{{fields.caption}}"
         fields:
           - { label: "صورة", name: "img", widget: "image", i18n: duplicate, required: false, hint: "اتركها فارغة لقسم نصي بلا صورة" }
+          - label: "نموذج ثلاثي الأبعاد (.glb) — اختياري"
+            name: "model"
+            widget: "file"
+            i18n: duplicate
+            required: false
+            media_folder: "/public/models"
+            public_folder: "/public/models"
+            hint: "ارفع ملف glb ليظهر نموذج يدوّره الزائر بدل الصورة. يُفضَّل ألا يتجاوز حجمه 5–8 ميغابايت"
           - label: "حجم الصورة في المعرض"
             name: "size"
             widget: "select"

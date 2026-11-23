@@ -71,3 +71,14 @@ body { font-family: 'Plus Jakarta Sans', 'Tajawal', sans-serif; }
 /* قسم نصي بلا صورة */
 .gal-textonly { max-width: 46rem; margin-inline: auto; padding: 1.25rem 0; }
 @media (min-width: 768px) { .gal-textonly .gal-title { font-size: 1.25rem; } }
+
+/* ===== العارض ثلاثي الأبعاد ===== */
+.m3d { position: relative; border-radius: 1rem; overflow: hidden; border: 1px solid rgb(30 41 59);
+  background: radial-gradient(ellipse at 50% 35%, rgb(51 65 85) 0%, rgb(15 23 42) 60%, rgb(2 6 23) 100%); }
+.m3d model-viewer { display: block; width: 100%; height: clamp(320px, 62vh, 600px); background: transparent; --poster-color: transparent; }
+.m3d-hint { position: absolute; bottom: .75rem; left: 50%; transform: translateX(-50%); padding: .35rem .8rem; border-radius: 999px;
+  background: rgba(2, 6, 23, .7); color: rgb(203 213 225); font-size: .7rem; white-space: nowrap; pointer-events: none; transition: opacity .4s; }
+.m3d-active .m3d-hint { opacity: 0; }
+.m3d-progress { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,.08); }
+.m3d-progress span { display: block; height: 100%; width: 0; background: rgb(14 165 233); transition: width .2s; }
+.m3d-progress.done { opacity: 0; transition: opacity .5s; }

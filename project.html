@@ -68,20 +68,77 @@
 
         // معرض المشروع: wide (عرض كامل والنص تحته) / half (صورتان متجاورتان حتى على الهاتف)
         // medium (متوسط في المنتصف) / side (الصورة بجانب النص، مع التبادل يميناً ويساراً تلقائياً)
+        // ===== العارض ثلاثي الأبعاد (model-viewer) =====
+        function modelUrl(url) {
+            if (!url) return '';
+            if (/^https?:\/\//.test(url)) return url;
+            return encodeURI(url.startsWith('/') ? url : '/' + url);
+        }
+
+        function model3dHTML(url, alt) {
+            const ar = currentLang === 'ar';
+            return `<div class="m3d">
+                <model-viewer src="${Site.esc(modelUrl(url))}" alt="${alt}"
+                    loading="lazy" reveal="auto"
+                    camera-controls disable-zoom disable-pan
+                    touch-action="pan-y"
+                    auto-rotate auto-rotate-delay="2500" rotation-per-second="14deg"
+                    interaction-prompt="auto"
+                    shadow-intensity="1" shadow-softness="1"
+                    environment-image="neutral" exposure="1.05"
+                    camera-orbit="35deg 78deg auto"
+                    min-camera-orbit="auto 5deg auto" max-camera-orbit="auto 100deg auto"
+                    field-of-view="30deg">
+                    <div slot="progress-bar" class="m3d-progress"><span></span></div>
+                </model-viewer>
+                <div class="m3d-hint">${ar ? 'اسحب للتدوير — انقر مرة لتفعيل التقريب' : 'Drag to rotate — click once to enable zoom'}</div>
+            </div>`;
+        }
+
+        let modelViewerLoaded = false;
+        function initModels(root) {
+            const viewers = root.querySelectorAll('model-viewer');
+            if (!viewers.length) return;
+            if (!modelViewerLoaded) {
+                modelViewerLoaded = true;
+                const s = document.createElement('script');
+                s.type = 'module';
+                s.src = 'https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js';
+                document.head.appendChild(s);
+            }
+            viewers.forEach(mv => {
+                const wrap = mv.closest('.m3d');
+                // التقريب يتفعّل بعد أول لمسة أو نقرة، حتى لا تعيق عجلة الفأرة تمرير الصفحة
+                const enable = () => { mv.removeAttribute('disable-zoom'); mv.removeAttribute('disable-pan'); wrap.classList.add('m3d-active'); };
+                mv.addEventListener('pointerdown', enable, { once: true });
+                mv.addEventListener('progress', ev => {
+                    const bar = mv.querySelector('.m3d-progress span');
+                    if (bar) bar.style.width = Math.round(ev.detail.totalProgress * 100) + '%';
+                    if (ev.detail.totalProgress >= 1) mv.querySelector('.m3d-progress')?.classList.add('done');
+                });
+            });
+        }
+
         function renderGallery(gallery, projectTitle) {
             const e = Site.esc;
             let sideIndex = 0;
-            return gallery.filter(g => g && (g.img || g.text)).map(g => {
-                if (!g.img) {
+            return gallery.filter(g => g && (g.img || g.model || g.text)).map(g => {
+                if (!g.img && !g.model) {
                     // قسم نصي بلا صورة
                     return `<section class="gal-wide gal-textonly">
                         ${g.caption ? `<h3 class="gal-title">${e(g.caption)}</h3>` : ''}
                         <div class="gal-text rich-content">${Site.renderRichText(g.text)}</div>
                     </section>`;
                 }
-                const src = e(Site.fixImgUrl(g.img));
                 const alt = e(g.caption || projectTitle);
-                const img = `<a href="${src}" target="_blank" rel="noopener" class="gal-img"><img src="${src}" alt="${alt}" loading="lazy"></a>`;
+                let img;
+                if (g.model) {
+                    // نموذج ثلاثي الأبعاد قابل للتدوير والتقريب
+                    img = model3dHTML(g.model, alt);
+                } else {
+                    const src = e(Site.fixImgUrl(g.img));
+                    img = `<a href="${src}" target="_blank" rel="noopener" class="gal-img"><img src="${src}" alt="${alt}" loading="lazy"></a>`;
+                }
                 const text = g.text ? Site.renderRichText(g.text) : '';
                 const size = ['wide', 'half', 'medium', 'side'].includes(g.size) ? g.size : 'wide';
                 if (size === 'side') {
@@ -150,6 +207,7 @@
                     <div class="gal">${renderGallery(p.gallery, p.title)}</div>
                 </div>` : ''}
             `;
+            initModels(box);
         }
 
         function switchLanguage(lang, remember = true) {
