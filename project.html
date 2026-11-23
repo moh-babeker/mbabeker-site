@@ -55,6 +55,7 @@
 
     <!-- JavaScript Engine for Project Details -->
     <script src="/assets/site.js"></script>
+    <script src="/assets/lightbox.js"></script>
     <script>
         let currentLang = Site.getInitialLang();
         let rawProject = null;      // ملف المشروع كما تحفظه لوحة التحكم ({ar, en})
@@ -141,13 +142,13 @@
                     img = model3dHTML(g.model, alt);
                 } else {
                     const src = e(Site.fixImgUrl(g.img));
-                    img = `<a href="${src}" target="_blank" rel="noopener" class="gal-img"><img src="${src}" alt="${alt}" loading="lazy"></a>`;
+                    img = `<a role="button" tabindex="0" data-zoom="${src}" class="gal-img"><img src="${src}" alt="${alt}" loading="lazy" draggable="false"></a>`;
                 }
                 const text = g.text ? Site.renderRichText(g.text) : '';
                 const size = ['wide', 'half', 'medium', 'side', 'board'].includes(g.size) ? g.size : 'wide';
                 if (size === 'board') {
                     // لوحة متداخلة: نص + بطاقة فكرة + شريط عريض + بطاقة ثانية (كتصميم لوحة العرض المطبوعة)
-                    const pic = (u, cls) => u ? `<a href="${e(Site.fixImgUrl(u))}" target="_blank" rel="noopener" class="${cls}"><img src="${e(Site.fixImgUrl(u))}" alt="${alt}" loading="lazy"></a>` : '';
+                    const pic = (u, cls) => u ? `<a role="button" tabindex="0" data-zoom="${e(Site.fixImgUrl(u))}" class="${cls}"><img src="${e(Site.fixImgUrl(u))}" alt="${alt}" loading="lazy" draggable="false"></a>` : '';
                     return `<section class="board">
                         <div class="b-text1">${g.caption ? `<h3 class="gal-title">${e(g.caption)}</h3>` : ''}${text ? `<div class="gal-text rich-content">${text}</div>` : ''}</div>
                         <div class="b-canvas">
@@ -213,7 +214,7 @@
 
                 ${p.cover ? `
                 <div class="rounded-3xl overflow-hidden border border-slate-800 shadow-2xl mb-10 bg-slate-900">
-                    <img src="${e(Site.fixImgUrl(p.cover))}" alt="${e(p.title)}" class="w-full h-auto block">
+                    <img src="${e(Site.fixImgUrl(p.cover))}" alt="${e(p.title)}" data-zoom="${e(Site.fixImgUrl(p.cover))}" draggable="false" class="w-full h-auto block cursor-zoom-in">
                 </div>` : ''}
 
                 ${p.body ? `

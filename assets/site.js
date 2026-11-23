@@ -78,12 +78,12 @@ const Site = (() => {
       if (layout) words.shift();
       const caption = words.join(' ');
       return `<figure class="${layout || 'img-wide'}">` +
-        `<img src="${esc(fixImgUrl(href))}" alt="${esc(text)}" loading="lazy">` +
+        `<img src="${esc(fixImgUrl(href))}" alt="${esc(text)}" loading="lazy" data-zoom="${esc(fixImgUrl(href))}" draggable="false">` +
         (caption ? `<figcaption>${esc(caption)}</figcaption>` : '') +
         `</figure>`;
     };
     const html = marked.parse(String(md), { renderer, breaks: true, gfm: true });
-    return DOMPurify.sanitize(html, { ADD_ATTR: ['loading', 'target'] });
+    return DOMPurify.sanitize(html, { ADD_ATTR: ['loading', 'target', 'data-zoom', 'draggable'] });
   }
 
   function setMeta(title, description) {
